@@ -4,6 +4,7 @@
 KMS는 사용자 데이터에 접근할 수 있는 다양한 API를 제공합니다. 클라이언트는 키 저장소에 설정한 인증을 통과한 후 KMS에 저장한 데이터를 사용할 수 있습니다.
 
 [API 목록]
+
 | Method | URI | 설명 |
 |---|---|---|
 | GET | kms/v1.0/appkey/{appkey}/confirm | API를 호출한 클라이언트 정보를 제공합니다. |
@@ -21,6 +22,7 @@ X-TOAST-KMS-CLIENT-MAC-ADDR: {MAC 주소}
 ```
 
 [API 요청의 경로 변수]
+
 | 값 | 타입 | 설명 |
 |---|---|---|
 | appkey | String | 사용하려는 데이터를 저장하고 있는 TOAST 프로젝트의 appkey |
