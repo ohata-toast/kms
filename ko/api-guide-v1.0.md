@@ -26,7 +26,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 
 | 값 | 타입 | 설명 |
 |---|---|---|
-| appkey | String | 사용하려는 데이터를 저장하고 있는 TOAST 프로젝트의 appkey |
+| appkey | String | 사용하려는 데이터를 저장하고 있는 TOAST 프로젝트의 앱키 |
 | keyid | String | 사용하려는 데이터의 식별자 |
 
 [API 응답의 데이터 공통 헤더]
@@ -54,6 +54,7 @@ API를 호출한 클라이언트 정보를 조회할 때 사용합니다.
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
 [Response Body]
+
 ```
 {
     "header": {
@@ -69,7 +70,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
 | 값 | 타입 | 설명 |
 |---|---|---|
 | clientIp | String | API를 호출한 클라이언트의 IP 주소 |
-| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더 값 |
+| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더값 |
 | clientSentCertificate | Boolean | API를 호출한 클라이언트가 인증서를 사용하고 있는지 여부 |
 
 ### 기밀 데이터 조회
@@ -100,6 +101,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ```
 
 [Request Body]
+
 ```
 {
     "plaintext": "data"
@@ -116,16 +118,18 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
         ...
     },
     "body": {
-        "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
+        "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP",
+        "keyVersion": 1
     }
 }
 ```
 | 값 | 타입 | 설명 |
 |---|---|---|
 | ciphertext | String | 대칭키로 데이터를 암호화한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ## 대칭키 복호화
-Secure Key Manager에 생성한 대칭키로 데이터를 복호화 할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭키로 복호화 할 수 있습니다.
+Secure Key Manager에 생성한 대칭키로 데이터를 복호화할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭키로 복호화할 수 있습니다.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
@@ -147,16 +151,18 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
         ...
     },
     "body": {
-        "plaintext": "data"
+        "plaintext": "data",
+        "keyVersion": 1
     }
 }
 ```
 | 값 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 대칭키로 데이터를 복호화한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ### 대칭키로 암호화한 로컬 대칭키 생성
-클라이언트가 로컬 환경에서 사용할 수 있는 AES-256 대칭키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭키를 Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭키는 복호화 API를 사용해서 복호화 한 후 사용할 수 있습니다.
+클라이언트가 로컬 환경에서 사용할 수 있는 AES-256 대칭키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭키를 Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭키는 복호화 API를 사용해서 복호화한 후 사용할 수 있습니다.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
@@ -169,7 +175,8 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     },
     "body": {
         "localKeyPlaintext": "srV7MWkYIfYBknkASzwSEK1Z1y9Nx0f/RMZ3MSVIjm8=",
-        "localKeyCiphertext": "v1s1WkiIj3KR+AafnupNv9xcX/JhL4GUzUr8mzLRpjbGuoAwU/GgboM/6QdRRY24"
+        "localKeyCiphertext": "v1s1WkiIj3KR+AafnupNv9xcX/JhL4GUzUr8mzLRpjbGuoAwU/GgboM/6QdRRY24",
+        "keyVersion": 1
     }
 }
 ```
@@ -177,6 +184,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 |---|---|---|
 | localKeyPlaintext | String | Base64 인코딩한 AES-256 대칭키 |
 | localKeyCiphertext | String | Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 AES-256 대칭키 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ### 비대칭키로 서명
 Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 4KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
@@ -201,21 +209,24 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
         ...
     },
     "body": {
-        "signature": "AAAAAGI9zf831DX..."
+        "signature": "AAAAAGI9zf831DX...",
+        "keyVersion": 1
     }
 }
 ```
 | 값 | 타입 | 설명 |
 |---|---|---|
 | signature | String | 비대칭키로 데이터를 서명한 서명값 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
 
 ### 비대칭키로 데이터 검증
-Secure Key Manager에 생성한 비대칭키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명 값을 전달해서 Secure Key Manager에 저장한 비대칭키로 데이터가 위/변조 되지 않았음을 검증할 수 있습니다.
+Secure Key Manager에 생성한 비대칭키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명값을 전달해서 Secure Key Manager에 저장한 비대칭키로 데이터가 위변조되지 않았음을 검증할 수 있습니다.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
 [Request Body]
+
 ```
 {
     "plaintext": "data",
@@ -225,19 +236,22 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
 | 값 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 비대칭키로 검증할 데이터 |
-| signature | String | 비대칭키로 데이터를 서명한 서명 값 |
+| signature | String | 비대칭키로 데이터를 서명한 서명값 |
 
 [Response Body]
+
 ```
 {
     "header": {
         ...
     },
     "body": {
-        "result": true
+        "result": true,
+        "keyVersion": 1
     }
 }
 ```
 | 값 | 타입 | 설명 |
 |---|---|---|
-| result | Boolean | 비대칭키로 데이터와 서명 값을 검증한 결과 |
+| result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
