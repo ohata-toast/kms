@@ -1,4 +1,4 @@
-## Security > Secure Key Manager > Release Notes
+## Security > Secure Key Manager > 릴리스 노트
 
 ### 2019.05.28
 
