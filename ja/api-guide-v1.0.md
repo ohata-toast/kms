@@ -1,4 +1,4 @@
-﻿
+
 ## Security > Secure Key Manager > API v1.0ガイド
 
 Secure Key Managerは、ユーザーデータにアクセスできる多様なAPIを提供します。クライアントは鍵の保存場所に設定した認証をパスした後に、Secure Key Managerに保存したデータを使用できます。

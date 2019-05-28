@@ -1,4 +1,4 @@
-﻿## Security > Secure Key Manager > コンソール使用ガイド
+## Security > Secure Key Manager > コンソール使用ガイド
 
 コンソール使用ガイドでは、Secure Key Managerを使用するための基本的な内容を説明します。
 * 鍵保存場所の作成
