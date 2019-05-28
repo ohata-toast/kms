@@ -1,4 +1,4 @@
-﻿## Security > Secure Key Manager > 概要
+## Security > Secure Key Manager > 概要
 Secure Key Managerは、ユーザーの重要データを安全に保管し、アクセス権限を制御するサービスです。ユーザーはSecure Key Managerに機密データ、対称鍵、非対称鍵を保存できます。Secure Key Managerに保存したデータはユーザーが設定した認証方法をパスしたクライアントのみアクセスできます。
 
 ### 主な機能

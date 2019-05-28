@@ -1,4 +1,4 @@
-﻿## Security > Secure Key Manager > 問題解決ガイド
+## Security > Secure Key Manager > 問題解決ガイド
 Secure Key Managerを使用中に発生することがある主な問題に対する解決方法を説明します。
 
 ### APIの呼び出しが失敗し、Invalid Appkeyエラーメッセージが返されます。
