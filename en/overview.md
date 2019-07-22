@@ -1,55 +1,55 @@
-## Security > Secure Key Manager > 개요
-Secure Key Manager는 사용자의 중요 데이터를 안전하게 보관하고 접근 권한을 제어하는 서비스입니다. 사용자는 Secure Key Manager에 기밀 데이터, 대칭키, 비대칭키를 저장할 수 있습니다. Secure Key Manager에 저장한 데이터는 사용자가 설정한 인증 방법을 통과한 클라이언트만 접근할 수 있습니다.
+## Security > Secure Key Manager > Overview
+Secure Key Manager is provided to securely save user's important data and control access authority. Users may save confidential data, symmetric keys, and asymmetric keys at Secure Key Manager.
 
-### 주요 기능
-* 데이터 관리
-    * 기밀 데이터 등록, 관리, 조회
-    * 대칭키 생성, 관리, 회전, 데이터 암/복호화
-    * 비대칭키 생성, 관리, 회전, 데이터 서명/검증
-* 데이터 접근 제어
-    * 클라이언트 IPv4 주소를 사용한 데이터 접근 제어
-    * 클라이언트 MAC 주소를 사용한 데이터 접근 제어
-    * 클라이언트 인증서를 사용한 데이터 접근 제어
+### Main Features
+* Data Management
+    * Register, manage, and query confidential data
+    * Create, manage, and rotate symmetric keys, or encrypt/decrypt data 
+    * Create, manage, and rotate asymmetric keys, or sign/verify data
+* Data Access Control
+    * Control data access by using client's IPv4 address
+    * Control data access by using client's MAC address
+    * Control data access by using client's certificate
 
-### 기능 설명
-Secure Key Manager는 사용자의 중요 데이터를 안전하게 보관하고 접근 권한을 제어하는 기능을 제공합니다. Secure Key Manager로 관리할 수 있는 데이터는 기밀 데이터, 대칭키, 비대칭키로 구분할 수 있습니다.
+### Description
+Secure Key Manager is provided to securely save user's important data and control access authority. Confidential data, symmetric keys, and asymmetric keys can be managed by Secure Key Manager.
 
-#### 기밀 데이터 관리
-데이터베이스 접속 정보, API 호출에 사용하는 앱키 등 클라이언트가 직접 관리할 경우 보안 위험에 노출될 수 있는 데이터를 관리하는 기능을 제공합니다. 사용자는 32KB 이하의 텍스트 데이터를 기밀 데이터로 등록할 수 있습니다. 등록한 기밀 데이터에는 사용자가 설정한 인증 방법을 통과한 클라이언트만 접근할 수 있습니다. 기밀 데이터 관리의 활용 방안은 "참고 - Secure Key Manager 기밀 데이터 관리 기능을 활용한 데이터베이스 접속 정보 관리"를 참고하시기 바랍니다.
+#### Confidential Data Management
+Manages data, such as database access data, or appkey for API calls, which may be exposed to security threats if they are under client's direct management. Users may register 32KB or smaller text data as confidential data. Only those clients who are authenticated by user-configured method can access registered confidential data. Regarding the means of confidential data management, see "For Reference- Managing Database Access Information with Confidential Data Management of Secure Key Manager".
 
-#### 대칭키 관리
-데이터 암/복호화에 사용할 수 있는 사용자 대칭키를 관리하는 기능을 제공합니다. 사용자는 Secure Key Manager에 사용자 대칭키를 생성하고 저장할 수 있습니다. 사용자가 설정한 인증 방법을 통과한 클라이언트는 Secure Key Manager에 저장한 사용자 대칭키를 사용해서 32KB 이하의 텍스트 데이터를 암/복호화할 수 있습니다. 사용자 대칭키는 어떠한 경우에도 클라이언트에 직접 노출되지 않고, API를 통한 간접적인 사용만 허용합니다. 따라서 사용자 대칭키가 외부로 노출되지 않게 보호할 수 있습니다. 또한 Secure Key Manager의 키 회전 기능을 사용하면 클라이언트를 변경하지 않고 사용자 대칭키값을 갱신할 수 있습니다. 대칭키 관리의 활용 방안은 - "참고 - Secure Key Manager 대칭키 관리 기능을 활용한 봉투 암호화"를 참고하시기 바랍니다.
+#### Symmetric Key Management
+Manages user symmetric keys that are available to encrypt/decrypt data. Users can create and save symmetric keys at Secure Key Manager. Clients who are authenticated by user-configured method can encrypt or decrypt 32KB or smaller text data by using user symmetric keys saved at Secure Key Manager. User symmetric keys can never be directly exposed to clients, but are available only for indirect use through APIs. In other words, user symmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user symmetric key values can be updated without changing clients. Regarding the means of symmetric key management, see -"For Reference- Encrypting Envelopes with Symmetric Key Management of Secure Key Manager".
 
-#### 비대칭키 관리
-데이터 서명/검증에 사용할 수 있는 사용자 비대칭키를 관리하는 기능을 제공합니다. 사용자는 Secure Key Manager에 사용자 비대칭키를 생성하고 저장할 수 있습니다. 사용자가 설정한 인증 방법을 통과한 클라이언트는 Secure Key Manager에 저장한 사용자 비대칭키를 사용해서 4KB 이하의 텍스트 데이터를 서명/검증할 수 있습니다. 사용자 비대칭키는 어떠한 경우에도 클라이언트에 직접 노출되지 않고, API를 통한 간접적인 사용만 허용합니다. 이로 인해 사용자 비대칭키가 외부로 노출되는 위험으로부터 보호할 수 있습니다. 또한 Secure Key Manager의 키 회전 기능을 사용하면 클라이언트를 변경하지 않고 사용자 비대칭키값을 갱신할 수 있습니다.
+#### Asymmetric Key Management
+Manages user's asymmetric keys which are available to sign/verify data. Users can create and save user asymmetric keys at Secure Key Manager. Clients authenticated by user-configured method can sign/verify 4KB or smaller text data by using user asymmetric keys saved at Secure Key Manager. User asymmetric keys can never be directly exposed to clients, but are available only for indirect use through APIs. In other words, user asymmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user asymmetric key values can be updated without changing clients.
 
-#### 접근 제어
-Secure Key Manager는 사용자 데이터를 보호하기 위한 다양한 인증 방법을 제공합니다. 인증을 통과한 클라이언트만 Secure Key Manager에 저장한 데이터를 사용할 수 있습니다. 인증 방법은 클라이언트의 IPv4 주소를 확인하는 'IPv4 주소 인증', 클라이언트의 MAC 주소를 확인하는 'MAC 주소 인증', 클라이언트가 통신에 사용하는 인증서를 확인하는 '클라이언트 인증서 인증'으로 구분합니다. 사용자는 최소 한 개 이상의 인증 방법을 선택해야 하며, 두 개 이상을 선택한 경우 클라이언트는 모든 인증을 통과해야 합니다.
+#### Access Control
+Secure Key Manager provides a variety of authentication methods to protect user data. Only those clients who are authenticated can access data saved at Secure Key manager. The methods are categorized into 'IPv4 Address Authentication', which checks client's IPv4 address; 'MAC Address Authentication', which checks client's MAC address; and 'Client Certificate Authentication', which checks client's certificate used for communication.
 
-### 서비스 구조
-Secure Key Manager는 사용자 데이터를 안전하게 보관하기 위해 루트키와 시스템키라는 두 개의 암호키를 내부적으로 사용합니다. 루트키는 시스템키를 보호하기 위해 사용하며 시스템키는 사용자 데이터를 보호하기 위해 사용합니다. 시스템키는 루트키로 암호화해서 Secure Key Manager 시스템키 관리 서버에 저장합니다. Secure Key Manager 서버는 서비스를 시작할 때 인증 과정을 거쳐서 Secure Key Manager 시스템키 관리 서버로부터 암호화된 시스템키를 가져옵니다. 루트키를 사용해서 복호화하면 시스템키 처리 모듈이 시스템키를 사용할 수 있는 상태가 됩니다. Secure Key Manager에 저장한 사용자 데이터를 비정상적인 방법으로 접근하려면 물리적으로 분리된 세 개의 시스템에서 루트키, 시스템키, 사용자 데이터를 모두 획득해야 합니다.
+### Structure of Service
+Secure Key Manager applies two encryption keys, such as Root Key and System Key, internally, so as to securely save user data. Root Key is used to protect the System Key, while System Key is to protect user data. System Key is encrypted with Root Key and saved at the system key management server of Secure Key Manager. The Secure Key Manager server goes through authentication and imports encrypted system key from the system key management server of Secure Key Manager. When it is decrypted by using the root key, the system key processing module becomes enabled for the system key. In order to access user data saved at Secure Key Manager abnormally, three physically separated systems must acquire all of root key, system key, and user data.  
 
-사용자는 TOAST 웹 콘솔에서 Secure Key Manager를 관리할 수 있습니다. 웹 콘솔은 사용자 데이터 생성/관리, 클라이언트 인증 데이터 생성/관리 등의 기능을 제공합니다. Secure Key Manager에서 생성한 모든 사용자 데이터는 시스템키로 암호화해서 사용자 데이터 저장소에 저장합니다. 클라이언트 인증 데이터는 일부 중요 정보를 시스템키로 암호화해서 클라이언트 인증 데이터 저장소에 저장합니다.
+Users can manage Secure Key Manager on the TOAST web console. Web console provides creating/managing user data, and creating/managing client authentication data. All user data generated at Secure Key Manager are encrypted with system key and saved at user's data storage. Client authentication data encrypt a part of important data with system key and save them at a client's storage for authentication data.
 
-Secure Key Manager는 클라이언트 서버에서 사용할 수 있는 다양한 API를 제공합니다. 클라이언트 서버는 기밀 데이터 조회, 대칭키를 사용한 암/복호화, 비대칭키를 사용한 서명/검증을 요청할 수 있습니다. 클라이언트 인증 모듈은 클라이언트 인증 데이터를 사용해서 클라이언트의 요청을 허가할지 결정합니다. 클라이언트의 요청이 허가되면 사용자 데이터 처리 모듈은 시스템키 처리 모듈을 사용해서 암호화된 사용자 데이터를 복호화한 후 서비스를 제공합니다.
+Secure Key Manager provides a variety of APIs to be available for a client server. The client server can request of querying confidential data, encrypting/decrypting with symmetric keys, and signing/verifying with asymmetric keys. Client authentication module determines whether to allow client's request by using client authentication data. If a client's request is allowed, the user data processing module decrypts encrypted user data by using system key processing module to enable service.
 
 ![overview-001](http://static.toastoven.net/prod_kms/2019-05-13/overview-001.png)
 
-### 참고
+### For Reference
 
-#### Secure Key Manager 기밀 데이터 관리 기능을 활용한 데이터베이스 접속 정보 관리
-데이터베이스를 사용하는 애플리케이션은 데이터베이스 접속 정보를 설정 파일에 저장합니다. 애플리케이션을 실행하는 서버가 증가하면 데이터베이스 접속 정보를 저장하는 서버가 증가하고, 데이터베이스 접속 정보가 노출될 위험도 함께 증가합니다. 또한 데이터베이스 접속 정보를 변경하면 설정을 수정한 후 전체 서버에 재배포를 해야 하는 불편함이 있습니다.
-Secure Key Manager 기밀 데이터 관리 기능을 활용하면 데이터베이스 접속 정보를 중앙 집중적으로 안전하게 관리할 수 있습니다. 데이터베이스 접속이 필요한 애플리케이션은 서비스를 시작할 때 Secure Key Manager에서 데이터베이스 접속 정보를 가져와서 사용합니다. 사용자는 Secure Key Manager를 통해서 데이터베이스 접근을 허용할 애플리케이션 서버를 관리할 수 있습니다. 데이터베이스 접속 정보를 변경해도 애플리케이션을 수정할 필요 없이 Secure Key Manager에서 접속 정보를 갱신할 수 있습니다.
+#### Managing Database Access Information with Confidential Data Management of Secure Key Manager
+An application based on database saves database access information in the configuration file. With the rise of servers executing the application, an increasing number of servers save database access information, raising the risk of exposure of such data. Plus, it also entails the nuisance of editing configuration and redeploying it to the entire server, when there is a change in the access data.
+However, with the confidential data management feature of Secure Key Manager, database access information can be safely managed at the center. Any application requiring database access can import database access information, at the start of a service, from Secure Key Manager. With Secure Key Manager, users can  manage application servers which need to allow database access. Even with a change in the access data, there is no need to edit application: you just update information at Secure Key Manager.  
 
-#### Secure Key Manager 대칭키 관리 기능을 활용한 봉투 암호화
-Secure Key Manager는 데이터를 암/복호화할 수 있는 대칭키 관리 기능을 제공합니다. 애플리케이션은 Secure Key Manager API를 사용해서 원하는 데이터를 암/복호화할 수 있습니다. 그러나 애플리케이션이 처리하는 모든 데이터를 Secure Key Manager API로 암/복호화하면 성능 및 비용 문제가 발생할 수 있습니다. 이러한 상황에서 일반적으로 사용하는 해결책은 봉투 암호화(envelope encryption) 기법입니다. 봉투 암호화는 암호화 대상 데이터를 암호화할 때 사용한 암호키만 외부의 다른 암호키로 보호하는 처리 방식입니다. 데이터는 애플리케이션이 자체적으로 관리하는 로컬 암호키를 사용해서 암호화하고, 로컬 암호키는 Secure Key Manager API로 암호화해서 보관합니다. 데이터 복호화가 필요하면 암호화된 로컬 암호키를 Secure Key Manager API로 복호화해서 데이터 복호화에 사용합니다.
+#### Encrypting Envelops with Symmetric Key Management of Secure Key Manager
+Secure Key Manager provides symmetric key management to enable data encryption/decryption. Applications can encrypt/decrypt data by using the Secure Key Manager API. However, encrypting/decrypting all data with Secure Key Manager API may cause performance or cost issues.  That is when Envelope Encryption comes in, as one of the most common solutions. Envelope Encryption refers to a method in which only the encryption key, which is applied to encrypt data for encryption, is protected by another encryption key from outside. In other words, data is encrypted by a local encryption key which is managed within an application, while the local encryption is encrypted with Secure Key Manager API, and then saved. When the data needs to be decrypted, the local encryption key gets decrypted by using the Secure Key Manager API.
 
-#### 용어 설명
-| 용어 | 설명 |
+#### Glossary
+| Term | Description |
 |---|---|
-| 키 저장소 | 사용자 데이터를 저장하고 인증 방법을 설정하는 단위 |
-| 키 | Secure Key Manager에서 관리하는 사용자 데이터(기밀 데이터, 대칭키, 비대칭키) |
-| 인증 방법 | Secure Key Manager에 저장한 사용자 데이터에 클라이언트가 접근할 수 있는지 판단하는 방법 |
-| 인증 데이터 | Secure Key Manager에 저장한 사용자 데이터에 접근을 허용하는 클라이언트 정보 |
-| 키 회전 | 대칭키와 비대칭키의 키 아이디를 유지한 채로 키값만 갱신하는 작업 |
-| 키 버전 | 대칭키와 비대칭키의 키 회전이 발생할 때마다 증가하는 값 |
+| Key Store | The unit of saving user data and setting authentication method |
+| Key | User data managed by Secure Key Manager (e.g. confidential data, symmetric key, or asymmetric key) |
+| Authentication Method | A method of decision whether user data saved at Secure Key Manager can be accessed by clients |
+| Authentication Data | Client information allowing access to user data saved at Secure Key Manager |
+| Key Rotation | Updating keys only, under the same key ID for symmetric and asymmetric keys |
+| Key Version | Value of increase at every key rotation of symmetric or asymmetric keys |
