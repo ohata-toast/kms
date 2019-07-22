@@ -1,35 +1,35 @@
 
-## Security > Secure Key Manager > API v1.0 가이드
+## Security > Secure Key Manager > API v1.0 Guide
 
-Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API를 제공합니다. 클라이언트는 키 저장소에 설정한 인증을 통과한 후 Secure Key Manager에 저장한 데이터를 사용할 수 있습니다.
+Secure Key Manager provides a variety of APIs to access user data. Clients must be authenticated via key store to get access to data saved at Secure Kay Manager.
 
-[API 목록]
+[List of APIs]
 
-| Method | URI | 설명 |
+| Method | URI | Description |
 |---|---|---|
-| GET | /keymanager/v1.0/appkey/{appkey}/confirm | API를 호출한 클라이언트 정보를 제공합니다. |
-| GET | /keymanager/v1.0/appkey/{appkey}/secrets/{keyid} | Secure Key Manager에 저장한 기밀 데이터를 조회합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Manager에 저장한 대칭키로 데이터를 암호화합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Manager에 저장한 대칭키로 데이터를 복호화합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | 클라이언트가 로컬 환경에서 데이터 암/복호화에 사용할 수 있는 AES-256 대칭키를 생성합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/confirm | Provide information of the client who called API. |
+| GET | /keymanager/v1.0/appkey/{appkey}/secrets/{keyid} | Query confidential data saved at Secure Key Manager. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Encrypt data with symmetric keys saved at Secure Key Manager. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Decrypt data with symmetric keys saved at Secure Key Manager. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | Create AES-256 symmetric keys available for data encryption/decryption under a local environment. |
+| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Sign data with asymmetric keys saved at Secure Key Manager. |
+| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Verify data and signature with asymmetric keys saved at Secure Key Manager. |
 
-[API 요청의 HTTP 헤더]
+[HTTP Header of API Request]
 
-Secure Key Manager의 MAC 주소 인증을 사용하려면 HTTP 헤더에 클라이언트 MAC 주소를 설정해서 요청해야 합니다.
+To authenticate MAC address of Secure Key Manager, it is required to set client's MAC address at the HTTP header before requested.
 ```
-X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
+X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 ```
 
-[API 요청의 경로 변수]
+[Path Variables of API Request]
 
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| appkey | String | 사용하려는 데이터를 저장하고 있는 TOAST 프로젝트의 앱키 |
-| keyid | String | 사용하려는 데이터의 식별자 |
+| appkey | String | Appkey of the TOAST project to which data in need is saved |
+| keyid | String | Identifier of data in need |
 
-[API 응답의 데이터 공통 헤더]
+[Common Data Header of API Response]
 ```
 {
     "header": {
@@ -42,14 +42,14 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| resultCode | Number | API 호출 결과 코드값 |
-| resultMessage | String | API 호출 결과 메시지 |
-| isSuccessful | Boolean | API 호출 성공 여부 |
+| resultCode | Number | Result code value of API call |
+| resultMessage | String | Result message of API call |
+| isSuccessful | Boolean | If API call is successful or not |
 
-### 클라이언트 정보 조회
-API를 호출한 클라이언트 정보를 조회할 때 사용합니다.
+### Query Client Information 
+You may query information of the client who called API.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
@@ -67,14 +67,14 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| clientIp | String | API를 호출한 클라이언트의 IP 주소 |
-| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더값 |
-| clientSentCertificate | Boolean | API를 호출한 클라이언트가 인증서를 사용하고 있는지 여부 |
+| clientIp | String | IP address of the client who called API |
+| clientMacHeader | String | Header value of MAC address of the client who called API |
+| clientSentCertificate | Boolean | If the client who called API is using certificate or not |
 
-### 기밀 데이터 조회
-Secure Key Manager에 저장한 기밀 데이터를 조회할 때 사용합니다.
+### Query Confidential Data
+You may query confidential data saved at Secure Key Manager.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
 ```
@@ -90,12 +90,12 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secre
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| secret | String | 기밀 데이터 조회 결과 |
+| secret | String | Query result of confidential data |
 
-### 대칭키 암호화
-Secure Key Manager에 생성한 대칭키로 데이터를 암호화할 때 사용합니다. 사용자는 32KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 대칭키로 암호화할 수 있습니다.
+### Encrypt Symmetric Keys
+You may encrypt data with symmetric keys generated at Secure Key Manager. 32KB or smaller text data can be delivered to be encrypted with symmetric keys saved at Secure Key Manager.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
@@ -107,9 +107,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "plaintext": "data"
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| plaintext | String | 대칭키로 암호화할 데이터 |
+| plaintext | String | Data to be encrypted with symmetric keys |
 
 [Response Body]
 ```
@@ -123,13 +123,13 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| ciphertext | String | 대칭키로 데이터를 암호화한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| ciphertext | String | Result of data encryption with symmetric keys |
+| keyVersion | Number | Symmetric key version applied to process API requests |
 
-## 대칭키 복호화
-Secure Key Manager에 생성한 대칭키로 데이터를 복호화할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭키로 복호화할 수 있습니다.
+## Decrypt Symmetric Keys
+You may decrypt data with symmetric keys generated at Secure Key Manager. Encrypted text can be delivered and decrypted with symmetric keys saved at Secure Key Manager.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
@@ -140,9 +140,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| ciphertext | String | 대칭키로 복호화할 데이터 |
+| ciphertext | String | Data to be decrypted with asymmetric keys |
 
 [Response Body]
 ```
@@ -156,13 +156,13 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| plaintext | String | 대칭키로 데이터를 복호화한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| plaintext | String | Decryption result of data with symmetric keys |
+| keyVersion | Number | Symmetric key version available to process API requests |
 
-### 대칭키로 암호화한 로컬 대칭키 생성
-클라이언트가 로컬 환경에서 사용할 수 있는 AES-256 대칭키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭키를 Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭키는 복호화 API를 사용해서 복호화한 후 사용할 수 있습니다.
+### Generate Local Symmetric Keys Encrypted with Symmetric Keys
+Client may create AES-256 symmetric keys for a local environment. localKeyPlaintext refers to a symmetric key which is encoded in base64, and it is readily available after being decoded in base64. localKeyCiphertext refers to a symmetric key saved at Secure Key Manager, which is encrypted and then encoded in base64, and it is used to save at a storage. The symmetric key saved at storage can be decrypted by using Decrypt API to be enabled.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
@@ -180,14 +180,14 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| localKeyPlaintext | String | Base64 인코딩한 AES-256 대칭키 |
-| localKeyCiphertext | String | Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 AES-256 대칭키 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| localKeyPlaintext | String | Symmetric key to AES-256 which is encoded in Base64 |
+| localKeyCiphertext | String | Symmetric key to AES-256 saved at Secure Key Manager which is encrypted and then encoded in base64 |
+| keyVersion | Number | Symmetric key version applied to process API request |
 
-### 비대칭키로 서명
-Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 4KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
+### Sign with Asymmetric Keys
+The asymmetric key created at Secure Key Manager is used to sign data. Users can deliver 4KB or smaller text data and sign with asymmetric key saved at Secure Key Manager.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
@@ -198,9 +198,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "plaintext": "data"
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| plaintext | String | 비대칭키로 서명할 데이터 |
+| plaintext | String | Data to sign with asymmetric keys |
 
 [Response Body]
 ```
@@ -214,13 +214,13 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| signature | String | 비대칭키로 데이터를 서명한 서명값 |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| signature | String | Signature signed for data with asymmetric key |
+| keyVersion | Number | Asymmetric key version applied to process API request |
 
-### 비대칭키로 데이터 검증
-Secure Key Manager에 생성한 비대칭키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명값을 전달해서 Secure Key Manager에 저장한 비대칭키로 데이터가 위변조되지 않았음을 검증할 수 있습니다.
+### Verify Data with Asymmetric Keys
+You may verify data with asymmetric keys created at Secure Key Manager. By delivering data and signature value, user can use asymmetric keys saved at Secure Key Manager to verify that data has not been falsified.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
@@ -233,10 +233,10 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "signature": "AAAAAGI9zf831DX..."
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| plaintext | String | 비대칭키로 검증할 데이터 |
-| signature | String | 비대칭키로 데이터를 서명한 서명값 |
+| plaintext | String | Data to be verified with asymmetric key |
+| signature | String | Signature signed for data with asymmetric key |
 
 [Response Body]
 
@@ -251,7 +251,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| Value | Type | Description |
 |---|---|---|
-| result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| result | Boolean | Verification result of data and signature by using asymmetric keys |
+| keyVersion | Number | Asymmetric key version applied to process API request |
