@@ -1,6 +1,12 @@
 ## Security > Secure Key Manager > Release Notes
 
+### 2019.07.23
+
+#### UI Improvement
+* Fixed the overlapped display of texts and buttons
+* Modified line feeds when the screen is displayed in Japanese
+
 ### 2019.05.28
 
-#### 신규 서비스 출시
-* 기밀 데이터(데이터베이스 접속 정보, 앱키, 비밀번호 등), 대칭키, 비대칭키와 같이 애플리케이션 서버에 저장할 경우 보안 위험에 노출될 수 있는 데이터를 중앙 집중적으로 안전하게 관리하고, 인증을 통과한 클라이언트만 접근할 수 있게 제어하는 서비스입니다.
+#### Release of New Service
+* Secure Key Manager is provided for confidential data (database access data, appkey, password, and etc.) to be safely managed at the center, which otherwise may be exposed to security threats if they are saved at an application server; hence, only authenticated clients can access them.
