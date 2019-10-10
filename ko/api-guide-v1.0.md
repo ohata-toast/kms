@@ -187,7 +187,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 | keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ### 비대칭키로 서명
-Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 4KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
+Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 245 Byte 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```

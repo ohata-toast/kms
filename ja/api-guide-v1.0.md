@@ -187,7 +187,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 | keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
 
 ### 非対称鍵で署名
-Secure Key Managerに作成した非対称鍵で、データを署名する時に使用します。ユーザーは4KB以下のテキストデータを転送して、Secure Key Managerに保存した非対称鍵で署名できます。
+Secure Key Managerに作成した非対称鍵で、データを署名する時に使用します。ユーザーは245Byte以下のテキストデータを転送して、Secure Key Managerに保存した非対称鍵で署名できます。
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```

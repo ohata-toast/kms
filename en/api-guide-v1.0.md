@@ -187,7 +187,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 | keyVersion | Number | Symmetric key version applied to process API request |
 
 ### Sign with Asymmetric Keys
-The asymmetric key created at Secure Key Manager is used to sign data. Users can deliver 4KB or smaller text data and sign with asymmetric key saved at Secure Key Manager.
+The asymmetric key created at Secure Key Manager is used to sign data. Users can deliver 245 Byte or smaller text data and sign with asymmetric key saved at Secure Key Manager.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
