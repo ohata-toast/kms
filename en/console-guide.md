@@ -1,124 +1,122 @@
 ## Security > Secure Key Manager > Console User Guide
 
-Below describes basic requirements to use Secure Key Manager.
-* Creating Key Stores
-* Registering Authentication Information
-* Creating Keys
-* Managing User Data
+Console User Guide describes basic information required to use Secure Key Manager.
+- **Creating Keystores**
+- **Creating Keys**
+- **Registering Authentication Information**
+- **Managing User Data**
 
-### Creating Key Stores
-Secure Key Manager manages authentication information and keys by each key store. If there is no key store created, the page shows like Figure 1.
+### Creating Keystores
+Secure Key manager manages authentication information and keys at each keystore. Without a keystore, the page shows like Figure 1.  
 
-![console-guide-01-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-01-001.png)
+![console-guide-01](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-01.png)
 
-Click **Add Key Store** and a window shows to **Add Key Store** like in Figure 2.
+Click **Add Keystores** and a window shows to create a keystore like Figure 2.
 
-![console-guide-01-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-01-002.png)
+![console-guide-02](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-02.png)
 
-Enter name and description, select one or more methods of certification, and click **Add**, and a key store is created. Once a key store is created, you can find the list of key stores like Figure 3.
+Enter name and description, select more than one authentication method, and click **Add**, then a keystore is created. The newly created keystore is displayed on the list of keystores like in Figure 3.  
 
-![console-guide-01-003](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-01-003.png)
+![console-guide-03](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-03.png)
 
-Use **+** on the list of key stores to add new key stores. Click a newly created key store, and the page shows, like Figure 4, where selected key stores can be managed.
+Click a keystore from the list and the menu shows to manage keystores like Figure 4.
 
-![console-guide-01-004](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-01-004.png)
+![console-guide-04](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-04.png)
+
+### Creating Keys
+Secure Key Manager has three types of keys:
+Confidential Data allows to save character string data and query via API; Symmetric Keys provide data encryption/decryption via API; and, Asymmetric Keys provide data signature/verification via API. User can select a key type for his own purpose and create keys.
+
+Click **Manage Keys** and the page shows to manage keys, like Figure 5.  
+
+![console-guide-05](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-05.png)
+
+On the key management page, click **Add Keys**, and a window shows to create one. Depending on the selected key type, enter data as required by Figure 6, Figure 7, or Figure 8, respectively.  
+
+![console-guide-06](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-06.png)
+
+![console-guide-07](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-07.png)
+
+![console-guide-08](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-08.png)
+
+For Confidential Data, enter name, description and data, while for Symmetric/Asymmetric Keys, enter name, description, and rotation cycle. Enter required data and click **Add**, then a key is created. The newly created key is displayed on the key management page.  
+
+![console-guide-09](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-09.png)
 
 ### Registering Authentication Information
-Keys managed at Secure Key Manager are available only for clients who are authenticated. To register authentication information for client authentication, go to the **Authentication Management** and follow each method of authentication. 
+Keys created by Secure Key Manager are available only to those clients who are successfully authenticated. Authentication information for client authentication can be registered on **Manage IPv4 Addresses, Manage MAC Addresses, and *Manage Certificates**.  
 
-#### IPv4 Address
-Go to **Authentication Management** and click **IPv4 Address Management**, and a window show for IPv4 address management, like Figure 5.
+#### Register IPv4 Addresses
+Click **Manage IPv4 Addresses** and the IPv4 address management page for client authentication shows, like Figure 10.
 
-![console-guide-02-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-02-001.png)
+![console-guide-10](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-10.png)
 
-Click **Add IPv4 Address**를and a window shows to **Add IPv4 Address**, like Figure 6.
+Click **Add IPv4 Addresses** and the window shows to add one, like Figure 11.
 
-![console-guide-02-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-02-002.png)
+![console-guide-11](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-11.png)
 
-Enter IPv4 address and description of a client, and click **Add** to register authentication information. The IPv4 address must be the one to access the Secure Key Manager server. You may check registered authentication information on the page of **IPv4 Address Management** like Figure 7.
+To add an IPv4 address, enter client's Ipv4 address and description and click **Add**. The IPv4 address must be the same address required for client's access to Secure Key manager. The added IPv4 address is displayed on the IPv4 address management page.
 
-![console-guide-02-003](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-02-003.png)
+![console-guide-12](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-12.png)
 
-#### MAC Address
-Go to **Authentication Management** and click **MAC Address Management** and a window shows for MAC address management, like Figure 8.
+#### Register MAC Addresses
+Click **Manage MAC Addresses** and the MAC address management page shows for client authentication.  
 
-![console-guide-03-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-03-001.png)
+![console-guide-13](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-13.png)
 
-Click **Add MAC Address** and a window shows to **Add MAC Address** like Figure 9.
+Click **Add MAC Addresses** and the window shows to add one, like Figure 14.
 
-![console-guide-03-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-03-002.png)
+![console-guide-14](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-14.png)
 
-Enter MAC address and description of a client and click **Add** to register authentication information. You may check registered authentication information on the page of **MAC Address Management** like Figure 10.
+To add an MAC address, enter client's MAC address and description and click **Add**. The newly added MAC address is displayed on the MAC address management page like Figure 15.
 
-![console-guide-03-003](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-03-003.png)
+![console-guide-15](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-15.png)
 
-#### Client Certificate
-Go to **Authentication Management** and click **Certificate Management** and a window shows for certificate management like Figure 11.
+#### Register Client Certificates
+Click **Manage Certificates** and the certificate management page shows for client authentication, like Figure 16.
 
-![console-guide-04-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-04-001.png)
+![console-guide-16](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-16.png)
 
-Click **Add Certificate** and a window shows to **Add Certificate** like Figure 12.
+Click **Add Certificates** and the window shows to create one, like Figure 17.
+![console-guide-17](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-17.png)
 
-![console-guide-04-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-04-002.png)
+Enter certificate name, password, and description, select usage period, and click **Add**, then a certificate is created. The newly created certificate is displayed on the certificate management page, like Figure 18. Click **Download Icon** from the page to download certificate files.
 
-Enter name, password, and description of a certificate, select usage period, and click **Add**, and a client certificate can be created. Certificates that are created can be found on the Certificate Management page like Figure 13. Click an icon on the **Download** row on the page to download file of each certificate.
-
-![console-guide-04-003](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-04-003.png)
-
-### Creating Keys 
-Secure Key Manager provides three types of keys: Confidential data allows to save character string data and query by using APIs; Symmetric keys allow data encryption/decryption by using APIs; and, Asymmetric keys allow data signing/verification by using APIs. Each user can select a key type for their own purpose and create a key.
-
-Click **Key Management** and you can find a screen like Figure 14.
-
-![console-guide-05-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-05-001.png)
-
-Click **Add Key** to pop up a window. Depending on the type of your selection, the screen requires to enter data to create a key, like in Figure 15, 16, and 17.
-
-![console-guide-05-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-05-002.png)
-![console-guide-05-003](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-05-003.png)
-![console-guide-05-004](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-05-004.png)
-
-For confidential data, it requires to enter name, description, and data, while for symmetric/asymmetric keys, name, description, cycle of rotation are required. When all required data are filled out, click **Add** to create a key. You can check created keys on the **Key Management** page like in Figure 18.
-
-![console-guide-05-005](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-05-005.png)
+![console-guide-18](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-018.png)
 
 ### Managing User Data
-Detail information of data (e.g. authentication, or key) registered by user can be found on **Authentication Management** or **Key Management**. Click magnifier icon on the **Detail Information** row from the list of same data like Figure 19, and a window for **Detail Information** shows up like Figure 20.
+Secure Key Manager provides details of user-created data (e.g. key, or authentication information). From the list of user data, like Figure 19, click **Detail Information Icon** and detail information shows like Figure 20.
 
-![console-guide-06-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-06-001.png)
+![console-guide-19](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-19.png)
 
-![console-guide-06-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-06-002.png)
-
-You may edit or delete data on the **Detail Information** window.
+![console-guide-20](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-20.png)
 
 #### Delete User Data
 
-User-registered data at Secure Key Manager is changed to 'In Service'. To delete unnecessary data, click **Request for Deletion** on the **Detail Information** window, like Figure 21.
+User-created data is **Enabled** by default. To delete unnecessary data, click **Request for Deleting** from the **Detail Information** page, like Figure 21.
 
-![console-guide-07-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-07-001.png)
+![console-guide-21](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-21.png)
 
-Data requested for deletion are changed into 'Scheduled for Deletion' like Figure 22 and hence becomes not in service immediately. It is expected to be deleted at midnight 7 days later, after which it is to be automatically deleted.
+Once requested for deleting, data status is changed to **To be Deleted**, like Figure 22. **To-be-deleted** data become unavailable, and shall be completely deleted in 7 days.
 
-![console-guide-07-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-07-002.png)
+![console-guide-22](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-22.png)
 
-You may click **Immediately Delete** to immediately delete data which is scheduled to be deleted without waiting until time, or click **Cancel Deletion** to change its status into 'In Service'.
+You may click **Immediately Delete** to delete **To-be-deleted** data, instead of waiting until scheduled time, or click **Undo Deletion** to revert the status to **Enabled**.
 
-#### Set Cycle for Automatic Rotation of Symmetric/Asymmetric Keys
+#### Rotate Symmetric/Asymmetric Keys
 
-Secure Key Manager provides automatic key rotation for symmetric/asymmetric keys. Like Figure 23, you may set cycle for automatic key rotation on the window of detail information for symmetric keys/asymmetric keys.
+Secure Key manager provides rotation of symmetric/asymmetric keys. Like Figure 23, the auto rotation cycle can be configured on the detail page of symmetric/asymmetric keys. If the cycle is 0, automatic rotation becomes disabled.  
 
-![console-guide-08-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-08-001.png)
+![console-guide-23](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-23.png)
 
-Set a larger value than 0 and display the next day of rotation, like Figure 24, and the key is automatically rotated at every rotation cycle.
+Like Figure 24, if a value higher than 30 is set for the rotation cycle, key is automatically rotated at every rotation cycle, showing the next rotation date.  
 
-![console-guide-08-002](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-08-002.png)
+![console-guide-24](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-24.png)
 
-#### Immediate Rotation of Symmetric/Asymmetric Keys
+Click **Rotate Immediately** on the detail page of symmetric/asymmetric keys, like Figure 25, and rotate keys immediately.
 
-Secure Key Manager also allows for manual rotation for symmetric/asymmetric keys. Click **Immediate Rotation** on the window of detail information for symmetric/asymmetric keys, like Figure 25, and the key is to be immediately rotated.
+![console-guide-25](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-25.png)
 
-![console-guide-09-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-09-001.png)
+By rotating the key, a new version is added to the list of key versions.
 
-Figure 26 shows that, when a key is rotated, you can find a new version is added to the list of key versions.
-
-![console-guide-09-001](http://static.toastoven.net/prod_kms/2019-05-13/console-guide-09-001.png)
+![console-guide-26](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-26.png)

@@ -33,7 +33,7 @@ Users can manage Secure Key Manager on the TOAST web console. Web console provid
 
 Secure Key Manager provides a variety of APIs to be available for a client server. The client server can request of querying confidential data, encrypting/decrypting with symmetric keys, and signing/verifying with asymmetric keys. Client authentication module determines whether to allow client's request by using client authentication data. If a client's request is allowed, the user data processing module decrypts encrypted user data by using system key processing module to enable service.
 
-![overview-001](http://static.toastoven.net/prod_kms/2019-05-13/overview-001.png)
+![overview-01](http://static.toastoven.net/prod_kms/2019-12-24/overview-01.png)
 
 ### For Reference
 
