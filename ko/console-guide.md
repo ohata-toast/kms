@@ -82,7 +82,7 @@ Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만
 
 인증서 이름, 비밀번호, 설명을 입력하고 사용 기간을 선택한 후 **추가**를 클릭하면 인증서를 생성합니다. 생성한 인증서는 그림 18과 같이 인증서 관리 화면에 표시합니다. 인증서 관리 화면에서 **다운로드 아이콘**을 클릭하면 인증서 파일을 다운로드합니다.
 
-![console-guide-18](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-018.png)
+![console-guide-18](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-18.png)
 
 ### 사용자 데이터 관리
 Secure Key Manager는 사용자가 생성한 데이터(키, 인증 정보)의 상세 정보를 제공합니다. 그림 19와 같은 사용자 데이터 목록에서 **상세 정보 아이콘**을 클릭하면 그림 20과 같이 상세 정보를 표시합니다.

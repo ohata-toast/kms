@@ -82,7 +82,7 @@ Click **Add Certificates** and the window shows to create one, like Figure 17.
 
 Enter certificate name, password, and description, select usage period, and click **Add**, then a certificate is created. The newly created certificate is displayed on the certificate management page, like Figure 18. Click **Download Icon** from the page to download certificate files.
 
-![console-guide-18](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-018.png)
+![console-guide-18](http://static.toastoven.net/prod_kms/2019-12-24/console-guide-18.png)
 
 ### Managing User Data
 Secure Key Manager provides details of user-created data (e.g. key, or authentication information). From the list of user data, like Figure 19, click **Detail Information Icon** and detail information shows like Figure 20.
