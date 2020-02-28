@@ -1,5 +1,10 @@
 ## Security > Secure Key Manager > 릴리스 노트
 
+### 2020. 03. 24.
+* 사용자가 Secure Key Manager 콘솔에서 작업한 내용을 Cloud Trail에 기록
+* CSV 파일을 사용한 인증 데이터(IPv4 주소/MAC 주소) 대량 등록 기능 추가
+* CSV 파일을 사용한 인증 데이터(IPv4 주소/MAC 주소) 내려받기 기능 추가
+
 ### 2019. 12. 24.
 
 #### 키 저장소 화면 개선
