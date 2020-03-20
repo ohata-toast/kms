@@ -84,7 +84,7 @@ Secure Key Managerで作成したキーは、認証に成功したクライア�
 
 証明書名、パスワード、説明を入力し、使用期間を選択した後、**追加**をクリックすると証明書を作成します。作成した証明書は次のように証明書管理画面に表示されます。証明書管理画面で**ダウンロード**アイコンをクリックすると証明書ファイルをダウンロードします。
 
-![console-guide-18](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-018.png)
+![console-guide-18](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-18.png)
 
 ### ユーザーデータの管理
 Secure Key Managerは、ユーザーが作成したデータ(キー、認証情報)の詳細情報を提供します。ユーザーデータリストで**詳細情報アイコン**をクリックすると、次の図のように詳細情報が表示されます。

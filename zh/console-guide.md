@@ -84,7 +84,7 @@ Secure Key Manager中创建的密钥仅限验证成功的客户可使用。客�
 
 输入认证书名、密码、说明并选择使用期间后单击**添加**按钮，创建认证书。创建的认证书如下显示在管理认证书界面。在管理认证书界面单击**下载**图标，则下载认证书文件。
 
-![console-guide-18](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-018.png)
+![console-guide-18](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-18.png)
 
 ### 管理用户数据
 Secure Key Manager提供用户创建的数据（密钥、验证信息）的详细信息。在用户数据列表中单击**详细信息图标**时，如下图显示详细信息。
