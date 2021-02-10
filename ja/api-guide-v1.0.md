@@ -19,14 +19,14 @@ Secure Key Managerは、ユーザーデータにアクセスできる多様なAP
 
 Secure Key ManagerのMACアドレス認証を使用するには、HTTPヘッダにクライアントMACアドレスを設定してリクエストする必要があります。
 ```
-X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
+X-NHN Cloud-CLIENT-MAC-ADDR: {MACアドレス}
 ```
 
 [APIリクエストのパス変数]
 
 | 値 | タイプ | 説明 |
 |---|---|---|
-| appkey | String | 使用したいデータを保存しているTOASTプロジェクトのアプリケーションキー |
+| appkey | String | 使用したいデータを保存しているNHN Cloudプロジェクトのアプリケーションキー |
 | keyid | String | 使用したいデータの識別子 |
 
 [APIレスポンスのデータ共通ヘッダ]

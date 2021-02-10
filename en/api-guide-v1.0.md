@@ -19,14 +19,14 @@ Secure Key Manager provides a variety of APIs to access user data. Clients must 
 
 To authenticate MAC address of Secure Key Manager, it is required to set client's MAC address at the HTTP header before requested.
 ```
-X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
+X-NHN Cloud-CLIENT-MAC-ADDR: {MAC Address}
 ```
 
 [Path Variables of API Request]
 
 | Value | Type | Description |
 |---|---|---|
-| appkey | String | Appkey of the TOAST project to which data in need is saved |
+| appkey | String | Appkey of the NHN Cloud project to which data in need is saved |
 | keyid | String | Identifier of data in need |
 
 [Common Data Header of API Response]
