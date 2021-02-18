@@ -19,7 +19,7 @@ Secure Key Managerは、ユーザーデータにアクセスできる多様なAP
 
 Secure Key ManagerのMACアドレス認証を使用するには、HTTPヘッダにクライアントMACアドレスを設定してリクエストする必要があります。
 ```
-X-NHN Cloud-CLIENT-MAC-ADDR: {MACアドレス}
+X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 ```
 
 [APIリクエストのパス変数]

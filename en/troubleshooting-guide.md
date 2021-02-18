@@ -39,7 +39,7 @@ Below describes the solutions for main issues that may arise while using Secure 
 * Occurs when it fails to certify MAC address.
     * Check if the MAC address of API caller client has been registered at Secure Key Manager.
     * Check if the MAC address registered at Secure Key Manager is 'In Service'.
-    * Check if the client's MAC address has been added to the request header of X-NHN Cloud-CLIENT-MAC-ADDR to call API.
+    * Check if the client's MAC address has been added to the request header of X-TOAST-CLIENT-MAC-ADDR to call API.
 
 ### API call failure returns Certificate Auth Failure.
 * Occurs when it fails to certify client's certificate.

@@ -19,7 +19,7 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 
 Secure Key Manager의 MAC 주소 인증을 사용하려면 HTTP 헤더에 클라이언트 MAC 주소를 설정해서 요청해야 합니다.
 ```
-X-NHN Cloud-CLIENT-MAC-ADDR: {MAC 주소}
+X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 ```
 
 [API 요청의 경로 변수]
