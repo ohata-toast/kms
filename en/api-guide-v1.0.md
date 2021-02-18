@@ -26,7 +26,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 
 | Value | Type | Description |
 |---|---|---|
-| appkey | String | Appkey of the TOAST project to which data in need is saved |
+| appkey | String | Appkey of the NHN Cloud project to which data in need is saved |
 | keyid | String | Identifier of data in need |
 
 [Common Data Header of API Response]

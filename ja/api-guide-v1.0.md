@@ -26,7 +26,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 
 | 値 | タイプ | 説明 |
 |---|---|---|
-| appkey | String | 使用したいデータを保存しているTOASTプロジェクトのアプリケーションキー |
+| appkey | String | 使用したいデータを保存しているNHN Cloudプロジェクトのアプリケーションキー |
 | keyid | String | 使用したいデータの識別子 |
 
 [APIレスポンスのデータ共通ヘッダ]
