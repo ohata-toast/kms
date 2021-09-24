@@ -1,11 +1,16 @@
 ## Security > Secure Key Manager > Release Notes
 
+### September 28, 2021
+#### Bug Fixes
+* Fixed a bug where permissions granted using permission groups were not recognized properly
+* Fixed a bug in the behavior of the Reset button in Usage History
+
 ### March 24, 2020
 * The tasks performed by a user in Secure Key Manager console are logged in Cloud Trail
 * Added authentication data (IPv4 address/MAC address) bulk registration feature using CSV files
 * Added authentication data (IPv4 address/MAC address) download feature using CSV files
 
-### Dec. 24, 2019
+### December 24, 2019
 
 #### Key Store Page Updates
 * Changed the display method for the list of key stores
