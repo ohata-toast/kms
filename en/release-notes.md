@@ -2,8 +2,8 @@
 
 ### September 28, 2021
 #### Bug Fixes
-* Fixed a bug where permissions granted using permission groups were not recognized properly
-* Fixed a bug in the behavior of the Reset button in Usage History
+* Fixed an issue where permissions granted using permission groups were not recognized properly
+* Fixed an issue where the Reset button in Usage History did not work properly
 
 ### March 24, 2020
 * The tasks performed by a user in Secure Key Manager console are logged in Cloud Trail
