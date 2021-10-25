@@ -1,5 +1,13 @@
 ## Security > Secure Key Manager > Release Notes
 
+### October 26, 2021
+#### Added a Key Import Feature
+* Added a symmetric key import feature
+#### Updated the Confidential Data Query Feature
+* Modified the feature so that, when the user queries confidential data in the web console, the data is provided after masking the fields
+#### Bug Fixes
+* Fixed an issue where non-payment users could use the service normally
+
 ### September 28, 2021
 #### Bug Fixes
 * Fixed an issue where permissions granted using permission groups were not recognized properly
