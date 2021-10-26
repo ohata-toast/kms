@@ -45,6 +45,19 @@ Secure Key Managerは、キーを3つのタイプに区分します。機密デ�
 
 ![console-guide-09](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-09.png)
 
+### キーのインポート
+Secure Key Managerは、対称鍵(AES-256)をインポートする機能をサポートします。
+
+![console-guide-27](http://static.toastoven.net/prod_kms/2021-10-26/console-guide-01.png)
+
+**キーデータ**領域にキー値を入力してアップロードできます。アップロード可能なキーの形式は次のとおりです。
+
+```
+0xXX, 0xXX, ..., 0xXX
+```
+
+上記のように32個のHex Stringをカンマ(`,`)またはスペース(` `)で区切って入力してキーをアップロードします。
+
 ### 認証情報の登録
 Secure Key Managerで作成したキーは、認証に成功したクライアントのみ使用できます。クライアント認証に使用する認証情報は**IPv4アドレス管理**、**MACアドレス管理**、**証明書管理**メニューで登録します。
 
@@ -122,3 +135,7 @@ Secure Key Managerでは対称鍵/非対称鍵を更新できます。次の図�
 キーを更新すると、次の図のようにキーバージョンリストに新しいバージョンが追加されます。
 
 ![console-guide-26](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-26.png)
+
+例外としてキーのインポートを行って作成したキーはSecure Key Managerで作成した対称鍵とは異なり、更新機能を提供しません。照会時、次のようにキー更新領域が存在しません。
+
+![console-guide-28](http://static.toastoven.net/prod_kms/2021-10-26/console-guide-02.png)
