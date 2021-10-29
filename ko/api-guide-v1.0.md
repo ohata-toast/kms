@@ -193,7 +193,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 
 ### 대칭키 키 조회
 
-Secure Key Manager는 대칭키(AES-256)를 조회할 수 있습니다.
+Secure Key Manager는 생성/가져오기한 대칭키(AES-256)를 조회할 수 있습니다.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
