@@ -191,9 +191,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 | localKeyCiphertext | String | Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 AES-256 대칭키 |
 | keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
-### 대칭키 키 조회
+### 대칭키 조회
 
-Secure Key Manager는 생성/가져오기한 대칭키(AES-256)를 조회할 수 있습니다.
+Secure Key Manager에 생성/가져오기한 대칭키(AES-256)를 조회할 수 있습니다.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
@@ -205,13 +205,13 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
         ...
     },
     "body": {
-        "symmetricKey": "0xXX, 0xXX, ..., 0xXX"
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
     }
 }
 ```
 | 값 | 타입 | 설명 |
 |---|---|---|
-|symmetricKey | String | 대칭키 키 데이터(Hex String 형태) |
+|symmetricKey | String | 대칭키 데이터(Hex String 형태) |
 
 ## 비대칭키
 
