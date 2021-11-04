@@ -25,7 +25,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 
 [API 요청의 경로 변수]
 
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | appkey | String | 사용하려는 데이터를 저장하고 있는 NHN Cloud 프로젝트의 앱키 |
 | keyid | String | 사용하려는 데이터의 식별자 |
@@ -43,13 +43,13 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | resultCode | Number | API 호출 결과 코드값 |
 | resultMessage | String | API 호출 결과 메시지 |
 | isSuccessful | Boolean | API 호출 성공 여부 |
 
-### 클라이언트 정보 조회
+## 클라이언트 정보 조회
 API를 호출한 클라이언트 정보를 조회할 때 사용합니다.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
@@ -68,10 +68,10 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | clientIp | String | API를 호출한 클라이언트의 IP 주소 |
-| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더값 |
+| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더이름 |
 | clientSentCertificate | Boolean | API를 호출한 클라이언트가 인증서를 사용하고 있는지 여부 |
 
 ## 기밀 데이터
@@ -93,7 +93,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secre
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | secret | String | 기밀 데이터 조회 결과 |
 
@@ -112,7 +112,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "plaintext": "data"
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 대칭키로 암호화할 데이터 |
 
@@ -128,7 +128,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | ciphertext | String | 대칭키로 데이터를 암호화한 결과 |
 | keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
@@ -145,7 +145,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | ciphertext | String | 대칭키로 복호화할 데이터 |
 
@@ -161,7 +161,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 대칭키로 데이터를 복호화한 결과 |
 | keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
@@ -185,7 +185,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | localKeyPlaintext | String | Base64 인코딩한 AES-256 대칭키 |
 | localKeyCiphertext | String | Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 AES-256 대칭키 |
@@ -209,7 +209,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 |symmetricKey | String | 대칭키 데이터(Hex String 형태) |
 
@@ -227,7 +227,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "plaintext": "data"
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 비대칭키로 서명할 데이터 |
 
@@ -243,7 +243,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | signature | String | 비대칭키로 데이터를 서명한 서명값 |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
@@ -262,7 +262,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "signature": "AAAAAGI9zf831DX..."
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | plaintext | String | 비대칭키로 검증할 데이터 |
 | signature | String | 비대칭키로 데이터를 서명한 서명값 |
@@ -280,7 +280,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 값 | 타입 | 설명 |
+| 이름 | 타입 | 설명 |
 |---|---|---|
 | result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
