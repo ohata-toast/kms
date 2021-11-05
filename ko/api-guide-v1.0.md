@@ -12,7 +12,7 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Manager에 저장한 대칭키로 데이터를 암호화합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Manager에 저장한 대칭키로 데이터를 복호화합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | 클라이언트가 로컬 환경에서 데이터 암/복호화에 사용할 수 있는 AES-256 대칭키를 생성합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
 
