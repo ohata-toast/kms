@@ -71,7 +71,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | clientIp | String | API를 호출한 클라이언트의 IP 주소 |
-| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더이름 |
+| clientMacHeader | String |API를 호출한 클라이언트의 MAC 주소 헤더값 |
 | clientSentCertificate | Boolean | API를 호출한 클라이언트가 인증서를 사용하고 있는지 여부 |
 
 ## 기밀 데이터
