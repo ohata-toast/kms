@@ -12,6 +12,7 @@ Secure Key Managerは、ユーザーデータにアクセスできる多様なAP
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Managerに保存した対称鍵でデータを暗号化します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Managerに保存した対称鍵でデータを復号します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | クライアントがローカル環境でデータの暗号化/復号に使用できるAES-256対称鍵を作成します。|
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Managerに保存した非対称鍵でデータを署名します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
 
@@ -24,7 +25,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 
 [APIリクエストのパス変数]
 
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | appkey | String | 使用したいデータを保存しているNHN Cloudプロジェクトのアプリケーションキー |
 | keyid | String | 使用したいデータの識別子 |
@@ -42,13 +43,13 @@ X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | resultCode | Number | API呼び出し結果コード値 |
 | resultMessage | String | API呼び出し結果メッセージ |
 | isSuccessful | Boolean | API呼び出し成否 |
 
-### クライアント情報照会
+## クライアント情報照会
 APIを呼び出したクライアント情報を照会する時に使用します。
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
@@ -67,11 +68,13 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | clientIp | String | APIを呼び出したクライアントのIPアドレス |
 | clientMacHeader | String |APIを呼び出したクライアントのMACアドレスヘッダ値 |
 | clientSentCertificate | Boolean | APIを呼び出したクライアントが証明書を使用しているかどうか |
+
+## 機密データ
 
 ### 機密データ照会
 Secure Key Managerに保存した機密データを照会する時に使用します。
@@ -90,9 +93,11 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secre
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | secret | String | 機密データ照会結果 |
+
+## 対称鍵
 
 ### 対称鍵暗号化
 Secure Key Managerに作成した対称鍵でデータを暗号化する時に使用します。ユーザーは32KB以下のテキストデータを転送して、Secure Key Managerに保存した対称鍵で暗号化できます。
@@ -107,7 +112,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "plaintext": "data"
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | plaintext | String | 対称鍵で暗号化するデータ |
 
@@ -123,12 +128,12 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | ciphertext | String | 対称鍵でデータを暗号化した結果 |
 | keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
 
-## 対称鍵復号
+### 対称鍵復号
 Secure Key Managerに作成した対称鍵でデータを復号する時に使用します。ユーザーは暗号化されたテキストを転送して、Secure Key Managerに保存した対称鍵で復号できます。
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
@@ -140,7 +145,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | ciphertext | String | 対称鍵で復号するデータ |
 
@@ -156,7 +161,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | plaintext | String | 対称鍵でデータを復号した結果 |
 | keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
@@ -180,11 +185,35 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | localKeyPlaintext | String | Base64エンコードしたAES-256対称鍵 |
 | localKeyCiphertext | String | Secure Key Managerに保存した対称鍵で暗号化した後、Base64エンコードしたAES-256対称鍵 |
 | keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
+
+### 対称鍵照会
+
+Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
+```
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+|symmetricKey | String | 対称鍵データ(Hex String形式) |
+
+## 非対称鍵
 
 ### 非対称鍵で署名
 Secure Key Managerに作成した非対称鍵で、データを署名する時に使用します。ユーザーは245Byte以下のテキストデータを転送して、Secure Key Managerに保存した非対称鍵で署名できます。
@@ -198,7 +227,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "plaintext": "data"
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | plaintext | String | 非対称鍵で署名するデータ |
 
@@ -214,7 +243,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | signature | String | 非対称鍵でデータを署名した署名値 |
 | keyVersion | Number | APIリクエスト処理に使用した非対称鍵バージョン |
@@ -233,7 +262,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "signature": "AAAAAGI9zf831DX..."
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | plaintext | String | 非対称鍵で検証するデータ |
 | signature | String | 非対称鍵でデータを署名した署名値 |
@@ -251,7 +280,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| 値 | タイプ | 説明 |
+| 名前 | タイプ | 説明 |
 |---|---|---|
 | result | Boolean | 非対称鍵でデータと署名値を検証した結果 |
 | keyVersion | Number | APIリクエスト処理に使用した非対称鍵バージョン |
