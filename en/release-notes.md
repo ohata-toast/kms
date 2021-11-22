@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### November 23, 2021
+#### Added a Symmetric Key Query Feature
+* Added a feature to query the symmetric key
+
 ### October 26, 2021
 #### Added a Key Import Feature
 * Added a symmetric key import feature

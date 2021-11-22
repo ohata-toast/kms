@@ -12,6 +12,7 @@ Secure Key Manager provides various APIs to access user data. Clients must be au
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Encrypt data with the symmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Decrypt data with the symmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | Create AES-256 symmetric keys that can be used by a client for data encryption/decryption in local environment. |
+| GET | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Query the symmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Sign data with the asymmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Verify data and signature with the asymmetric key stored in Secure Key Manager. |
 
@@ -24,7 +25,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 
 [Path Variables of API Request]
 
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | appkey | String | Appkey of the NHN Cloud project where the data in need is stored |
 | keyid | String | Identifier of data in need |
@@ -42,13 +43,13 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | resultCode | Number | Result code value of API call |
 | resultMessage | String | Result message of API call |
 | isSuccessful | Boolean | Whether API call is successful or not |
 
-### Query Client Information
+## Query Client Information
 This API is used to query information of the client that called API.
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
@@ -67,11 +68,13 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | clientIp | String | IP address of the client that called API |
-| clientMacHeader | String | Header value of MAC address of the client that called API |
+| clientMacHeader | String |Header value of MAC address of the client that called API |
 | clientSentCertificate | Boolean | Whether the client that called API is using certificate or not |
+
+## Confidential Data
 
 ### Query Confidential Data
 This API is used to query confidential data stored in Secure Key Manager.
@@ -90,9 +93,11 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secre
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | secret | String | Query result of confidential data |
+
+## Symmetric Key
 
 ### Encrypt Symmetric Keys
 This API is used to encrypt data with the symmetric key created in Secure Key Manager. A user can pass 32KB or smaller text data, and the data can be encrypted with the symmetric key stored in Secure Key Manager.
@@ -107,7 +112,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "plaintext": "data"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to be encrypted with the symmetric key |
 
@@ -123,12 +128,12 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | ciphertext | String | Result of data encryption with the symmetric key |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
 
-## Decrypt Symmetric Keys
+### Decrypt Symmetric Keys
 This API is used to decrypt data with the symmetric key created in Secure Key Manager. A use can pass encrypted text, and the text data can be decrypted with the symmetric key stored in Secure Key Manager.
 ```
 POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
@@ -140,7 +145,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | ciphertext | String | Data to be decrypted with the symmetric key |
 
@@ -156,7 +161,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Result of data decryption with the symmetric key |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
@@ -180,11 +185,35 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | localKeyPlaintext | String | Base64-encoded AES-256 symmetric key |
 | localKeyCiphertext | String | Base64-encoded AES-256 symmetric key encrypted with the symmetric key stored in Secure Key Manager |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
+
+### Query the Symmetric Key
+
+You can query the symmetric key (AES-256) stored in Secure Key Manager.
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
+```
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+|symmetricKey | String | Symmetric key data (Hex string form) |
+
+## Asymmetric Key
 
 ### Sign with the Asymmetric Key
 This API is used to sign data with the asymmetric key created in Secure Key Manager. Users can pass 245 Byte or smaller text data, and the data is signed with the asymmetric key stored in Secure Key Manager.
@@ -198,7 +227,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "plaintext": "data"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to sign with the asymmetric key |
 
@@ -214,7 +243,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | signature | String | Signature value of signing the data with the asymmetric key |
 | keyVersion | Number | Version of the asymmetric key used for processing the API request |
@@ -233,7 +262,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     "signature": "AAAAAGI9zf831DX..."
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to be verified with the asymmetric key |
 | signature | String | Signature value of signing the data with the asymmetric key |
@@ -251,7 +280,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | result | Boolean | Result of verifying data and signature value with the asymmetric key |
 | keyVersion | Number | Version of the asymmetric key used for processing the API request |

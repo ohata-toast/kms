@@ -102,21 +102,21 @@ Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만
 ### 사용자 데이터 관리
 Secure Key Manager는 사용자가 생성한 데이터(키, 인증 정보)의 상세 정보를 제공합니다. 사용자 데이터 목록에서 **상세 정보 아이콘**을 클릭하면 다음 그림과 같이 상세 정보를 표시합니다.
 
-![console-guide-19](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-19.png)
+![console-guide-19](http://static.toastoven.net/prod_kms/2021-11-23/console-guide-05.png)
 
 #### 사용자 데이터 삭제
 
 사용자가 생성한 데이터의 초기 상태는 **사용 중**입니다. 불필요한 데이터를 삭제하려면 다음 그림과 같이 **상세 정보** 창에서 **삭제 요청**을 클릭합니다.
 
-![console-guide-20](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-20.png)
+![console-guide-20](http://static.toastoven.net/prod_kms/2021-11-23/console-guide-06.png)
 
 삭제를 요청하면 다음 그림과 같이 데이터 상태를 **삭제 예정**으로 변경합니다. **삭제 예정**으로 변경한 데이터는 사용할 수 없으며 7일 후 완전히 삭제합니다.
 
-![console-guide-21](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-21.png)
+![console-guide-21](http://static.toastoven.net/prod_kms/2021-11-23/console-guide-07.png)
 
 **삭제 예정** 상태의 데이터는 **즉시 삭제**를 클릭해서 삭제 예정 시간까지 기다리지 않고 바로 삭제하거나 **삭제 취소**를 클릭해서 **사용 중** 상태로 되돌릴 수 있습니다.
 
-![console-guide-22](http://static.toastoven.net/prod_kms/2020-03-24/console-guide-22.png)
+![console-guide-22](http://static.toastoven.net/prod_kms/2021-11-23/console-guide-08.png)
 
 #### 대칭키/비대칭키 회전
 
