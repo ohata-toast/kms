@@ -1,25 +1,43 @@
-## Security > Secure Key Manager > 릴리스 노트
+## Security > Secure Key Manager > Release Notes
 
-### 2019. 12. 24.
+### October 26, 2021
+#### Added a Key Import Feature
+* Added a symmetric key import feature
+#### Updated the Confidential Data Query Feature
+* Modified the feature so that, when the user queries confidential data in the web console, the data is provided after masking the fields
+#### Bug Fixes
+* Fixed an issue where non-payment users could use the service normally
 
-#### 키 저장소 화면 개선
-* 키 저장소 목록의 표시 방식 변경
-* 키 저장소의 하위 메뉴 변경
-* 키 저장소에 퀵 메뉴 추가
+### September 28, 2021
+#### Bug Fixes
+* Fixed an issue where permissions granted using permission groups were not recognized properly
+* Fixed an issue where the Reset button in Usage History did not work properly
 
-#### 사용 내역 화면 개선
-* 프로젝트 단위로 API 사용 내역을 조회할 수 있게 변경
+### March 24, 2020
+* The tasks performed by a user in Secure Key Manager console are logged in Cloud Trail
+* Added authentication data (IPv4 address/MAC address) bulk registration feature using CSV files
+* Added authentication data (IPv4 address/MAC address) download feature using CSV files
 
-#### 통계 화면 추가
-* 프로젝트 단위로 API 사용 통계를 조회할 수 있는 화면 추가
+### December 24, 2019
 
-### 2019. 07. 23.
+#### Key Store Page Updates
+* Changed the display method for the list of key stores
+* Changed the sub-menu of a key store
+* Added the quick menu to the key store
 
-#### UI 개선
-* 텍스트와 버튼을 겹쳐서 표시하는 현상 수정
-* 일본어로 화면을 표시할 때 텍스트 줄 바뀜 현상 수정
+#### History Page Updates
+* Changed UI so that the user can query API usage history per project
 
-### 2019. 05. 28.
+#### Statistics Page
+* Added the page to query API usage statistics of each project
 
-#### 신규 서비스 출시
-* 기밀 데이터(데이터베이스 접속 정보, 앱키, 비밀번호 등), 대칭키, 비대칭키와 같이 애플리케이션 서버에 저장할 경우 보안 위험에 노출될 수 있는 데이터를 중앙 집중적으로 안전하게 관리하고, 인증을 통과한 클라이언트만 접근할 수 있게 제어하는 서비스입니다.
+### July 23, 2019
+
+#### UI Improvement
+* Fixed the overlapped display of texts and buttons
+* Fixed line wrapping issue when the screen is displayed in Japanese
+
+### May 28, 2019
+
+#### Release of New Service
+* Secure Key Manager is a service to let you centrally and securely manage data that can be exposed to security risks when stored in the application server, such as confidential data (database access information, appkey, password, etc.), symmetric key, and asymmetric key. In addition, it controls access so that only the clients that pass authentication can access the data.
