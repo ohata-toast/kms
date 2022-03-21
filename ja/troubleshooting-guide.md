@@ -39,7 +39,7 @@ Secure Key Managerを使用中に発生することがある主な問題に対�
 * MACアドレス認証に失敗した時に発生します。
     * APIを呼び出すクライアントのMACアドレスをSecure Key Managerに登録しているかを確認してください。
     * Secure Key Managerに登録したクライアントのMACアドレスが'使用中'の状態かを確認してください。
-    * APIを呼び出す時、X-NHN Cloud-CLIENT-MAC-ADDRリクエストヘッダにクライアントのMACアドレスを追加したかを確認してください。
+    * APIを呼び出す時、X-TOAST-CLIENT-MAC-ADDRリクエストヘッダにクライアントのMACアドレスを追加したかを確認してください。
 
 ### APIの呼び出しが失敗し、Certificate Auth Failureエラーメッセージが返されます。
 * クライアント証明書の認証に失敗した時に発生します。
