@@ -5,6 +5,7 @@
 - **키 생성**
 - **인증 정보 등록**
 - **사용자 데이터 관리**
+- **승인 프로세스**
 
 ### 키 저장소 생성
 Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합니다. 키 저장소가 없으면 다음과 같은 화면이 나타납니다.
@@ -139,3 +140,44 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 예외로 키 가져오기를 통해 생성한 키는 Secure Key Manager를 통해 생성한 대칭키와는 다르게 회전 기능을 제공하지 않습니다. 조회 시 다음과 같이 키 회전 영역이 존재하지 않습니다.
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2021-10-26/console-guide-02.png)
+
+### 승인 프로세스
+
+#### 승인 프로세스 활성화
+조직 관리 화면의 거버넌스 설정에서 승인 프로세스 활성화를 통해 Secure Key Manager의 승인 프로세스를 활성화 합니다.
+
+![console-guide-approval-01](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-01.png)
+
+#### 승인 프로세스 역할 설정
+Secure Key Manager 프로젝트의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 프로세스를 진행합니다.
+
+![console-guide-approval-02](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-02.png)
+
+#### 기존 프로젝트와 승인 프로세스의 다른점
+Secure Key Manager의 승인 프로젝트 권한을 획득 후 프로젝트를 확인해보면 **승인리스트**, **키 저장소 관리** 탭이 추가된 것을 확인 할 수 있습니다. 두 탭은 승인자, 요청자만 접근 가능합니다.
+
+![console-guide-approval-03](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-03.png)
+
+승인 프로세스를 활성화 하게되면 더이상 키 저장소에서 데이터를 추가/수정/삭제 할 수 없게되며, 변경 요청시 키 저장소 관리 탭으로 이동하게 됩니다.
+
+![console-guide-approval-04](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-04.png)
+
+#### 승인 요청 작성
+승인자와 요청자는 키 저장소 관리 탭에서 키 저장소 별로 변경점을 승인 요청 할 수 있습니다. 기존의 키 저장소와 유사한 동작을 통해 추가/수정/삭제를 진행합니다. 키, 인증 정보의 변경 상태에 대해서는 다음과 같이 상태에 표시 됩니다.
+
+![console-guide-approval-05](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-05.png)
+
+![console-guide-approval-06](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-06.png)
+
+키 저장소의 apply 버튼을 통해 승인 요청 신청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭을 통해서 확인할 수 있습니다.
+
+![console-guide-approval-07](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-07.png)
+
+#### 승인 요청 반영
+승인자는 키 저장소의 변경 승인 요청을 승인리스트에서 확인하여 승인/거절를 통해 키 저장소에 반영 여부를 결정 합니다.
+
+![console-guide-approval-08](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-08.png)
+
+승인을 누르는 즉시 키 저장소에 반영 됩니다. 키 저장소 또는 키 저장소 관리 탭을 통하여 변경 사항을 확인할 수 있습니다.
+
+![console-guide-approval-09](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-09.png)
