@@ -226,7 +226,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.1/appkey/{appkey}/symme
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyVersion | Number | 조회하고자 하는 대칭키 버전 |
+| keyVersion | Number | 조회하려는 대칭키 버전 |
 
 [Response Body]
 ```
