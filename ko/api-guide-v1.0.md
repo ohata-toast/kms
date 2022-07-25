@@ -12,7 +12,7 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Manager에 저장한 대칭키로 데이터를 암호화합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Manager에 저장한 대칭키로 데이터를 복호화합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | 클라이언트가 로컬 환경에서 데이터 암/복호화에 사용할 수 있는 AES-256 대칭키를 생성합니다. |
-| GET | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
+| GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
 
@@ -194,6 +194,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ### 대칭키 조회
 
 Secure Key Manager에 저장한 대칭키(AES-256)를 조회할 수 있습니다.
+
+#### v1.0
+
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
@@ -211,7 +214,36 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-|symmetricKey | String | 대칭키 데이터(Hex String 형태) |
+| symmetricKey | String | 대칭키 데이터(Hex String 형태) |
+
+#### v1.1
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion=1
+```
+
+[Request Parameter]
+
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyVersion | Number | 조회하려는 대칭키 버전 |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20",
+        "keyVersion": 1
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| symmetricKey | String | 대칭키 데이터(Hex String 형태) |
+| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ## 비대칭키
 
