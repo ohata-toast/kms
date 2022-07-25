@@ -165,9 +165,9 @@ Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청�
 #### 승인 요청 작성
 승인자와 요청자는 키 저장소 관리 탭에서 키 저장소 별로 변경 내용을 승인 요청 할 수 있습니다. 기존의 키 저장소와 유사한 동작을 통해 추가/수정/삭제를 진행합니다. 키, 인증 정보의 변경 상태에 대해서는 다음과 같이 상태에 표시 됩니다.
 
-![console-guide-approval-05](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-05.png)
+![console-guide-approval-10](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-10.png)
 
-![console-guide-approval-06](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-06.png)
+![console-guide-approval-11](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-11.png)
 
 키 저장소의 승인 요청 버튼을 통해 승인 요청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭에서 확인할 수 있습니다.
 
