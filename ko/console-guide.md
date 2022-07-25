@@ -149,12 +149,12 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 ![console-guide-approval-01](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-01.png)
 
 #### 승인 프로세스 역할 설정
-Secure Key Manager 프로젝트의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 프로세스를 진행합니다.
+Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 프로세스를 진행합니다.
 
 ![console-guide-approval-02](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-02.png)
 
 #### 기존 프로젝트와 승인 프로세스의 다른점
-Secure Key Manager의 승인 프로젝트 권한을 획득 후 프로젝트를 확인해보면 **승인리스트**, **키 저장소 관리** 탭이 추가된 것을 확인 할 수 있습니다. 두 탭은 승인자, 요청자만 접근 가능합니다.
+승인 프로세스를 활성화하고 승인자 또는 요청자 역할을 획득 후, Secure Key Manager를 확인해보면 **승인리스트**, **키 저장소 관리** 탭이 추가된 것을 확인 할 수 있습니다. 두 탭은 승인자, 요청자만 접근 가능합니다.
 
 ![console-guide-approval-03](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-03.png)
 
@@ -169,7 +169,7 @@ Secure Key Manager의 승인 프로젝트 권한을 획득 후 프로젝트를 �
 
 ![console-guide-approval-06](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-06.png)
 
-키 저장소의 apply 버튼을 통해 승인 요청 신청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭을 통해서 확인할 수 있습니다.
+키 저장소의 apply 버튼을 통해 승인 요청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭에서 확인할 수 있습니다.
 
 ![console-guide-approval-07](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-07.png)
 
