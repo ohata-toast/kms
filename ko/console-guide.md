@@ -149,7 +149,7 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 ![console-guide-approval-01](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-01.png)
 
 #### 승인 기능 역할 설정
-Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 프로세스를 진행합니다.
+Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 절차를 진행합니다.
 
 ![console-guide-approval-02](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-02.png)
 
@@ -163,13 +163,13 @@ Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청�
 ![console-guide-approval-04](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-04.png)
 
 #### 승인 요청 작성
-승인자와 요청자는 키 저장소 관리 탭에서 키 저장소 별로 변경점을 승인 요청 할 수 있습니다. 기존의 키 저장소와 유사한 동작을 통해 추가/수정/삭제를 진행합니다. 키, 인증 정보의 변경 상태에 대해서는 다음과 같이 상태에 표시 됩니다.
+승인자와 요청자는 키 저장소 관리 탭에서 키 저장소 별로 변경 내용을 승인 요청 할 수 있습니다. 기존의 키 저장소와 유사한 동작을 통해 추가/수정/삭제를 진행합니다. 키, 인증 정보의 변경 상태에 대해서는 다음과 같이 상태에 표시 됩니다.
 
 ![console-guide-approval-05](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-05.png)
 
 ![console-guide-approval-06](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-06.png)
 
-키 저장소의 apply 버튼을 통해 승인 요청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭에서 확인할 수 있습니다.
+키 저장소의 승인 요청 버튼을 통해 승인 요청을 하게 되고 해당 프로젝트의 승인 요청들은 승인리스트 탭에서 확인할 수 있습니다.
 
 ![console-guide-approval-07](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-07.png)
 
@@ -181,9 +181,3 @@ Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청�
 승인을 누르는 즉시 키 저장소에 반영 됩니다. 키 저장소 또는 키 저장소 관리 탭을 통하여 변경 사항을 확인할 수 있습니다.
 
 ![console-guide-approval-09](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-09.png)
-
-
-https://github.com/TOAST-DOCS/kms/blob/alpha/ja/api-guide-v1.0.md
-https://github.com/TOAST-DOCS/kms/blob/alpha/ja/console-guide.md
-https://github.com/TOAST-DOCS/kms/blob/alpha/ja/release-notes.md
-https://github.com/TOAST-DOCS/kms/blob/alpha/ja/overview.md
