@@ -5,7 +5,7 @@
 - **키 생성**
 - **인증 정보 등록**
 - **사용자 데이터 관리**
-- **승인 프로세스**
+- **승인 기능**
 
 ### 키 저장소 생성
 Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합니다. 키 저장소가 없으면 다음과 같은 화면이 나타납니다.
@@ -141,24 +141,24 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2021-10-26/console-guide-02.png)
 
-### 승인 프로세스
+### 승인 기능
 
-#### 승인 프로세스 활성화
-조직 관리 화면의 거버넌스 설정에서 승인 프로세스 활성화를 통해 Secure Key Manager의 승인 프로세스를 활성화 합니다.
+#### 승인 기능 활성화
+조직 관리 화면의 거버넌스 설정에서 승인 프로세스 활성화를 통해 Secure Key Manager의 승인 기능을 활성화 합니다.
 
 ![console-guide-approval-01](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-01.png)
 
-#### 승인 프로세스 역할 설정
+#### 승인 기능 역할 설정
 Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청자(APPROVAL MEMBER) 역할을 획득하여 승인 프로세스를 진행합니다.
 
 ![console-guide-approval-02](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-02.png)
 
-#### 기존 프로젝트와 승인 프로세스의 다른점
-승인 프로세스를 활성화하고 승인자 또는 요청자 역할을 획득 후, Secure Key Manager를 확인해보면 **승인리스트**, **키 저장소 관리** 탭이 추가된 것을 확인 할 수 있습니다. 두 탭은 승인자, 요청자만 접근 가능합니다.
+#### 승인 기능 활성화 여부에 따른 차이점
+승인 기능을 활성화하고 승인자 또는 요청자 역할을 획득 후, Secure Key Manager를 확인해보면 **승인리스트**, **키 저장소 관리** 탭이 추가된 것을 확인 할 수 있습니다. 두 탭은 승인자, 요청자만 접근 가능합니다.
 
 ![console-guide-approval-03](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-03.png)
 
-승인 프로세스를 활성화 하게되면 더이상 키 저장소에서 데이터를 추가/수정/삭제 할 수 없게되며, 변경 요청시 키 저장소 관리 탭으로 이동하게 됩니다.
+승인 기능을 활성화 하게되면 더이상 키 저장소에서 데이터를 추가/수정/삭제 할 수 없게되며, 변경 요청시 키 저장소 관리 탭으로 이동하게 됩니다.
 
 ![console-guide-approval-04](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-04.png)
 
@@ -181,3 +181,9 @@ Secure Key Manager의 멤버 관리을 통해 승인자(APPROVAL ADMIN), 요청�
 승인을 누르는 즉시 키 저장소에 반영 됩니다. 키 저장소 또는 키 저장소 관리 탭을 통하여 변경 사항을 확인할 수 있습니다.
 
 ![console-guide-approval-09](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-09.png)
+
+
+https://github.com/TOAST-DOCS/kms/blob/alpha/ja/api-guide-v1.0.md
+https://github.com/TOAST-DOCS/kms/blob/alpha/ja/console-guide.md
+https://github.com/TOAST-DOCS/kms/blob/alpha/ja/release-notes.md
+https://github.com/TOAST-DOCS/kms/blob/alpha/ja/overview.md
