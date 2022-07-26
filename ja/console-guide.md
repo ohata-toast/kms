@@ -5,6 +5,7 @@
 - **キーの作成**
 - **認証情報の登録**
 - **ユーザーデータの管理**
+'- **承認機能**
 
 ### キー保存場所の作成
 Secure Key Managerは、キー保存場所の単位として認証情報とキーを管理します。キー保存場所がない場合は次のような画面が表示されます。
@@ -139,3 +140,44 @@ Secure Key Managerでは対称鍵/非対称鍵を更新できます。次の図�
 例外としてキーのインポートを行って作成したキーはSecure Key Managerで作成した対称鍵とは異なり、更新機能を提供しません。照会時、次のようにキー更新領域が存在しません。
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2021-10-26/console-guide-02.png)
+
+### 承認機能
+
+#### 承認機能の有効化
+組織管理画面のガバナンス設定で承認プロセス管理設定を利用してSecure Key Managerの承認機能を有効にします。
+
+![console-guide-approval-01](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-01.png)
+
+#### 承認機能役割設定
+Secure Key Managerのメンバー管理から承認者(APPROVAL ADMIN)、要請者(APPROVAL MEMBER)の役割を取得して承認手続きを進めます。
+
+![console-guide-approval-02](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-02.png)
+
+#### 承認機能を有効にしたときの違い
+承認機能を有効にして承認者または要請者の役割を取得すると、Secure Key Managerに**承認リスト**と**キー保存場所管理**タブが追加されます。2つのタブは承認者、要請者のみアクセスできます。
+
+![console-guide-approval-03](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-03.png)
+
+承認機能を有効にすると、キー保存場所でデータを追加、修正、削除できなくなり、変更リクエストを行うとキー保存場所管理タブに移動します。
+
+![console-guide-approval-04](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-04.png)
+
+#### 承認リクエスト作成
+承認者と要請者は、キー保存場所管理タブでキー保存場所ごとに変更内容を承認リクエストできます。既存のキー保存場所と似た動作で追加、修正、削除を進めます。キー、認証情報の変更状態については次のように状態に表示されます。
+
+![console-guide-approval-10](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-10.png)
+
+![console-guide-approval-11](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-11.png)
+
+キー保存場所の承認リクエストボタンで承認をリクエストし、該当プロジェクトの承認リクエストは承認リストタブで確認できます。
+
+![console-guide-approval-07](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-07.png)
+
+#### 承認リクエストの反映
+承認者は、承認リストからキー保存場所の変更承認リクエストを確認し、承認または拒否を選択して反映するかどうかを決定します。
+
+![console-guide-approval-08](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-08.png)
+
+承認を押すとすぐにキー保存場所に反映されます。キー保存場所またはキー保存場所管理タブで変更内容を確認できます。
+
+![console-guide-approval-09](http://static.toastoven.net/prod_kms/2022-07-26/console-guide-09.png)
