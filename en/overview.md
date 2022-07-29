@@ -27,9 +27,9 @@ Secure Key Manager provides features to manage user's asymmetric keys that can b
 
 #### Access Control
 Secure Key Manager provides various authentication methods to protect user data. Only the clients that pass the authentication can access data stored in Secure Key Manager. The authentication methods are categorized into 'IPv4 Address Authentication' that checks client's IPv4 address, 'MAC Address Authentication' that checks client's MAC address, and 'Client Certificate Authentication' that checks client's certificate used for communication. The user must select at least one authentication method, and if more than one is selected, the client must pass all authentications.
+
 #### Approval Feature
 To meet the secure encryption key management requirements required by domestic and foreign security certification audits (ISMS-P, ISO, etc.), a manager's approval procedure can be added for key creation, modification, deletion, and access control.
-
 
 ### Structure of Service
 To store user data securely, Secure Key Manager internally applies two encryption keys, root key and system key. Root Key is used to protect the system key, while system key is to protect user data. System Key is encrypted with Root Key and stored at the system key management server of Secure Key Manager. The Secure Key Manager server goes through authentication process during the start of the service, and retrieves encrypted system key from the system key management server of Secure Key Manager. When it is decrypted by using the root key, system key becomes available for the system key processing module. To access user data stored in Secure Key Manager abnormally, all of root key, system key, and user data must be acquired from three physically separated systems.
