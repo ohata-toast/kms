@@ -11,7 +11,7 @@ Secure Key Manager is a service to store user's important data securely and cont
     * Control data access by using client's MAC address
     * Control data access by using client's certificate
 * Approval Feature
-    * Manage changes to data and data access control through approvers and requester
+    * Manage changes to data and data access control through approvers and requesters
 
 ### Feature Description
 Secure Key Manager provides features to store user's important data securely and control access permission. Confidential data, symmetric keys, and asymmetric keys can be managed by Secure Key Manager.
