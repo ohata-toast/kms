@@ -15,6 +15,8 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 | GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인키를 조회합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개키를 조회합니다. |
 
 [API 요청의 HTTP 헤더]
 
@@ -315,4 +317,79 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+
+### 개인키 조회
+
+Secure Key Manager에 저장한 비대칭키 중 개인키를 조회할 수 있습니다.
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyVersion | Number | 조회하려는 비대칭키 버전 |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PrivateKey",
+        "key": "0x30, 0x82, 0x04, 0xbe, 0x02, 0x01, 0x00, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x04, 0x82, 0x04, 0xa8, 0x30, 0x82, 0x04, 0xa4, 0x02, 0x01, 0x00, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2,
+                ... 후략 ...",
+        "encodedKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCLB47ax4OVyEOnuDFv9iU2iWTFOHVLpoD+fMVqlPJiiuJSwi5x/zd3LojWuUyr+dZ9Icxl23Alu4GwwKgUi4DL8qo8jD14THJoeUgIZ56wmYMvN+CkNnmkyqcGn6yT+AXtBJVGqS/2lssHLIGELi8XXkWdf6OBfig6HgsJAnix8Z+T/QdikEFUI5ZiuUWyHw2Bag9B4CoPF2EgXfu5HcW4GA4KH2PI92O4vNg8AmFVDk2E+ma2quSau7LjS3KY9s3Sq+JqvTPZmqHQJudv9ZYcnbyDG/
+                       ... 후략 ...",
+        "keyVersion": 0
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyType | String | 비대칭키 형태 |
+| key | String | 개인키 데이터(Hex String 형태) |
+| encodedKey | String | 개인키 데이터(base64 인코딩 형태) |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+
+### 공개키 조회
+
+Secure Key Manager에 저장한 비대칭키 중 공개키를 조회할 수 있습니다.
+인증에 상관없이 조회 가능합니다.
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyVersion | Number | 조회하려는 대칭키 버전 |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PublicKey",
+        "key": "0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00, 0x30, 0x82, 0x01, 0x0a, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2, 0x62, 0x8a, 0xe2, 0x52, 0xc2,
+                ... 후략 ...",
+        "encodedKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweO2seDlchDp7gxb/YlNolkxTh1S6aA/nzFapTyYoriUsIucf83dy6I1rlMq/nWfSHMZdtwJbuBsMCoFIuAy/KqPIw9eExyaHlICGeesJmDLzfgpDZ5pMqnBp+sk/gF7QSVRqkv9pbLByyBhC4vF15FnX+jgX4oOh4LCQJ4sfGfk/0HYpBBVCOWYrlFsh8NgWoPQeAqDxdhIF37uR3FuBgOCh9jyPdjuLzYPAJhVQ5NhPpmtqrkmruy40tymPbN0qviar0z2Zqh0Cbnb/WWHJ28gxv+d+iJCXJvm+fIg7hRYJ5C+mun/N6FB8QHv/
+                       ... 후략 ...",
+        "keyVersion": 0
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyType | String | 비대칭키 형태 |
+| key | String | 공개키 데이터(Hex String 형태) |
+| encodedKey | String | 공개키 데이터(base64 인코딩 형태) |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
