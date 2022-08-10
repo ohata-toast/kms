@@ -15,8 +15,8 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 | GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인키를 조회합니다. |
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개키를 조회합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인 키를 조회합니다. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개 키를 조회합니다. |
 
 [API 요청의 HTTP 헤더]
 
@@ -216,7 +216,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| symmetricKey | String | 대칭키 데이터(Hex String 형태) |
+| symmetricKey | String | 대칭키 데이터(16진수 문자열 형태) |
 
 #### v1.1
 
@@ -244,7 +244,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.1/appkey/{appkey}/symme
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| symmetricKey | String | 대칭키 데이터(Hex String 형태) |
+| symmetricKey | String | 대칭키 데이터(16진수 문자열 형태) |
 | keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
 
 ## 비대칭키
@@ -319,9 +319,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
 | result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
 
-### 개인키 조회
+### 개인 키 조회
 
-Secure Key Manager에 저장한 비대칭키 중 개인키를 조회할 수 있습니다.
+Secure Key Manager에 저장한 비대칭키 중 개인 키를 조회할 수 있습니다.
 
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
@@ -352,13 +352,13 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyType | String | 비대칭키 형태 |
-| key | String | 개인키 데이터(Hex String 형태) |
-| encodedKey | String | 개인키 데이터(base64 인코딩 형태) |
+| key | String | 개인 키 데이터(16진수 문자열 형태) |
+| encodedKey | String | 개인 키 데이터(Base64 인코딩 형태) |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
 
-### 공개키 조회
+### 공개 키 조회
 
-Secure Key Manager에 저장한 비대칭키 중 공개키를 조회할 수 있습니다.
+Secure Key Manager에 저장한 비대칭키 중 공개 키를 조회할 수 있습니다.
 인증에 상관없이 조회 가능합니다.
 
 ```
@@ -390,6 +390,6 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyType | String | 비대칭키 형태 |
-| key | String | 공개키 데이터(Hex String 형태) |
-| encodedKey | String | 공개키 데이터(base64 인코딩 형태) |
+| key | String | 공개 키 데이터(16진수 문자열 형태) |
+| encodedKey | String | 공개 키 데이터(Base64 인코딩 형태) |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
