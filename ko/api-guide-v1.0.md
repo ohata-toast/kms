@@ -359,7 +359,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 ### 공개 키 조회
 
 Secure Key Manager에 저장한 비대칭키 중 공개 키를 조회할 수 있습니다.
-인증에 상관없이 조회 가능합니다.
+인증에 상관없이 조회할 수 있습니다.
 
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
