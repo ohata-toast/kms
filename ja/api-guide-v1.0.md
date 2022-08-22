@@ -15,6 +15,8 @@ Secure Key Managerは、ユーザーデータにアクセスできる多様なAP
 | GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Managerに保存した非対称鍵でデータを署名します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Managerに保存した秘密鍵を照会します。 |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Managerに保存した公開鍵を照会します。 |
 
 [APIリクエストのHTTPヘッダ]
 
@@ -214,8 +216,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
 ```
 | 名前 | タイプ | 説明 |
 |---|---|---|
-
-| symmetricKey | String | 対称鍵データ(Hex String形式) |
+| symmetricKey | String | 対称鍵データ(16進数文字列形式) |
 
 #### v1.1
 
@@ -243,7 +244,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.1/appkey/{appkey}/symme
 ```
 | 名前 | タイプ | 説明 |
 |---|---|---|
-| symmetricKey | String | 対称鍵データ(Hex String形式) |
+| symmetricKey | String | 対称鍵データ(16進数文字列形式) |
 | keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
 
 ## 非対称鍵
@@ -317,3 +318,78 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
 |---|---|---|
 | result | Boolean | 非対称鍵でデータと署名値を検証した結果 |
 | keyVersion | Number | APIリクエスト処理に使用した非対称鍵バージョン |
+
+### 秘密鍵照会
+
+Secure Key Managerに保存した非対称鍵のうち、秘密鍵を照会できます。
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyVersion | Number | 照会する非対称鍵バージョン |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PrivateKey",
+        "key": "0x30, 0x82, 0x04, 0xbe, 0x02, 0x01, 0x00, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x04, 0x82, 0x04, 0xa8, 0x30, 0x82, 0x04, 0xa4, 0x02, 0x01, 0x00, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2,
+                ... 後略 ...",
+        "encodedKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCLB47ax4OVyEOnuDFv9iU2iWTFOHVLpoD+fMVqlPJiiuJSwi5x/zd3LojWuUyr+dZ9Icxl23Alu4GwwKgUi4DL8qo8jD14THJoeUgIZ56wmYMvN+CkNnmkyqcGn6yT+AXtBJVGqS/2lssHLIGELi8XXkWdf6OBfig6HgsJAnix8Z+T/QdikEFUI5ZiuUWyHw2Bag9B4CoPF2EgXfu5HcW4GA4KH2PI92O4vNg8AmFVDk2E+ma2quSau7LjS3KY9s3Sq+JqvTPZmqHQJudv9ZYcnbyDG/
+                       ... 後略 ...",
+        "keyVersion": 0
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyType | String | 非対称鍵形式 |
+| key | String | 秘密鍵データ(16進数文字列形式) |
+| encodedKey | String | 秘密鍵データ(Base64エンコード形式) |
+| keyVersion | Number | APIリクエスト処理に使用した非対称鍵のバージョン |
+
+### 公開鍵照会
+
+Secure Key Managerに保存した非対称鍵のうち、公開鍵を照会できます。
+認証に関係なく照会できます。
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyVersion | Number | 照会する対称鍵のバージョン |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PublicKey",
+        "key": "0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00, 0x30, 0x82, 0x01, 0x0a, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2, 0x62, 0x8a, 0xe2, 0x52, 0xc2,
+                ... 後略 ...",
+        "encodedKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweO2seDlchDp7gxb/YlNolkxTh1S6aA/nzFapTyYoriUsIucf83dy6I1rlMq/nWfSHMZdtwJbuBsMCoFIuAy/KqPIw9eExyaHlICGeesJmDLzfgpDZ5pMqnBp+sk/gF7QSVRqkv9pbLByyBhC4vF15FnX+jgX4oOh4LCQJ4sfGfk/0HYpBBVCOWYrlFsh8NgWoPQeAqDxdhIF37uR3FuBgOCh9jyPdjuLzYPAJhVQ5NhPpmtqrkmruy40tymPbN0qviar0z2Zqh0Cbnb/WWHJ28gxv+d+iJCXJvm+fIg7hRYJ5C+mun/N6FB8QHv/
+                       ... 後略 ...",
+        "keyVersion": 0
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyType | String | 非対称鍵形式 |
+| key | String | 公開鍵データ(16進数文字列形式) |
+| encodedKey | String | 公開鍵データ(Base64エンコード形式) |
+| keyVersion | Number | APIリクエスト処理に使用した非対称鍵のバージョン |
