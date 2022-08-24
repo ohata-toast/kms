@@ -1,5 +1,11 @@
 ## Security > Secure Key Manager > Release Notes
 
+### July 26, 2022
+#### Added Approval Feature
+* Added a feature to approve major changes such as key creation, modification, deletion, and changes to access control for key store
+#### Added a new version of Symmetric Key Query Feature
+* Added a feature to query the symmetric key for each key version
+
 ### November 23, 2021
 #### Added a Symmetric Key Query Feature
 * Added a feature to query the symmetric key

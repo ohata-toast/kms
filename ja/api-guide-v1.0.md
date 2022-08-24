@@ -12,7 +12,7 @@ Secure Key Managerは、ユーザーデータにアクセスできる多様なAP
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Managerに保存した対称鍵でデータを暗号化します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Managerに保存した対称鍵でデータを復号します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | クライアントがローカル環境でデータの暗号化/復号に使用できるAES-256対称鍵を作成します。|
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
+| GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Managerに保存した非対称鍵でデータを署名します。|
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
 
@@ -194,6 +194,9 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ### 対称鍵照会
 
 Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
+
+#### v1.0
+
 ```
 GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
@@ -211,7 +214,37 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
 ```
 | 名前 | タイプ | 説明 |
 |---|---|---|
-|symmetricKey | String | 対称鍵データ(Hex String形式) |
+
+| symmetricKey | String | 対称鍵データ(Hex String形式) |
+
+#### v1.1
+
+```
+GET https://api-keymanager.cloud.toast.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion=1
+```
+
+[Request Parameter]
+
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyVersion | Number | 照会する対称鍵のバージョン |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20",
+        "keyVersion": 1
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| symmetricKey | String | 対称鍵データ(Hex String形式) |
+| keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
 
 ## 非対称鍵
 
