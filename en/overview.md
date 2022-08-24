@@ -4,14 +4,12 @@ Secure Key Manager is a service to store user's important data securely and cont
 ### Main Features
 * Data Management
     * Register, manage, and query confidential data
-    * Create, manage, and rotate symmetric keys, or encrypt, decrypt, and query data
-    * Create, manage, and rotate asymmetric keys, or sign, verify, and query data
+    * Create, manage, and rotate symmetric keys, or encrypt/decrypt data
+    * Create, manage, and rotate asymmetric keys, or sign/verify data
 * Data Access Control
     * Control data access by using client's IPv4 address
     * Control data access by using client's MAC address
     * Control data access by using client's certificate
-* Approval Feature
-    * Manage changes to data and data access control through approvers and requesters
 
 ### Feature Description
 Secure Key Manager provides features to store user's important data securely and control access permission. Confidential data, symmetric keys, and asymmetric keys can be managed by Secure Key Manager.
@@ -20,16 +18,13 @@ Secure Key Manager provides features to store user's important data securely and
 Secure Key Manager provides features to manage data that may be exposed to security threats if they are under client's direct management, such as database access information, or Appkey for API calls. Users can register 32KB or smaller text data as confidential data. Only the clients that pass the user-configured authentication method can access the registered confidential data. Regarding the use of confidential data management, see "Reference- Managing Database Access Information with Confidential Data Management of Secure Key Manager".
 
 #### Symmetric Key Management
-Secure Key Manager provides features to manage user symmetric keys that can be used to encrypt/decrypt data. Users can create and store symmetric keys in Secure Key Manager. Clients that pass the user-configured authentication method can encrypt or decrypt 32KB or smaller text data by using user symmetric keys stored in Secure Key Manager. User symmetric keys are never directly exposed to clients, but are available only for use through APIs. Therefore, user symmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user symmetric key values can be updated without changing clients. Regarding the use of symmetric key management, see "Reference- Envelope Encryption with Symmetric Key Management of Secure Key Manager".
+Secure Key Manager provides features to manage user symmetric keys that can be used to encrypt/decrypt data. Users can create and store symmetric keys in Secure Key Manager. Clients that pass the user-configured authentication method can encrypt or decrypt 32KB or smaller text data by using user symmetric keys stored in Secure Key Manager. User symmetric keys are never directly exposed to clients, but are available only for indirect use through APIs. Therefore, user symmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user symmetric key values can be updated without changing clients. Regarding the use of symmetric key management, see "Reference- Envelope Encryption with Symmetric Key Management of Secure Key Manager".
 
 #### Asymmetric Key Management
-Secure Key Manager provides features to manage user's asymmetric keys that can be used to sign/verify data. Users can create and store user asymmetric keys in Secure Key Manager. Clients that pass the user-configured authentication method can sign/verify 245 Byte or smaller text data by using user asymmetric keys stored in Secure Key Manager. User asymmetric keys are never directly exposed to clients, but are available only for use through APIs. Therefore, user asymmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user asymmetric key values can be updated without changing clients.
+Secure Key Manager provides features to manage user's asymmetric keys that can be used to sign/verify data. Users can create and store user asymmetric keys in Secure Key Manager. Clients that pass the user-configured authentication method can sign/verify 245 Byte or smaller text data by using user asymmetric keys stored in Secure Key Manager. User asymmetric keys are never directly exposed to clients, but are available only for indirect use through APIs. Therefore, user asymmetric keys can be protected without being exposed to outside. In addition, by using the key rotation feature of Secure Key Manager, user asymmetric key values can be updated without changing clients.
 
 #### Access Control
 Secure Key Manager provides various authentication methods to protect user data. Only the clients that pass the authentication can access data stored in Secure Key Manager. The authentication methods are categorized into 'IPv4 Address Authentication' that checks client's IPv4 address, 'MAC Address Authentication' that checks client's MAC address, and 'Client Certificate Authentication' that checks client's certificate used for communication. The user must select at least one authentication method, and if more than one is selected, the client must pass all authentications.
-
-#### Approval Feature
-To meet the secure encryption key management requirements required by domestic and foreign security certification audits (ISMS-P, ISO, etc.), a manager's approval procedure can be added for key creation, modification, deletion, and access control.
 
 ### Structure of Service
 To store user data securely, Secure Key Manager internally applies two encryption keys, root key and system key. Root Key is used to protect the system key, while system key is to protect user data. System Key is encrypted with Root Key and stored at the system key management server of Secure Key Manager. The Secure Key Manager server goes through authentication process during the start of the service, and retrieves encrypted system key from the system key management server of Secure Key Manager. When it is decrypted by using the root key, system key becomes available for the system key processing module. To access user data stored in Secure Key Manager abnormally, all of root key, system key, and user data must be acquired from three physically separated systems.
