@@ -1,6 +1,6 @@
 ## Security > Secure Key Manager > Release Notes
 
-### September 20, 2022
+### September 27, 2022
 #### Added an Asymmetric Key Query Feature
 * Added a feature to query the asymmetric key for each key version
 
