@@ -216,7 +216,6 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symme
 ```
 | 名前 | タイプ | 説明 |
 |---|---|---|
-
 | symmetricKey | String | 対称鍵データ(16進数文字列形式) |
 
 #### v1.1
