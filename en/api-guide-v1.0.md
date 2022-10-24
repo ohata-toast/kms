@@ -368,7 +368,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 
 | Name | Type | Description |
 |---|---|---|
-| keyVersion | Number | Version of symmetric key to query |
+| keyVersion | Number | Version of asymmetric key to query |
 
 [Response Body]
 ```
