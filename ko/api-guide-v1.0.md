@@ -369,7 +369,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyVersion | Number | 조회하려는 대칭키 버전 |
+| keyVersion | Number | 조회하려는 비대칭키 버전 |
 
 [Response Body]
 ```
