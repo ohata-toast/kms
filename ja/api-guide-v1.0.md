@@ -331,7 +331,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymm
 
 | 名前 | タイプ | 説明 |
 |---|---|---|
-| keyVersion | Number | 照会する非対称鍵バージョン |
+| keyVersion | Number | 照会する非対称鍵のバージョン |
 
 [Response Body]
 ```
