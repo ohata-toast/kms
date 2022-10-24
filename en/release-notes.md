@@ -1,5 +1,11 @@
 ## Security > Secure Key Manager > Release Notes
 
+### October 25, 2022
+#### Fixed Total Appkey Error
+* Fixed an issue where calling APIs with a project total appkey does not work properly.
+#### Fixed Approval Feature Error
+* Fixed an issue where deletion does not work properly for each key version when using approval feature 
+
 ### September 27, 2022
 #### Added an Asymmetric Key Query Feature
 * Added a feature to query the asymmetric key for each key version
