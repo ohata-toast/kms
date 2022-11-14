@@ -1,5 +1,12 @@
 ## Security > Secure Key Manager > Release Notes
 
+### November 29, 2022
+#### Improved Approval Feature and Fixed an Error
+* Modified an error message that occurs while using the approval feature so that it is more understandable
+* Fixed an issue where, when initially adding a key store while using the approval feature, it is added without approval procedure
+#### Fixed Certificate Authentication Error
+* Fixed an issue where certificate authentication fails intermittently
+
 ### October 25, 2022
 #### Fixed Total Appkey Error
 * Fixed an issue where calling APIs with a project total appkey does not work properly.
