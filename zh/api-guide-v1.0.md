@@ -51,7 +51,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 ### Query Client Information
 This API is used to query information of the client that called API.
 ```
-GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confirm
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
 [Response Body]
 
@@ -76,7 +76,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/confi
 ### Query Confidential Data
 This API is used to query confidential data stored in Secure Key Manager.
 ```
-GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
 ```
 
 [Response Body]
@@ -97,7 +97,7 @@ GET https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/secre
 ### Encrypt Symmetric Keys
 This API is used to encrypt data with the symmetric key created in Secure Key Manager. A user can pass 32KB or smaller text data, and the data can be encrypted with the symmetric key stored in Secure Key Manager.
 ```
-POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
 [Request Body]
@@ -131,7 +131,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ## Decrypt Symmetric Keys
 This API is used to decrypt data with the symmetric key created in Secure Key Manager. A use can pass encrypted text, and the text data can be decrypted with the symmetric key stored in Secure Key Manager.
 ```
-POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
 [Request Body]
@@ -164,7 +164,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ### Generate Local Symmetric Keys Encrypted with the Symmetric Key
 This API is used to create AES-256 symmetric keys that a client can use in local environment. localKeyPlaintext is a base64-encoded form of the generated symmetric key, and it is readily available after base64 decoding. localKeyCiphertext is a base64-encoded form of the generated symmetric key encrypted with the symmetric key stored in Secure Key Manager, and it is used to store data in a storage. The symmetric key stored in storage can be used after being decrypted by using the decryption API.
 ```
-POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
 [Response Body]
@@ -189,7 +189,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/symm
 ### Sign with the Asymmetric Key
 This API is used to sign data with the asymmetric key created in Secure Key Manager. Users can pass 245 Byte or smaller text data, and the data is signed with the asymmetric key stored in Secure Key Manager.
 ```
-POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
 [Request Body]
@@ -222,7 +222,7 @@ POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asym
 ### Verify Data with the Asymmetric Key
 This API is used to verify data with the asymmetric key created in Secure Key Manager. User can pass data and signature value, and use asymmetric keys stored in Secure Key Manager to verify that data has not been forged.
 ```
-POST https://api-keymanager.cloud.toast.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
 [Request Body]
