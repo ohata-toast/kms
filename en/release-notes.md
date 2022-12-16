@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### December 27, 2022
+#### Changed API Domain
+* Changed the SecureKeyManager API domain from `api-keymanager.cloud.toast.com` to `api-keymanager.nhncloudservice.com`
+
 ### November 29, 2022
 #### Improved Approval Feature and Fixed an Error
 * Modified an error message that occurs while using the approval feature so that it is more understandable
