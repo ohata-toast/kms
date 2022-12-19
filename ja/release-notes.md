@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > リリースノート
 
+### 2022. 12. 27.
+#### APIドメイン変更
+* SecureKeyManager APIドメインを`api-keymanager.cloud.toast.com`から`api-keymanager.nhncloudservice.com`に変更
+
 ### 2022. 11. 29.
 #### 承認機能の改善とエラー修正
 * 承認機能の使用中に発生するエラーメッセージの文言を理解しやすくしました
