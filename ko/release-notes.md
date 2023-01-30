@@ -1,5 +1,13 @@
 ## Security > Secure Key Manager > 릴리스 노트
 
+### 2023. 01. 31.
+#### 승인 기능 개선 및 오류 수정
+* 승인 기능 사용 중 기밀 데이터 수정 화면에 진입 시 데이터 영역이 빈 칸으로 표시되도록 수정
+* 승인 기능 사용 중 기밀 데이터를 수정한 뒤 수정된 데이터가 표시되도록 수정
+
+#### 문구 수정
+* 키 저장소 관리 탭에서 MAC 주소의 툴팁 문구에 MAC 주소가 아닌 IPv4로 표시되는 문제 수정
+
 ### 2022. 12. 27.
 #### API 도메인 변경
 * SecureKeyManager API 도메인을 `api-keymanager.cloud.toast.com`에서 `api-keymanager.nhncloudservice.com`으로 수정

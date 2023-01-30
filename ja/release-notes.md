@@ -1,5 +1,13 @@
 ## Security > Secure Key Manager > リリースノート
 
+### 2023. 01. 31.
+#### 承認機能改善およびエラー修正
+* 承認機能使用中に機密データ修正画面に移動した時、データ領域が空で表示されるように修正
+* 承認機能使用中に機密データを修正した後、修正されたデータが表示されるように修正
+
+#### 文言修正
+* キーストア管理タブでMACアドレスのツールチップ文言にMACアドレスではなくIPv4が表示される問題を修正
+
 ### 2022. 12. 27.
 #### APIドメイン変更
 * SecureKeyManager APIドメインを`api-keymanager.cloud.toast.com`から`api-keymanager.nhncloudservice.com`に変更

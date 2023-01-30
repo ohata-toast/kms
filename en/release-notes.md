@@ -1,5 +1,13 @@
 ## Security > Secure Key Manager > Release Notes
 
+### January 31, 2023
+#### Improved Approval Feature and Fixed an Error
+* Modified the feature so that, when entering the confidential data editing screen while using the approval feature, the data area is displayed as blank
+* Modified the feature so that the edited data is displayed after editing the confidential data
+
+#### Changed Messages
+* Fixed an issue where the tooltip messages for MAC address is displayed as IPv4, not MAC address on the key store management tab.
+
 ### December 27, 2022
 #### Changed API Domain
 * Changed the SecureKeyManager API domain from `api-keymanager.cloud.toast.com` to `api-keymanager.nhncloudservice.com`
