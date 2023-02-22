@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### February 28, 2023
+#### Fixed Template File Download Error
+* Fixed an issue where bulk registration template file is downloaded as a template in the wrong format
+
 ### January 31, 2023
 #### Improved Approval Feature and Fixed an Error
 * Modified the feature so that, when entering the confidential data editing screen while using the approval feature, the data area is displayed as blank
