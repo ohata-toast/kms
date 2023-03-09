@@ -1,5 +1,48 @@
 ## Security > Secure Key Manager > Release Notes
 
+### February 28, 2023
+#### Fixed Template File Download Error
+* Fixed an issue where bulk registration template file is downloaded as a template in the wrong format
+
+### January 31, 2023
+#### Improved Approval Feature and Fixed an Error
+* Modified the feature so that, when entering the confidential data editing screen while using the approval feature, the data area is displayed as blank
+* Modified the feature so that the edited data is displayed after editing the confidential data
+
+#### Changed Messages
+* Fixed an issue where the tooltip messages for MAC address is displayed as IPv4, not MAC address on the key store management tab.
+
+### December 27, 2022
+#### Changed API Domain
+* Changed the SecureKeyManager API domain from `api-keymanager.cloud.toast.com` to `api-keymanager.nhncloudservice.com`
+
+### November 29, 2022
+#### Improved Approval Feature and Fixed an Error
+* Modified an error message that occurs while using the approval feature so that it is more understandable
+* Fixed an issue where, when initially adding a key store while using the approval feature, it is added without approval procedure
+#### Fixed Certificate Authentication Error
+* Fixed an issue where certificate authentication fails intermittently
+
+### October 25, 2022
+#### Fixed Total Appkey Error
+* Fixed an issue where calling APIs with a project total appkey does not work properly.
+#### Fixed Approval Feature Error
+* Fixed an issue where deletion does not work properly for each key version when using approval feature 
+
+### September 27, 2022
+#### Added an Asymmetric Key Query Feature
+* Added a feature to query the asymmetric key for each key version
+
+### July 26, 2022
+#### Added Approval Feature
+* Added a feature to approve major changes such as key creation, modification, deletion, and changes to access control for key store
+#### Added a new version of Symmetric Key Query Feature
+* Added a feature to query the symmetric key for each key version
+
+### November 23, 2021
+#### Added a Symmetric Key Query Feature
+* Added a feature to query the symmetric key
+
 ### October 26, 2021
 #### Added a Key Import Feature
 * Added a symmetric key import feature
