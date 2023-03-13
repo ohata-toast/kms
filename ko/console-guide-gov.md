@@ -47,7 +47,7 @@ Secure Key Manager는 키를 3가지 유형으로 구분합니다. 기밀 데이
 ![console-guide-09](http://static.toastoven.net/prod_kms/2023-03-28/console-guide-09.png)
 
 ### 키 가져오기
-Secure Key Manager는 대칭키(AES-256)를 가져오는 기능을 지원합니다.
+Secure Key Manager는 대칭키를 가져오는 기능을 지원합니다.
 
 ![console-guide-27](http://static.toastoven.net/prod_kms/2023-03-28/console-guide-10.png)
 
@@ -57,7 +57,7 @@ Secure Key Manager는 대칭키(AES-256)를 가져오는 기능을 지원합니�
 0xXX, 0xXX, ..., 0xXX
 ```
 
-위와 같은 32개의 Hex String을 쉼표(`,`) 혹은 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
+위와 같은 형태로 Hex String을 쉼표(`,`) 혹은 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
 
 ### 인증 정보 등록
 Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만 사용할 수 있습니다. 클라이언트 인증에 사용하는 인증 정보는 **IPv4 주소 관리**, **MAC 주소 관리**, **인증서 관리** 메뉴에서 등록합니다.
