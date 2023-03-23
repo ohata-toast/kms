@@ -158,26 +158,26 @@ When you obtain the approver or requester role after enabling the approval featu
 
 ![console-guide-31](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-31.png)
 
-When you enable the approval feature, data can no longer be added, modified, or deleted in the key store. When requesting for change, move to the Key Store Management tab.
+When you enable the approval feature, data can no longer be added, modified, or deleted in the key store. When requesting for change, move to the **Key Store Management** tab.
 
 ![console-guide-32](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-32.png)
 
 #### Make Approval Requests
-On the Key Store Management tab, the approver and requester make a request for approval of changes for each key store. Addition, modification, and deletion are performed through a similar operation to the existing keystore. Changes to keys and authentication information are displayed in Status as follows.
+On the **Key Store Management** tab, the approver and requester make a request for approval of changes for each key store. Addition, modification, and deletion are performed through a similar operation to the existing keystore. Changes to keys and authentication information are displayed in Status as follows.
 
 ![console-guide-33](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-33.png)
 
 ![console-guide-34](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-34.png)
 
-Make a request for approval with the Request Approval button in the key store, and the requests made for a project can be found in the Approval List tab.
+Make a request for approval with the **Request Approval** button in the key store, and the requests made for a project can be found in the **Approval List** tab.
 
 ![console-guide-35](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-35.png)
 
 #### Apply Approval Requests
-On the Approval List tab, the approver confirms the requst for approval of changes and determines whether to apply the request by selecting Approve or Reject.
+On the  **Approval List** tab, the approver confirms the requst for approval of changes and determines whether to apply the request by selecting **Approve** or **Deny**.
 
 ![console-guide-36](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-36.png)
 
-The request is applied immediately upon clicking Approve. The change can be found in the key store or the Key Store Management tab.
+The request is applied immediately upon clicking Approve. The change can be found in the **Key Depository** or the **Key Store Management** tab.
 
 ![console-guide-37](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-37.png)
