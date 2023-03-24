@@ -38,7 +38,7 @@ Users can manage Secure Key Manager on the NHN Cloud web console. Web console pr
 
 Secure Key Manager provides various APIs that can be used by a client server. The client server can request querying confidential data, encrypting/decrypting with symmetric keys, and signing/verifying with asymmetric keys. Client authentication module determines whether to allow client's request by using client authentication data. If a client's request is allowed, the user data processing module decrypts encrypted user data with system key processing module and provides service.
 
-![overview-01](http://static.toastoven.net/prod_kms/2019-12-24/overview-01.png)
+![overview-01](http://static.toastoven.net/prod_kms/2023-03-28/overview-01.png)
 
 ### Reference
 
