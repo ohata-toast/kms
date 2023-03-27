@@ -12,8 +12,11 @@ Secure Key Manager provides various APIs to access user data. Clients must be au
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Encrypt data with the symmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Decrypt data with the symmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | Create AES-256 symmetric keys that can be used by a client for data encryption/decryption in local environment. |
+| GET | /keymanager/{version}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Query the symmetric key stored in Secure Key Manager.|
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Sign data with the asymmetric key stored in Secure Key Manager. |
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Verify data and signature with the asymmetric key stored in Secure Key Manager. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Query the private key stored in Secure Key Manager. |
+| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Query the public key stored in Secure Key Manager. |
 
 [HTTP Header of API Request]
 
@@ -24,7 +27,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 
 [Path Variables of API Request]
 
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | appkey | String | Appkey of the NHN Cloud project where the data in need is stored |
 | keyid | String | Identifier of data in need |
@@ -42,13 +45,13 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | resultCode | Number | Result code value of API call |
 | resultMessage | String | Result message of API call |
 | isSuccessful | Boolean | Whether API call is successful or not |
 
-### Query Client Information
+## Query Client Information
 This API is used to query information of the client that called API.
 ```
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
@@ -67,11 +70,13 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | clientIp | String | IP address of the client that called API |
-| clientMacHeader | String | Header value of MAC address of the client that called API |
+| clientMacHeader | String |Header value of MAC address of the client that called API |
 | clientSentCertificate | Boolean | Whether the client that called API is using certificate or not |
+
+## Confidential Data
 
 ### Query Confidential Data
 This API is used to query confidential data stored in Secure Key Manager.
@@ -90,9 +95,11 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | secret | String | Query result of confidential data |
+
+## Symmetric Key
 
 ### Encrypt Symmetric Keys
 This API is used to encrypt data with the symmetric key created in Secure Key Manager. A user can pass 32KB or smaller text data, and the data can be encrypted with the symmetric key stored in Secure Key Manager.
@@ -107,7 +114,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     "plaintext": "data"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to be encrypted with the symmetric key |
 
@@ -123,12 +130,12 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | ciphertext | String | Result of data encryption with the symmetric key |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
 
-## Decrypt Symmetric Keys
+### Decrypt Symmetric Keys
 This API is used to decrypt data with the symmetric key created in Secure Key Manager. A use can pass encrypted text, and the text data can be decrypted with the symmetric key stored in Secure Key Manager.
 ```
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
@@ -140,7 +147,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     "ciphertext": "AAAAABzGwQniNneKXmcOLhWnxEqC1rNY+UdVb3lyeX/4wSrP"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | ciphertext | String | Data to be decrypted with the symmetric key |
 
@@ -156,7 +163,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Result of data decryption with the symmetric key |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
@@ -180,11 +187,67 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | localKeyPlaintext | String | Base64-encoded AES-256 symmetric key |
 | localKeyCiphertext | String | Base64-encoded AES-256 symmetric key encrypted with the symmetric key stored in Secure Key Manager |
 | keyVersion | Number | Version of the symmetric key used for processing the API request |
+
+### Query the Symmetric Key
+
+Users can query the symmetric key (AES-256) stored in Secure Key Manager.
+
+#### v1.0
+
+```
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
+```
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+|  symmetricKey | String | Symmetric key data (Hex string form) |
+
+#### v1.1
+
+```
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| Name | Type | Description |
+|---|---|---|
+| keyVersion | Number | Version of the symmetric key to query |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20",
+        "keyVersion": 1
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| symmetricKey | String | Symmetric key data (Hex string form) |
+| keyVersion | Number |  Version of the symmetric key used for processing the API request |
+
+## Asymmetric Key
 
 ### Sign with the Asymmetric Key
 This API is used to sign data with the asymmetric key created in Secure Key Manager. Users can pass 245 Byte or smaller text data, and the data is signed with the asymmetric key stored in Secure Key Manager.
@@ -198,7 +261,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     "plaintext": "data"
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to sign with the asymmetric key |
 
@@ -214,13 +277,13 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | signature | String | Signature value of signing the data with the asymmetric key |
 | keyVersion | Number | Version of the asymmetric key used for processing the API request |
 
 ### Verify Data with the Asymmetric Key
-This API is used to verify data with the asymmetric key created in Secure Key Manager. User can pass data and signature value, and use asymmetric keys stored in Secure Key Manager to verify that data has not been forged.
+This API is used to verify data with the asymmetric key created in Secure Key Manager. Users can pass data and signature value, and use asymmetric keys stored in Secure Key Manager to verify that data has not been forged.
 ```
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
@@ -233,7 +296,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     "signature": "AAAAAGI9zf831DX..."
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | plaintext | String | Data to be verified with the asymmetric key |
 | signature | String | Signature value of signing the data with the asymmetric key |
@@ -251,7 +314,81 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
     }
 }
 ```
-| Value | Type | Description |
+| Name | Type | Description |
 |---|---|---|
 | result | Boolean | Result of verifying data and signature value with the asymmetric key |
 | keyVersion | Number | Version of the asymmetric key used for processing the API request |
+
+### Query the Private Key
+
+Users can query the private key among the asymmetric keys stored in Secure Key Manager.
+
+```
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| Name | Type | Description |
+|---|---|---|
+| keyVersion | Number | Version of the asymmetric key to query |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PrivateKey",
+        "key": "0x30, 0x82, 0x04, 0xbe, 0x02, 0x01, 0x00, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x04, 0x82, 0x04, 0xa8, 0x30, 0x82, 0x04, 0xa4, 0x02, 0x01, 0x00, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2,
+                ... ",
+        "encodedKey": "MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCLB47ax4OVyEOnuDFv9iU2iWTFOHVLpoD+fMVqlPJiiuJSwi5x/zd3LojWuUyr+dZ9Icxl23Alu4GwwKgUi4DL8qo8jD14THJoeUgIZ56wmYMvN+CkNnmkyqcGn6yT+AXtBJVGqS/2lssHLIGELi8XXkWdf6OBfig6HgsJAnix8Z+T/QdikEFUI5ZiuUWyHw2Bag9B4CoPF2EgXfu5HcW4GA4KH2PI92O4vNg8AmFVDk2E+ma2quSau7LjS3KY9s3Sq+JqvTPZmqHQJudv9ZYcnbyDG/
+                       ... ",
+        "keyVersion": 0
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyType | String | Asymmetric key form |
+| key | String | Private key data (Hex string form) |
+| encodedKey | String | Private key data (Base64-encoded form) |
+| keyVersion | Number | Version of asymmetric key used for processing API requests |
+
+### Query the Public Key
+
+Users can query the public key among the asymmetric keys stored in Secure Key Manager, regardless of authentication.
+
+```
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
+```
+
+[Request Parameter]
+
+| Name | Type | Description |
+|---|---|---|
+| keyVersion | Number | Version of asymmetric key to query |
+
+[Response Body]
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyType": "PublicKey",
+        "key": "0x30, 0x82, 0x01, 0x22, 0x30, 0x0d, 0x06, 0x09, 0x2a, 0x86, 0x48, 0x86, 0xf7, 0x0d, 0x01, 0x01, 0x01, 0x05, 0x00, 0x03, 0x82, 0x01, 0x0f, 0x00, 0x30, 0x82, 0x01, 0x0a, 0x02, 0x82, 0x01, 0x01, 0x00, 0x8b, 0x07, 0x8e, 0xda, 0xc7, 0x83, 0x95, 0xc8, 0x43, 0xa7, 0xb8, 0x31, 0x6f, 0xf6, 0x25, 0x36, 0x89, 0x64, 0xc5, 0x38, 0x75, 0x4b, 0xa6, 0x80, 0xfe, 0x7c, 0xc5, 0x6a, 0x94, 0xf2, 0x62, 0x8a, 0xe2, 0x52, 0xc2,
+                ... ",
+        "encodedKey": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAiweO2seDlchDp7gxb/YlNolkxTh1S6aA/nzFapTyYoriUsIucf83dy6I1rlMq/nWfSHMZdtwJbuBsMCoFIuAy/KqPIw9eExyaHlICGeesJmDLzfgpDZ5pMqnBp+sk/gF7QSVRqkv9pbLByyBhC4vF15FnX+jgX4oOh4LCQJ4sfGfk/0HYpBBVCOWYrlFsh8NgWoPQeAqDxdhIF37uR3FuBgOCh9jyPdjuLzYPAJhVQ5NhPpmtqrkmruy40tymPbN0qviar0z2Zqh0Cbnb/WWHJ28gxv+d+iJCXJvm+fIg7hRYJ5C+mun/N6FB8QHv/
+                       ... ",
+        "keyVersion": 0
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyType | String | Asymmetric key form |
+| key | String | Public key data (Hex string form) |
+| encodedKey | String | Public key data (Base64-encoded form) |
+| keyVersion | Number | Version of asymmetric key used for processing API requests |
