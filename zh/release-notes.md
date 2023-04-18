@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### April 25, 2023
+#### Added Approval Process Notification (email) Feature
+* Added a feature to notify the manager with approval authority via email when registering a request for approval
+
 ### February 28, 2023
 #### Fixed Template File Download Error
 * Fixed an issue where bulk registration template file is downloaded as a template in the wrong format
@@ -27,7 +31,7 @@
 #### Fixed Total Appkey Error
 * Fixed an issue where calling APIs with a project total appkey does not work properly.
 #### Fixed Approval Feature Error
-* Fixed an issue where deletion does not work properly for each key version when using approval feature 
+* Fixed an issue where deletion does not work properly for each key version when using approval feature
 
 ### September 27, 2022
 #### Added an Asymmetric Key Query Feature
