@@ -2,7 +2,7 @@
 
 ### April 25, 2023
 #### Added Approval Process Notification (email) Feature
-* Added a feature to email the manager with approval authority when registering a request for approval
+* Added a feature to notify the manager with approval authority via email when registering a request for approval
 
 ### February 28, 2023
 #### Fixed Template File Download Error
