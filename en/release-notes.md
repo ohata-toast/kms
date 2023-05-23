@@ -1,5 +1,11 @@
 ## Security > Secure Key Manager > Release Notes
 
+### May 30, 2023
+#### Fixed Approval Process Notification (email) Error
+* Fixed an issue where some managers with approval authority cannot receive notifications (email)
+#### Fixed Error in IP/MAC Large Registration of Approval Process
+* Fixed an issue where, when registering a large amount of IP/MAC in the approval process, it is not immediately reflected
+
 ### April 25, 2023
 #### Added Approval Process Notification (email) Feature
 * Added a feature to notify the manager with approval authority via email when registering a request for approval
