@@ -2,7 +2,7 @@
 
 ### July 25, 2023
 ### Fixed Approval Process Certificate Cancel Error
-* Fixed an error in the approval process where a certificate in the **In Use** status is displayed as **To Be Deleted** instead of the original **In Use** status when requesting deletion and then canceling the request
+* Fixed an error in the approval process where a certificate in the **In Use** status is displayed as **Scheduled to Cancel Deletion** instead of the original **In Use** status when requesting deletion and then canceling the request
 
 ### May 30, 2023
 #### Fixed Approval Process Notification (email) Error
