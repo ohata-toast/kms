@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### September 26, 2023
+#### Added IPv4 Bandwidth Authentication Feature
+* Added a feature to authenticate bandwith using CIDR notation when authentication with IPv4
+
 ### July 25, 2023
 ### Fixed Approval Process Certificate Cancel Error
 * Fixed an error in the approval process where a certificate in the **In Use** status is displayed as **Scheduled to Cancel Deletion** instead of the original **In Use** status when requesting deletion and then canceling the request
