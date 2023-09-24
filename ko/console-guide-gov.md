@@ -71,7 +71,7 @@ Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만
 
 ![console-guide-12](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-12.png)
 
-IPv4는 IP형식뿐만 아니라, CIDR표기법을 통한 IPv4의 대역을 등록할 수 있습니다.
+IPv4는 IP 형식뿐만 아니라, CIDR 표기법을 통한 IPv4의 대역을 등록할 수 있습니다.
 
 ![console-guide-38](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-09-26-ko/consoe-guide-38.png)
 
