@@ -71,6 +71,8 @@ Secure Key Managerで作成したキーは、認証に成功したクライア�
 
 ![console-guide-12](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-12.png)
 
+![console-guide-38](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-09-26-en/console-guide-38.png)
+
 クライアントIPv4アドレスと説明を入力した後、**追加**をクリックすると、IPv4アドレスを追加します。この時、IPv4アドレスにはクライアントがSecure Key Managerに接続する時に使用するIPv4アドレスを入力する必要があります。追加したIPv4アドレスは次の図のようにIPv4アドレス管理画面に表示されます。
 
 ![console-guide-13](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-13.png)
