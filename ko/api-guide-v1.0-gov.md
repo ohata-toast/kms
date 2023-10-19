@@ -3,7 +3,17 @@
 
 Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API를 제공합니다. 클라이언트는 키 저장소에 설정한 인증을 통과한 후 Secure Key Manager에 저장한 데이터를 사용할 수 있습니다.
 
-[API 목록]
+## 기본 정보
+
+### EndPoint
+```
+https://api-keymanager.nhncloudservice.com
+```
+API는 **TLSv1.2 이상의 보안 수준으로만 호출이 가능**합니다.
+
+**TLSv1.2 미만의 보안 수준으로는 호출이 불가능**합니다.
+
+### API 목록
 
 | Method | URI | 설명 |
 |---|---|---|
