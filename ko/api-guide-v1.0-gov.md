@@ -7,7 +7,7 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 
 ### EndPoint
 ```
-https://api-keymanager.nhncloudservice.com
+https://api-keymanager.gov-nhncloudservice.com
 ```
 API는 **TLSv1.2 이상의 보안 수준으로만 호출이 가능**합니다.
 
