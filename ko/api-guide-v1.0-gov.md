@@ -11,7 +11,7 @@ https://api-keymanager.nhncloudservice.com
 ```
 API는 **TLSv1.2 이상의 보안 수준으로만 호출이 가능**합니다.
 
-**TLSv1.2 미만의 보안 수준으로는 호출이 불가능**합니다.
+**TLSv1.1 이하의 보안 수준으로는 호출이 불가능**합니다.
 
 ### API 목록
 
