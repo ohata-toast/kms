@@ -9,9 +9,9 @@ Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API�
 ```
 https://api-keymanager.gov-nhncloudservice.com
 ```
-API는 **TLSv1.2 이상의 보안 수준으로만 호출이 가능**합니다.
+API는 SSL 연결 시 TLSv1.1 이하의 프로토콜은 지원하지 않습니다. ( SSLv2 ~ TLSv1.1 미지원)
 
-**TLSv1.1 이하의 보안 수준으로는 호출이 불가능**합니다.
+**TLSv1.2 이상의 프로토콜**을 이용해 주세요.
 
 ### API 목록
 
