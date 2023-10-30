@@ -3,7 +3,14 @@
 
 Secure Key Managerは、ユーザーデータにアクセスできる多様なAPIを提供します。クライアントは鍵の保存場所に設定した認証をパスした後に、Secure Key Managerに保存したデータを使用できます。
 
-[APIリスト]
+## 基本情報
+
+### EndPoint
+```text
+https://api-keymanager.nhncloudservice.com
+```
+
+### APIリスト
 
 | Method | URI | 説明 |
 |---|---|---|
@@ -53,7 +60,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 
 ## クライアント情報照会
 APIを呼び出したクライアント情報を照会する時に使用します。
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
 [Response Body]
@@ -80,7 +87,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
 
 ### 機密データ照会
 Secure Key Managerに保存した機密データを照会する時に使用します。
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
 ```
 
@@ -103,7 +110,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 ### 対称鍵暗号化
 Secure Key Managerに作成した対称鍵でデータを暗号化する時に使用します。ユーザーは32KB以下のテキストデータを転送して、Secure Key Managerに保存した対称鍵で暗号化できます。
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
@@ -137,7 +144,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 対称鍵復号
 Secure Key Managerに作成した対称鍵でデータを復号する時に使用します。ユーザーは暗号化されたテキストを転送して、Secure Key Managerに保存した対称鍵で復号できます。
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
@@ -170,7 +177,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 対称鍵で暗号化したローカル対称鍵作成
 クライアントがローカル環境で使用できるAES-256対称鍵を作成する時に使用します。localKeyPlaintextは、作成した対称鍵をBase64エンコードした形式で、Base64エンコード後すぐに使用できます。localKeyCiphertextは、作成した対称鍵をSecure Key Managerに保存した対称鍵で暗号化した後にBase64エンコードした形式で、ストレージに保存する時に使用します。ストレージに保存した対称鍵は、復号APIを使用して復号した後に使用できます。
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
@@ -199,7 +206,7 @@ Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
 
 #### v1.0
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
@@ -220,7 +227,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 #### v1.1
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion=1
 ```
 
@@ -251,7 +258,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/s
 
 ### 非対称鍵で署名
 Secure Key Managerに作成した非対称鍵で、データを署名する時に使用します。ユーザーは245Byte以下のテキストデータを転送して、Secure Key Managerに保存した非対称鍵で署名できます。
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
@@ -284,7 +291,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 非対称鍵でデータ検証
 Secure Key Managerに作成した非対称鍵で、データを検証する時に使用します。ユーザーはデータと署名値を転送して、Secure Key Managerに保存した非対称鍵でデータが改ざんされていないかを検証できます。
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
@@ -323,7 +330,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 Secure Key Managerに保存した非対称鍵のうち、秘密鍵を照会できます。
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
 ```
 
@@ -361,7 +368,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 Secure Key Managerに保存した非対称鍵のうち、公開鍵を照会できます。
 認証に関係なく照会できます。
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
 ```
 

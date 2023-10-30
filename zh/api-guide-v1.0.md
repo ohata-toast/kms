@@ -3,7 +3,14 @@
 
 Secure Key Manager provides various APIs to access user data. Clients must be authenticated via key store to get access to data stored in Secure Kay Manager.
 
-[List of APIs]
+## Basic Information
+
+### EndPoint
+```text
+https://api-keymanager.nhncloudservice.com
+```
+
+### List of APIs
 
 | Method | URI | Description |
 |---|---|---|
@@ -53,7 +60,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 
 ## Query Client Information
 This API is used to query information of the client that called API.
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
 [Response Body]
@@ -80,7 +87,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
 
 ### Query Confidential Data
 This API is used to query confidential data stored in Secure Key Manager.
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
 ```
 
@@ -103,7 +110,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 ### Encrypt Symmetric Keys
 This API is used to encrypt data with the symmetric key created in Secure Key Manager. A user can pass 32KB or smaller text data, and the data can be encrypted with the symmetric key stored in Secure Key Manager.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
@@ -137,7 +144,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### Decrypt Symmetric Keys
 This API is used to decrypt data with the symmetric key created in Secure Key Manager. A use can pass encrypted text, and the text data can be decrypted with the symmetric key stored in Secure Key Manager.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
@@ -170,7 +177,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### Generate Local Symmetric Keys Encrypted with the Symmetric Key
 This API is used to create AES-256 symmetric keys that a client can use in local environment. localKeyPlaintext is a base64-encoded form of the generated symmetric key, and it is readily available after base64 decoding. localKeyCiphertext is a base64-encoded form of the generated symmetric key encrypted with the symmetric key stored in Secure Key Manager, and it is used to store data in a storage. The symmetric key stored in storage can be used after being decrypted by using the decryption API.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
@@ -199,7 +206,7 @@ Users can query the symmetric key (AES-256) stored in Secure Key Manager.
 
 #### v1.0
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
@@ -220,7 +227,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 #### v1.1
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
 ```
 
@@ -251,7 +258,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/s
 
 ### Sign with the Asymmetric Key
 This API is used to sign data with the asymmetric key created in Secure Key Manager. Users can pass 245 Byte or smaller text data, and the data is signed with the asymmetric key stored in Secure Key Manager.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
@@ -284,7 +291,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### Verify Data with the Asymmetric Key
 This API is used to verify data with the asymmetric key created in Secure Key Manager. Users can pass data and signature value, and use asymmetric keys stored in Secure Key Manager to verify that data has not been forged.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
@@ -323,7 +330,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 Users can query the private key among the asymmetric keys stored in Secure Key Manager.
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
 ```
 
@@ -360,7 +367,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 
 Users can query the public key among the asymmetric keys stored in Secure Key Manager, regardless of authentication.
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
 ```
 

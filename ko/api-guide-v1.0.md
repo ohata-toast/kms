@@ -3,7 +3,14 @@
 
 Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API를 제공합니다. 클라이언트는 키 저장소에 설정한 인증을 통과한 후 Secure Key Manager에 저장한 데이터를 사용할 수 있습니다.
 
-[API 목록]
+## 기본 정보
+
+### EndPoint
+```text
+https://api-keymanager.nhncloudservice.com
+```
+
+### API 목록
 
 | Method | URI | 설명 |
 |---|---|---|
@@ -53,7 +60,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 
 ## 클라이언트 정보 조회
 API를 호출한 클라이언트 정보를 조회할 때 사용합니다.
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
 ```
 [Response Body]
@@ -80,7 +87,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
 
 ### 기밀 데이터 조회
 Secure Key Manager에 저장한 기밀 데이터를 조회할 때 사용합니다.
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
 ```
 
@@ -103,7 +110,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 ### 대칭키 암호화
 Secure Key Manager에 생성한 대칭키로 데이터를 암호화할 때 사용합니다. 사용자는 32KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 대칭키로 암호화할 수 있습니다.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
@@ -137,7 +144,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 대칭키 복호화
 Secure Key Manager에 생성한 대칭키로 데이터를 복호화할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭키로 복호화할 수 있습니다.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
@@ -170,7 +177,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 대칭키로 암호화한 로컬 대칭키 생성
 클라이언트가 로컬 환경에서 사용할 수 있는 AES-256 대칭키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭키를 Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭키는 복호화 API를 사용해서 복호화한 후 사용할 수 있습니다.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
@@ -199,7 +206,7 @@ Secure Key Manager에 저장한 대칭키(AES-256)를 조회할 수 있습니다
 
 #### v1.0
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
@@ -220,7 +227,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 
 #### v1.1
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
 ```
 
@@ -251,7 +258,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/s
 
 ### 비대칭키로 서명
 Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 245 Byte 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
@@ -284,7 +291,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 ### 비대칭키로 데이터 검증
 Secure Key Manager에 생성한 비대칭키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명값을 전달해서 Secure Key Manager에 저장한 비대칭키로 데이터가 위변조되지 않았음을 검증할 수 있습니다.
-```
+```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
@@ -323,7 +330,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 Secure Key Manager에 저장한 비대칭키 중 개인 키를 조회할 수 있습니다.
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
 ```
 
@@ -361,7 +368,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 Secure Key Manager에 저장한 비대칭키 중 공개 키를 조회할 수 있습니다.
 인증에 상관없이 조회할 수 있습니다.
 
-```
+```text
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
 ```
 
