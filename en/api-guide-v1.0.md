@@ -3,7 +3,14 @@
 
 Secure Key Manager provides various APIs to access user data. Clients must be authenticated via key store to get access to data stored in Secure Kay Manager.
 
-[List of APIs]
+## Basic Information
+
+### EndPoint
+```
+https://api-keymanager.nhncloudservice.com
+```
+
+### List of APIs
 
 | Method | URI | Description |
 |---|---|---|
