@@ -552,7 +552,7 @@ Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변
 
 #### 키 삭제 예약
 키를 **삭제 예정** 상태로 만듭니다.
-삭제 예정 상태의 키는 조회할 수 없습니다.
+**삭제 예정** 상태의 키는 조회할 수 없습니다.
 ```text
 PUT https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}/delete
 ```
@@ -583,8 +583,8 @@ X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세�
 | deletionDateTime | String | 키 삭제 예정일 |
 
 #### 키 즉시 삭제
-즉시 삭제할 키의 상태는 **삭제 예정** 상태여야만 즉시 삭제가 가능합니다.
-활성화 상태인 키는 즉시 삭제할 수 없습니다.
+**즉시 삭제**할 키의 상태는 **삭제 예정** 상태여야만 **즉시 삭제**가 가능합니다.
+활성화 상태인 키는 **즉시 삭제**할 수 없습니다.
 ```text
 DELETE https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}
 ```
