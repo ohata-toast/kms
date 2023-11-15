@@ -3,6 +3,7 @@
 ### 2023. 11. 28
 #### 키 추가/삭제 API 추가
 * API를 통해 키를 추가/삭제하는 기능 추가
+* API를 통해 키를 추가/삭제하기 위해서는 **유저 엑세스 키 ID**, **시크릿 엑세스 키**가 필요한데, 자세한 사항은 [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Security/Secure%20Key%20Manager/ko/console-guide/#_15)를 참고
 
 ### 2023. 09. 26.
 #### IPv4 대역폭 인증 기능 추가

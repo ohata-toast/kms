@@ -185,3 +185,25 @@ Secure Key Manager의 멤버 관리를 통해 승인자(APPROVAL ADMIN), 요청�
 승인을 누르는 즉시 키 저장소에 반영됩니다. **키 저장소** 또는 **키 저장소 관리** 탭에서 변경 내용을 확인할 수 있습니다.
 
 ![console-guide-37](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-37.png)
+
+### 키 추가/삭제 API 자격 관련
+
+#### 유저 엑세스 키 ID, 시크릿 엑세스 키 생성
+
+콘솔 우측 상단의 ID 영역을 클릭하면 다음과 같은 **API 보안 설정** 메뉴를 확인할 수 있습니다.
+
+![console-guide-38](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-01.png)
+
+해당 메뉴를 클릭하여 설정 화면으로 가면 **User Access Key ID 생성** 버튼을 통해서 Secure Key Manager 키 추가/삭제 API에 입력해야하는 **유저 엑세스 키 ID**, **시크릿 엑세스 키**를 생성할 수 있습니다.
+
+![console-guide-39](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-02.png)
+
+![console-guide-40](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-03.png)
+
+User Access Key ID, Secret Access Key를 생성하면, 밑의 그림처럼 비밀키 발급 완료 팝업이 뜨며 **시크릿 엑세스 키**는 해당 팝업에서 한번만 알려주므로 이 값을 잘 기록하여 사용합니다.
+
+![console-guide-41](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-04.png)
+
+다음으로 API 요청시 입력이 필요한 **유저 엑세스 키 ID**는 비밀 키 발급 완료 팝업을 닫으시면 확인할 수 있습니다.
+
+![console-guide-42](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-05.png)

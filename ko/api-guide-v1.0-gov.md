@@ -417,7 +417,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -463,7 +463,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -509,7 +509,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -560,7 +560,7 @@ PUT https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
 ```
 
 [Response Body]
@@ -592,7 +592,7 @@ DELETE https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{ap
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{유저 시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
 ```
 
 [Response Body]
