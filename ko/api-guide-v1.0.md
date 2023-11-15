@@ -417,7 +417,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -435,7 +435,7 @@ X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 
 | keyStoreName | String | 키를 저장할 키 저장소 이름 |
 | name | String | 키 이름 |
 | description | String | 키 설명 |
-| secretValue | String | 기밀데이터 값 |
+| secretValue | String | 기밀 데이터 값 |
 
 [Response Body]
 
@@ -463,7 +463,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -509,7 +509,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -550,9 +550,9 @@ X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 
 ### 키 삭제
 Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변경하거나, **즉시 삭제**할 수 있습니다.
 
-#### 키 삭제 예약
+#### 키 삭제 요청
 키를 **삭제 예정** 상태로 만듭니다.
-**삭제 예정** 상태의 키는 조회할 수 없습니다.
+삭제는 7일뒤에 되며, **삭제 예정** 상태의 키는 조회할 수 없습니다.
 ```text
 PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}/delete
 ```
@@ -560,7 +560,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/k
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 아이디}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Response Body]
@@ -592,7 +592,7 @@ DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey
 [Http Header]
 
 ```
-X-TC-AUTHENTICATION: {유저 엑세스 키 ID}:{시크릿 엑세스 키} 를 Base64 인코딩한 값
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Response Body]
