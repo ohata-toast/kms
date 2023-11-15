@@ -551,8 +551,8 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변경하거나, **즉시 삭제**할 수 있습니다.
 
 #### 키 삭제 요청
-키를 **삭제 예정** 상태로 만듭니다.
-삭제는 7일뒤에 되며, **삭제 예정** 상태의 키는 조회할 수 없습니다.
+키를 **삭제 예정** 상태로 변경합니다.
+키는 7일 후 자동으로 삭제되며, **삭제 예정** 상태의 키는 조회할 수 없습니다.
 ```text
 PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}/delete
 ```
