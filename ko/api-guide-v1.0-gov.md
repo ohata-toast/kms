@@ -25,8 +25,8 @@ https://api-keymanager.gov-nhncloudservice.com
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인 키를 조회합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개 키를 조회합니다. |
 | POST | /keymanager/v1.0/appkey/{appkey}/keys/{secrets|symmetric-keys|asymmetric-keys}/create | Secure Key Manager에 신규 키를 추가합니다. |
-| PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyId}/delete | Secure Key Manager에 저장한 키의 삭제를 예약합니다. |
-| DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyId} | Secure Key Manager에 삭제 예정인 키를 즉시 삭제합니다. |
+| PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete | Secure Key Manager에 저장한 키의 삭제를 예약합니다. |
+| DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyid} | Secure Key Manager에 삭제 예정인 키를 즉시 삭제합니다. |
 
 [API 요청의 HTTP 헤더]
 
@@ -554,7 +554,7 @@ Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변
 키를 **삭제 예정** 상태로 변경합니다.
 키는 7일 후 자동으로 삭제되며, **삭제 예정** 상태의 키는 조회할 수 없습니다.
 ```text
-PUT https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}/delete
+PUT https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete
 ```
 
 [Http Header]
@@ -586,7 +586,7 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 즉시 삭제할 키의 상태는 **삭제 예정** 상태여야 합니다.
 사용 중 상태인 키는 **즉시 삭제**할 수 없습니다.
 ```text
-DELETE https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyId}
+DELETE https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}
 ```
 
 [Http Header]
