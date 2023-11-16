@@ -1,5 +1,10 @@
 ## Security > Secure Key Manager > 릴리스 노트
 
+### 2023. 11. 28.
+#### 키 추가/삭제 API 추가
+* API를 이용해 키를 추가하거나 삭제할 수 있는 기능 추가
+* API를 이용해 키를 추가하거나 삭제하려면 **User Access Key ID**와 **Secret Access Key** 필요. 자세한 내용은 [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Security/Secure%20Key%20Manager/ko/console-guide/#_15)를 참고.
+
 ### 2023. 09. 26.
 #### IPv4 대역폭 인증 기능 추가
 * IPv4로 인증 시 CIDR 표기법을 통한 대역폭 인증 기능 추가

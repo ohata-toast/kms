@@ -24,6 +24,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인 키를 조회합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개 키를 조회합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/keys/{secrets|symmetric-keys|asymmetric-keys}/create | Secure Key Manager에 신규 키를 추가합니다. |
+| PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete | Secure Key Manager에 저장한 키의 삭제를 요청합니다. |
+| DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyid} | Secure Key Manager에 삭제 예정인 키를 즉시 삭제합니다. |
 
 [API 요청의 HTTP 헤더]
 
@@ -400,3 +403,213 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 | key | String | 공개 키 데이터(16진수 문자열 형태) |
 | encodedKey | String | 공개 키 데이터(Base64 인코딩 형태) |
 | keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+
+## 키 추가/삭제
+
+### 키 추가
+Secure Key Manager에 신규 키를 추가할 수 있습니다.
+
+#### 기밀 데이터 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/secrets/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #1",
+    "description" : "Description #1",
+    "secretValue" : "data"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 키를 저장할 키 저장소 이름 |
+| name | String | 키 이름 |
+| description | String | 키 설명 |
+| secretValue | String | 기밀 데이터 값 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyId | String | 생성된 키 ID |
+| keyStatus | String | 키 상태 메시지 |
+
+#### 대칭키 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #2",
+    "description" : "Description #2",
+    "autoRotationPeriod" : 0
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 키를 저장할 키 저장소 이름 |
+| name | String | 키 이름 |
+| description | String | 키 설명 |
+| autoRotationPeriod | Integer | 회전 주기 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "c2c49d986dfb4ca6afeaf67c39354c12",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyId | String | 생성된 키 ID |
+| keyStatus | String | 키 상태 메시지 |
+
+#### 비대칭키 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #3",
+    "description" : "Description #3",
+    "autoRotationPeriod" : 0
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 키를 저장할 키 저장소 이름 |
+| name | String | 키 이름 |
+| description | String | 키 설명 |
+| autoRotationPeriod | Integer | 회전 주기 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "ddd7d5275dfa462799418062bd25b49d",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyId | String | 생성된 키 ID |
+| keyStatus | String | 키 상태 메시지 |
+
+### 키 삭제
+Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변경하거나, **즉시 삭제**할 수 있습니다.
+
+#### 키 삭제 요청
+키를 **삭제 예정** 상태로 변경합니다.
+키는 7일 후 자동으로 삭제되며, **삭제 예정** 상태의 키는 조회할 수 없습니다.
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-20T22:00:00.00"
+    }
+}
+
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyId | String | 생성된 키 ID |
+| deletionDateTime | String | 키 삭제 예정일 |
+
+#### 키 즉시 삭제
+**즉시 삭제**할 키의 상태는 **삭제 예정** 상태여야만 **즉시 삭제**가 가능합니다.
+활성화 상태인 키는 **즉시 삭제**할 수 없습니다.
+```text
+DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-14T10:05:24.312"
+    }
+}
+
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyId | String | 생성된 키 ID |
+| deletionDateTime | String | 키 삭제 시각 |
