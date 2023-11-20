@@ -1,5 +1,5 @@
 
-## Security > Secure Key Manager > API v1.0ガイド
+## Security > Secure Key Manager > API v1.1ガイド
 
 Secure Key Managerは、ユーザーデータにアクセスできる多様なAPIを提供します。クライアントは鍵の保存場所に設定した認証をパスした後に、Secure Key Managerに保存したデータを使用できます。
 
@@ -14,16 +14,19 @@ https://api-keymanager.nhncloudservice.com
 
 | Method | URI | 説明 |
 |---|---|---|
-| GET | /keymanager/v1.0/appkey/{appkey}/confirm | APIを呼び出したクライアント情報を提供します。|
-| GET | /keymanager/v1.0/appkey/{appkey}/secrets/{keyid} | Secure Key Managerに保存した機密データを照会します。|
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Managerに保存した対称鍵でデータを暗号化します。|
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Managerに保存した対称鍵でデータを復号します。|
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | クライアントがローカル環境でデータの暗号化/復号に使用できるAES-256対称鍵を作成します。|
-| GET | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Managerに保存した非対称鍵でデータを署名します。|
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Managerに保存した秘密鍵を照会します。 |
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Managerに保存した公開鍵を照会します。 |
+| GET | /keymanager/v1.1/appkey/{appkey}/confirm | APIを呼び出したクライアント情報を提供します。|
+| GET | /keymanager/v1.1/appkey/{appkey}/secrets/{keyid} | Secure Key Managerに保存した機密データを照会します。|
+| POST | /keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Managerに保存した対称鍵でデータを暗号化します。|
+| POST | /keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Managerに保存した対称鍵でデータを復号します。|
+| POST | /keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | クライアントがローカル環境でデータの暗号化/復号に使用できるAES-256対称鍵を作成します。|
+| GET | /keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Managerに保存した対称鍵を照会します。 |
+| POST | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Managerに保存した非対称鍵でデータを署名します。|
+| POST | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
+| GET | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Managerに保存した秘密鍵を照会します。 |
+| GET | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Managerに保存した公開鍵を照会します。 |
+| POST | /keymanager/v1.0/appkey/{appkey}/keys/{secrets|symmetric-keys|asymmetric-keys}/create | Secure Key Managerに新規キーを追加します。 |
+| PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete | Secure Key Managerに保存したキーの削除をリクエストします。 |
+| DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyid} | Secure Key Managerに削除予定のキーを即時削除します。 |
 
 [APIリクエストのHTTPヘッダ]
 
@@ -61,7 +64,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 ## クライアント情報照会
 APIを呼び出したクライアント情報を照会する時に使用します。
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/confirm
 ```
 [Response Body]
 
@@ -88,7 +91,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
 ### 機密データ照会
 Secure Key Managerに保存した機密データを照会する時に使用します。
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/secrets/{keyid}
 ```
 
 [Response Body]
@@ -111,7 +114,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 ### 対称鍵暗号化
 Secure Key Managerに作成した対称鍵でデータを暗号化する時に使用します。ユーザーは32KB以下のテキストデータを転送して、Secure Key Managerに保存した対称鍵で暗号化できます。
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
 [Request Body]
@@ -145,7 +148,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### 対称鍵復号
 Secure Key Managerに作成した対称鍵でデータを復号する時に使用します。ユーザーは暗号化されたテキストを転送して、Secure Key Managerに保存した対称鍵で復号できます。
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
 [Request Body]
@@ -178,7 +181,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### 対称鍵で暗号化したローカル対称鍵作成
 クライアントがローカル環境で使用できるAES-256対称鍵を作成する時に使用します。localKeyPlaintextは、作成した対称鍵をBase64エンコードした形式で、Base64エンコード後すぐに使用できます。localKeyCiphertextは、作成した対称鍵をSecure Key Managerに保存した対称鍵で暗号化した後にBase64エンコードした形式で、ストレージに保存する時に使用します。ストレージに保存した対称鍵は、復号APIを使用して復号した後に使用できます。
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
 [Response Body]
@@ -205,8 +208,14 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
 ```
+
+[Request Parameter]
+
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyVersion | Number | 照会する対称鍵のバージョン |
 
 [Response Body]
 ```
@@ -215,20 +224,22 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
         ...
     },
     "body": {
-        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20",
+        "keyVersion": 1
     }
 }
 ```
 | 名前 | タイプ | 説明 |
 |---|---|---|
 | symmetricKey | String | 対称鍵データ(16進数文字列形式) |
+| keyVersion | Number | APIリクエスト処理に使用した対称鍵バージョン |
 
 ## 非対称鍵
 
 ### 非対称鍵で署名
 Secure Key Managerに作成した非対称鍵で、データを署名する時に使用します。ユーザーは245Byte以下のテキストデータを転送して、Secure Key Managerに保存した非対称鍵で署名できます。
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
 [Request Body]
@@ -261,7 +272,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### 非対称鍵でデータ検証
 Secure Key Managerに作成した非対称鍵で、データを検証する時に使用します。ユーザーはデータと署名値を転送して、Secure Key Managerに保存した非対称鍵でデータが改ざんされていないかを検証できます。
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
 [Request Body]
@@ -300,7 +311,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 Secure Key Managerに保存した非対称鍵のうち、秘密鍵を照会できます。
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
@@ -338,7 +349,7 @@ Secure Key Managerに保存した非対称鍵のうち、公開鍵を照会で�
 認証に関係なく照会できます。
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
@@ -369,3 +380,213 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 | key | String | 公開鍵データ(16進数文字列形式) |
 | encodedKey | String | 公開鍵データ(Base64エンコード形式) |
 | keyVersion | Number | APIリクエスト処理に使用した非対称鍵のバージョン |
+
+## キーの追加/削除
+
+### キーの追加
+Secure Key Managerに新規キーを追加できます。
+
+#### 機密データの追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/secrets/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #1",
+    "description" : "Description #1",
+    "secretValue" : "data"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| secretValue | String | 機密データ値 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+#### 対称鍵の追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #2",
+    "description" : "Description #2",
+    "autoRotationPeriod" : 0
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| autoRotationPeriod | Integer | ローテーション周期 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "c2c49d986dfb4ca6afeaf67c39354c12",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+#### 非対称鍵の追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #3",
+    "description" : "Description #3",
+    "autoRotationPeriod" : 0
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| autoRotationPeriod | Integer | ローテーション周期 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "ddd7d5275dfa462799418062bd25b49d",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+### キーの削除
+Secure Key Managerに保存されたキーの状態を**削除予定**状態に変更したり、**即時削除**できます。
+
+#### キー削除リクエスト
+キーを**削除予定**状態に変更します。
+キーは7日後に自動的に削除され、**削除予定**状態のキーは照会できません。
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-20T22:00:00.00"
+    }
+}
+
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| deletionDateTime | String | キーの削除予定日 |
+
+#### キーの即時削除
+**即時削除**するキーは**削除予定**状態の時のみ**即時削除**が可能です。
+有効状態のキーは**即時削除**できません。
+```text
+DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-14T10:05:24.312"
+    }
+}
+
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| deletionDateTime | String | キーの削除時刻 |
