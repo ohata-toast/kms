@@ -208,7 +208,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/
 Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion=1
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
