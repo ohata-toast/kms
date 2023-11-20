@@ -24,6 +24,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Managerに保存した非対称鍵でデータと署名を検証します。|
 | GET | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Managerに保存した秘密鍵を照会します。 |
 | GET | /keymanager/v1.1/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Managerに保存した公開鍵を照会します。 |
+| POST | /keymanager/v1.0/appkey/{appkey}/keys/{secrets|symmetric-keys|asymmetric-keys}/create | Secure Key Managerに新規キーを追加します。 |
+| PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete | Secure Key Managerに保存したキーの削除をリクエストします。 |
+| DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyid} | Secure Key Managerに削除予定のキーを即時削除します。 |
 
 [APIリクエストのHTTPヘッダ]
 
@@ -377,3 +380,213 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/a
 | key | String | 公開鍵データ(16進数文字列形式) |
 | encodedKey | String | 公開鍵データ(Base64エンコード形式) |
 | keyVersion | Number | APIリクエスト処理に使用した非対称鍵のバージョン |
+
+## キーの追加/削除
+
+### キーの追加
+Secure Key Managerに新規キーを追加できます。
+
+#### 機密データの追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/secrets/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #1",
+    "description" : "Description #1",
+    "secretValue" : "data"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| secretValue | String | 機密データ値 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+#### 対称鍵の追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #2",
+    "description" : "Description #2",
+    "autoRotationPeriod" : 0
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| autoRotationPeriod | Integer | ローテーション周期 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "c2c49d986dfb4ca6afeaf67c39354c12",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+#### 非対称鍵の追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #3",
+    "description" : "Description #3",
+    "autoRotationPeriod" : 0
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | キーを保存するキーストア名 |
+| name | String | キー名 |
+| description | String | キーの説明 |
+| autoRotationPeriod | Integer | ローテーション周期 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "ddd7d5275dfa462799418062bd25b49d",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| keyStatus | String | キーの状態メッセージ |
+
+### キーの削除
+Secure Key Managerに保存されたキーの状態を**削除予定**状態に変更したり、**即時削除**できます。
+
+#### キー削除リクエスト
+キーを**削除予定**状態に変更します。
+キーは7日後に自動的に削除され、**削除予定**状態のキーは照会できません。
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-20T22:00:00.00"
+    }
+}
+
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| deletionDateTime | String | キーの削除予定日 |
+
+#### キーの即時削除
+**即時削除**するキーは**削除予定**状態の時のみ**即時削除**が可能です。
+有効状態のキーは**即時削除**できません。
+```text
+DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}
+```
+
+[Http Header]
+
+```
+X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-14T10:05:24.312"
+    }
+}
+
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyId | String | 作成されたキーID |
+| deletionDateTime | String | キーの削除時刻 |
