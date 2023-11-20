@@ -194,7 +194,7 @@ Secure Key Managerのメンバー管理から承認者(APPROVAL ADMIN)、要請�
 
 ![console-guide-38](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-en/console-guide-01.png)
 
-**APIセキュリティー設定**で**User Access Key IDの作成**をクリックしてSecure Key Managerキーの追加/削除APIに入力する必要がある**User Access Key ID**と**Secret Access Key**を生成できます。
+**APIセキュリティー設定**で**User Access Key ID作成**をクリックしてSecure Key Managerキーの追加/削除APIに入力する必要がある**User Access Key ID**と**Secret Access Key**を生成できます。
 
 ![console-guide-39](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-en/console-guide-02.png)
 
