@@ -208,12 +208,6 @@ Secure Key Manager에 저장한 대칭키(AES-256)를 조회할 수 있습니다
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
-[Request Parameter]
-
-| 이름 | 타입 | 설명 |
-|---|---|---|
-| keyVersion | Number | 조회하려는 대칭키 버전 |
-
 [Response Body]
 ```
 {

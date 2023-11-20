@@ -208,12 +208,6 @@ Users can query the symmetric key (AES-256) stored in Secure Key Manager.
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
-[Request Parameter]
-
-| Name | Type | Description |
-|---|---|---|
-| keyVersion | Number | Version of the symmetric key to query |
-
 [Response Body]
 ```
 {

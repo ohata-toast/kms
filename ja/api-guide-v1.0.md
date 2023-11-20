@@ -208,12 +208,6 @@ Secure Key Managerに保存した対称鍵(AES-256)を照会できます。
 GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
-[Request Parameter]
-
-| 名前 | タイプ | 説明 |
-|---|---|---|
-| keyVersion | Number | 照会する対称鍵のバージョン |
-
 [Response Body]
 ```
 {
