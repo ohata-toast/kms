@@ -205,7 +205,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 Users can query the symmetric key (AES-256) stored in Secure Key Manager.
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
 ```
 
 [Request Parameter]
@@ -221,15 +221,13 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
         ...
     },
     "body": {
-        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20",
-        "keyVersion": 1
+        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
     }
 }
 ```
 | Name | Type | Description |
 |---|---|---|
 | symmetricKey | String | Symmetric key data (Hex string form) |
-| keyVersion | Number |  Version of the symmetric key used for processing the API request |
 
 ## Asymmetric Key
 
