@@ -35,6 +35,12 @@ Secure Key Manager의 MAC 주소 인증을 사용하려면 HTTP 헤더에 클라
 X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 ```
 
+v1.2에서는 HTTP 헤더에 필수 필드가 추가됩니다
+```
+X-TC-AUTHENTICATION-ID: {User Access Key ID}
+X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
+```
+
 [API 요청의 경로 변수]
 
 | 이름 | 타입 | 설명 |
@@ -391,12 +397,6 @@ Secure Key Manager에 신규 키를 추가할 수 있습니다.
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/secrets/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
-```
-
 [Request Body]
 
 ```
@@ -437,12 +437,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
-```
-
 [Request Body]
 
 ```
@@ -481,12 +475,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 #### 비대칭키 추가
 ```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-key/create
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Request Body]
@@ -534,12 +522,6 @@ Secure Key Manager에 저장된 키의 상태를 **삭제 예정** 상태로 변
 PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
-```
-
 [Response Body]
 
 ```
@@ -564,12 +546,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 활성화 상태인 키는 **즉시 삭제**할 수 없습니다.
 ```text
 DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코딩한 값
 ```
 
 [Response Body]

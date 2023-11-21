@@ -35,6 +35,12 @@ Secure Key ManagerのMACアドレス認証を使用するには、HTTPヘッダ�
 X-TOAST-CLIENT-MAC-ADDR: {MACアドレス}
 ```
 
+v1.2では、HTTPヘッダーに必須フィールドが追加されます。
+```
+X-TC-AUTHENTICATION-ID: {User Access Key ID}
+X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
+```
+
 [APIリクエストのパス変数]
 
 | 名前 | タイプ | 説明 |
@@ -391,12 +397,6 @@ Secure Key Managerに新規キーを追加できます。
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/secrets/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
-```
-
 [Request Body]
 
 ```
@@ -437,12 +437,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコ�
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
-```
-
 [Request Body]
 
 ```
@@ -481,12 +475,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコ�
 #### 非対称鍵の追加
 ```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
 ```
 
 [Request Body]
@@ -534,12 +522,6 @@ Secure Key Managerに保存されたキーの状態を**削除予定**状態に�
 PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
-```
-
 [Response Body]
 
 ```
@@ -564,12 +546,6 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコ�
 有効状態のキーは**即時削除**できません。
 ```text
 DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/{keyid}
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}をBase64エンコードした値
 ```
 
 [Response Body]

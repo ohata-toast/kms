@@ -35,6 +35,12 @@ To use MAC address authentication of Secure Key Manager, you must make a request
 X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 ```
 
+In v1.2, essential fields will be added to the HTTP header.
+```
+X-TC-AUTHENTICATION-ID: {User Access Key ID}
+X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
+```
+
 [Path Variables of API Request]
 
 | Name | Type | Description |
@@ -390,12 +396,6 @@ Add a new key to Secure Key Manager.
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/secrets/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access Key}.
-```
-
 [Request Body]
 
 ```
@@ -436,12 +436,6 @@ X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access Key}.
-```
-
 [Request Body]
 
 ```
@@ -480,12 +474,6 @@ X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access
 #### Add asymmetric key
 ```text
 POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-key/create
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access Key}.
 ```
 
 [Request Body]
@@ -533,12 +521,6 @@ The key is automatically deleted after 7 days, and you can't view a key in the *
 PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete
 ```
 
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access Key}.
-```
-
 [Response Body]
 
 ```
@@ -562,12 +544,6 @@ The key that is to be **deleted immediately** can only be **deleted immediately*
 You cannot **immediately delete** a key that is activated.
 ```text
 DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}
-```
-
-[Http Header]
-
-```
-X-TC-AUTHENTICATION: Base64-encoded value of {User Access Key ID}:{Secret Access Key}.
 ```
 
 [Response Body]
