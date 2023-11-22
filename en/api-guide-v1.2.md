@@ -3,6 +3,8 @@
 
 Secure Key Manager provides various APIs to access user data. Clients must be authenticated via key store to get access to data stored in Secure Kay Manager.
 
+In v1.2, **required HTTP header fields related to user authentication** have been added, and **the feature to add or delete keys using APIs** added.
+
 ## Basic Information
 
 ### EndPoint
@@ -40,6 +42,8 @@ In v1.2, essential fields will be added to the HTTP header.
 X-TC-AUTHENTICATION-ID: {User Access Key ID}
 X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
 ```
+
+For more information, please see [the console user guide](https://docs.nhncloud.com/en/Security/Secure%20Key%20Manager/en/console-guide/#authorization-for-adddelete-keys-api).
 
 [Path Variables of API Request]
 

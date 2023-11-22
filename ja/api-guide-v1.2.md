@@ -3,6 +3,8 @@
 
 Secure Key Managerは、ユーザーデータにアクセスできる多様なAPIを提供します。クライアントは鍵の保存場所に設定した認証をパスした後に、Secure Key Managerに保存したデータを使用できます。
 
+v1.2では、**ユーザー認証に関連する必須のHTTPヘッダーフィールド**が追加され、**キーの追加/削除API**が導入されました。
+
 ## 基本情報
 
 ### EndPoint
@@ -40,6 +42,8 @@ v1.2では、HTTPヘッダーに必須フィールドが追加されます。
 X-TC-AUTHENTICATION-ID: {User Access Key ID}
 X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
 ```
+
+詳細は[コンソール使用ガイド](https://docs.nhncloud.com/ja/Security/Secure%20Key%20Manager/ja/console-guide/#api)を参照。
 
 [APIリクエストのパス変数]
 
