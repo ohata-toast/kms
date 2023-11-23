@@ -437,6 +437,8 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appk
 | keyStatus | String | 키 상태 메시지 |
 
 #### 대칭키 추가
+Secure Key Manager에 ARIA-256 대칭키를 생성합니다.
+
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
 ```
