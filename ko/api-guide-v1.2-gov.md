@@ -3,6 +3,8 @@
 
 Secure Key Manager는 사용자 데이터에 접근할 수 있는 다양한 API를 제공합니다. 클라이언트는 키 저장소에 설정한 인증을 통과한 후 Secure Key Manager에 저장한 데이터를 사용할 수 있습니다.
 
+v1.2에서는 **유저 인증 관련 필수 HTTP 헤더 필드**가 추가되고, **키 추가/삭제 API**가 추가됐습니다.
+
 ## 기본 정보
 
 ### EndPoint
@@ -35,11 +37,13 @@ Secure Key Manager의 MAC 주소 인증을 사용하려면 HTTP 헤더에 클라
 X-TOAST-CLIENT-MAC-ADDR: {MAC 주소}
 ```
 
-v1.2에서는 HTTP 헤더에 필수 필드가 추가됩니다
+v1.2에서는 HTTP 헤더에 필수 필드가 추가됩니다.
 ```
 X-TC-AUTHENTICATION-ID: {User Access Key ID}
-X-TC-AUTHENTICATION-ID {Secret Access Key}
+X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
 ```
+
+자세한 사항은 [콘솔 사용 가이드](https://docs.nhncloud.com/ko/Security/Secure%20Key%20Manager/ko/console-guide/#api)를 참고하세요.
 
 [API 요청의 경로 변수]
 
@@ -433,6 +437,8 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appk
 | keyStatus | String | 키 상태 메시지 |
 
 #### 대칭키 추가
+Secure Key Manager에 ARIA-256 대칭키를 생성합니다.
+
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
 ```
