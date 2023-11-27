@@ -1,7 +1,9 @@
 
-## Security > Secure Key Manager > API v1.0 Guide
+## Security > Secure Key Manager > API v1.2 Guide
 
 Secure Key Manager provides various APIs to access user data. Clients must be authenticated via key store to get access to data stored in Secure Kay Manager.
+
+In v1.2, **required HTTP header fields related to user authentication** have been added, and **the feature to add or delete keys using APIs** added.
 
 ## Basic Information
 
@@ -14,16 +16,19 @@ https://api-keymanager.nhncloudservice.com
 
 | Method | URI | Description |
 |---|---|---|
-| GET | /keymanager/v1.0/appkey/{appkey}/confirm | Provide information of the client that called API. |
-| GET | /keymanager/v1.0/appkey/{appkey}/secrets/{keyid} | Query confidential data stored in Secure Key Manager. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Encrypt data with the symmetric key stored in Secure Key Manager. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Decrypt data with the symmetric key stored in Secure Key Manager. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | Create AES-256 symmetric keys that can be used by a client for data encryption/decryption in local environment. |
-| GET | /keymanager/{v1.0\|v1.1}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Query the symmetric key stored in Secure Key Manager.|
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Sign data with the asymmetric key stored in Secure Key Manager. |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Verify data and signature with the asymmetric key stored in Secure Key Manager. |
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Query the private key stored in Secure Key Manager. |
-| GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Query the public key stored in Secure Key Manager. |
+| GET | /keymanager/v1.2/appkey/{appkey}/confirm | Provide information of the client that called API. |
+| GET | /keymanager/v1.2/appkey/{appkey}/secrets/{keyid} | Query confidential data stored in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Encrypt data with the symmetric key stored in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Decrypt data with the symmetric key stored in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | Create AES-256 symmetric keys that can be used by a client for data encryption/decryption in local environment. |
+| GET | /keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Query the symmetric key stored in Secure Key Manager.|
+| POST | /keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Sign data with the asymmetric key stored in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Verify data and signature with the asymmetric key stored in Secure Key Manager. |
+| GET | /keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Query the private key stored in Secure Key Manager. |
+| GET | /keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Query the public key stored in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/keys/{secrets\|symmetric-keys\|asymmetric-keys}/create | Add a new key to Secure Key Manager. |
+| PUT | /keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete | Request deletion of a key stored in Secure Key Manager. |
+| DELETE | /keymanager/v1.2/appkey/{appkey}/keys/{keyid} | Immediately delete the key scheduled for deletion in Secure Key Manager. |
 
 [HTTP Header of API Request]
 
@@ -31,6 +36,14 @@ To use MAC address authentication of Secure Key Manager, you must make a request
 ```
 X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 ```
+
+In v1.2, essential fields will be added to the HTTP header.
+```
+X-TC-AUTHENTICATION-ID: {User Access Key ID}
+X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
+```
+
+For more information, please see [the console user guide](https://docs.nhncloud.com/zh/Security/Secure%20Key%20Manager/zh/console-guide/#authorization-for-adddelete-keys-api).
 
 [Path Variables of API Request]
 
@@ -61,7 +74,7 @@ X-TOAST-CLIENT-MAC-ADDR: {MAC Address}
 ## Query Client Information
 This API is used to query information of the client that called API.
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/confirm
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/confirm
 ```
 [Response Body]
 
@@ -88,7 +101,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/c
 ### Query Confidential Data
 This API is used to query confidential data stored in Secure Key Manager.
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/secrets/{keyid}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/secrets/{keyid}
 ```
 
 [Response Body]
@@ -111,7 +124,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/s
 ### Encrypt Symmetric Keys
 This API is used to encrypt data with the symmetric key created in Secure Key Manager. A user can pass 32KB or smaller text data, and the data can be encrypted with the symmetric key stored in Secure Key Manager.
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
 
 [Request Body]
@@ -145,7 +158,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### Decrypt Symmetric Keys
 This API is used to decrypt data with the symmetric key created in Secure Key Manager. A use can pass encrypted text, and the text data can be decrypted with the symmetric key stored in Secure Key Manager.
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
 
 [Request Body]
@@ -178,7 +191,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### Generate Local Symmetric Keys Encrypted with the Symmetric Key
 This API is used to create AES-256 symmetric keys that a client can use in local environment. localKeyPlaintext is a base64-encoded form of the generated symmetric key, and it is readily available after base64 decoding. localKeyCiphertext is a base64-encoded form of the generated symmetric key encrypted with the symmetric key stored in Secure Key Manager, and it is used to store data in a storage. The symmetric key stored in storage can be used after being decrypted by using the decryption API.
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
 
 [Response Body]
@@ -204,29 +217,8 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 Users can query the symmetric key (AES-256) stored in Secure Key Manager.
 
-#### v1.0
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key
-```
-
-[Response Body]
-```
-{
-    "header": {
-        ...
-    },
-    "body": {
-        "symmetricKey": "0x00, 0x20, 0x00, 0x41, 0x00, 0x20, 0x00, 0x73, 0x00, 0x69, 0x00, 0x6d, 0x00, 0x70, 0x00, 0x6c, 0x00, 0x65, 0x00, 0x20, 0x00, 0x4a, 0x00, 0x61, 0x00, 0x76, 0x00, 0x61, 0x00, 0x2e, 0x00, 0x20"
-    }
-}
-```
-| Name | Type | Description |
-|---|---|---|
-| symmetricKey | String | Symmetric key data (Hex string form) |
-
-#### v1.1
-```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
@@ -257,7 +249,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.1/appkey/{appkey}/s
 ### Sign with the Asymmetric Key
 This API is used to sign data with the asymmetric key created in Secure Key Manager. Users can pass 245 Byte or smaller text data, and the data is signed with the asymmetric key stored in Secure Key Manager.
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
 
 [Request Body]
@@ -290,7 +282,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 ### Verify Data with the Asymmetric Key
 This API is used to verify data with the asymmetric key created in Secure Key Manager. Users can pass data and signature value, and use asymmetric keys stored in Secure Key Manager to verify that data has not been forged.
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
 
 [Request Body]
@@ -329,7 +321,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 Users can query the private key among the asymmetric keys stored in Secure Key Manager.
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
@@ -366,7 +358,7 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 Users can query the public key among the asymmetric keys stored in Secure Key Manager, regardless of authentication.
 
 ```text
-GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
+GET https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey?keyVersion={keyVersion}
 ```
 
 [Request Parameter]
@@ -397,3 +389,181 @@ GET https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/a
 | key | String | Public key data (Hex string form) |
 | encodedKey | String | Public key data (Base64-encoded form) |
 | keyVersion | Number | Version of asymmetric key used for processing API requests |
+
+## Add/Delete Key
+
+### Add a key
+Add a new key to Secure Key Manager.
+
+#### Add confidential data
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/secrets/create
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #1",
+    "description" : "Description #1",
+    "secretValue" : "data"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name where key is saved |
+| name | String | Key name |
+| description | String | Key description |
+| secretValue | String | Confidential data value |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyId | String | Created key ID |
+| keyStatus | String | Key status message |
+
+#### Add a symmetric key
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #2",
+    "description" : "Description #2",
+    "autoRotationPeriod" : 0
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name where key is saved |
+| name | String | Key name |
+| description | String | Key description |
+| autoRotationPeriod | Integer | Rotation period |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "c2c49d986dfb4ca6afeaf67c39354c12",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyId | String | Created key ID |
+| keyStatus | String | Key status message |
+
+#### Add asymmetric key
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-key/create
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Key Sample #2",
+    "description" : "Description #2",
+    "autoRotationPeriod" : 0
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name where key is saved |
+| name | String | Key name |
+| description | String | Key description |
+| autoRotationPeriod | Integer | Rotation period |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "ddd7d5275dfa462799418062bd25b49d",
+        "keyStatus": "ACTIVE"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyId | String | Created key ID |
+| keyStatus | String | Key status message |
+
+### Delete a key
+You can change the status of a key stored in Secure Key Manager to **To be deleted**, or **delete it immediately**.
+
+#### Request to delete a key
+Change the key status to **To be deleted**.
+The key is automatically deleted after 7 days, and you can't view a key in the **To be deleted** status.
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-20T22:00:00.00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyId | String | Created key ID |
+| deletionDateTime | String | Date when key is to be deleted |
+
+#### Immediately delete a key
+The key that is to be **deleted immediately** can only be **deleted immediately** in the status of **To be deleted**.
+You cannot **immediately delete** a key that is activated.
+```text
+DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/{keyid}
+```
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "keyId": "071dcc5c25614dffa52357e5cae3471f",
+        "deletionDateTime": "2023-11-14T10:05:24.312"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyId | String | Created key ID |
+| deletionDateTime | String | Time when key is deleted |
