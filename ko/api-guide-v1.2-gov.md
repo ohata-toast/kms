@@ -440,7 +440,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appk
 Secure Key Manager에 ARIA-256 대칭키를 생성합니다.
 
 ```text
-POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
+POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-keys/create
 ```
 
 [Request Body]
@@ -480,7 +480,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appk
 
 #### 비대칭키 추가
 ```text
-POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-key/create
+POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-keys/create
 ```
 
 [Request Body]

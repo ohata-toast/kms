@@ -438,7 +438,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 #### 対称鍵の追加
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-keys/create
 ```
 
 [Request Body]
@@ -478,7 +478,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/
 
 #### 非対称鍵の追加
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-keys/create
 ```
 
 [Request Body]
