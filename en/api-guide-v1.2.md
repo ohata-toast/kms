@@ -437,7 +437,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 
 #### Add a symmetric key
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-key/create
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/symmetric-keys/create
 ```
 
 [Request Body]
@@ -477,7 +477,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 
 #### Add asymmetric key
 ```text
-POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-key/create
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/keys/asymmetric-keys/create
 ```
 
 [Request Body]
