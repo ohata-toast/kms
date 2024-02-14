@@ -5,8 +5,9 @@
 - **キーの作成**
 - **認証情報の登録**
 - **ユーザーデータの管理**
+- **キーの追加/削除API資格関連**
 
-### キー保存場所の作成
+## キー保存場所の作成
 Secure Key Managerは、キー保存場所の単位として認証情報とキーを管理します。キー保存場所がない場合は次のような画面が表示されます。
 
 ![console-guide-01](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-01.png)
@@ -23,7 +24,7 @@ Secure Key Managerは、キー保存場所の単位として認証情報とキ�
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-04.png)
 
-### キーの作成
+## キーの作成
 Secure Key Managerは、キーを3つのタイプに区分します。機密データは文字列データを保存し、APIを使用した照会機能を提供します。対称鍵はAPIを使用したデータ暗号化/復号機能を提供します。非対称鍵はAPIを使用したデータ署名/検証機能を提供します。ユーザーは使用目的に合ったキータイプを選択してキーを作成できます。
 
 **キー管理**メニューをクリックすると、次の図のようにキーを管理できる画面が表示されます。
@@ -45,7 +46,7 @@ Secure Key Managerは、キーを3つのタイプに区分します。機密デ�
 
 ![console-guide-09](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-09.png)
 
-#### キーのインポート
+### キーのインポート
 Secure Key Managerは、対称鍵(AES-256)をインポートする機能をサポートします。
 
 ![console-guide-10](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-10.png)
@@ -58,10 +59,10 @@ Secure Key Managerは、対称鍵(AES-256)をインポートする機能をサ�
 
 上記のように32個のHex Stringをカンマ(`,`)またはスペース(` `)で区切って入力してキーをアップロードします。
 
-### 認証情報の登録
+## 認証情報の登録
 Secure Key Managerで作成したキーは、認証に成功したクライアントのみ使用できます。クライアント認証に使用する認証情報は**IPv4アドレス管理**、**MACアドレス管理**、**証明書管理**メニューで登録します。
 
-#### IPv4アドレスの登録
+### IPv4アドレスの登録
 **IPv4アドレス管理**をクリックすると、次の図のようにクライアント認証に使用するIPv4アドレス管理画面が表示されます。
 
 ![console-guide-11](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-11.png)
@@ -78,7 +79,7 @@ IPv4アドレス追加**をクリックすると、図のようにIPv4アドレ�
 
 ![console-guide-13](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-13.png)
 
-#### MACアドレスの登録
+### MACアドレスの登録
 **MACアドレス管理**をクリックすると、クライアント認証に使用するMACアドレス管理画面が表示されます。
 ![console-guide-14](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-14.png)
 
@@ -90,7 +91,7 @@ IPv4アドレス追加**をクリックすると、図のようにIPv4アドレ�
 
 ![console-guide-16](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-16.png)
 
-#### クライアント証明書の登録
+### クライアント証明書の登録
 **証明書管理**をクリックすると、クライアント認証に使用する証明書管理画面が表示されます。
 
 ![console-guide-17](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-17.png)
@@ -103,12 +104,12 @@ IPv4アドレス追加**をクリックすると、図のようにIPv4アドレ�
 
 ![console-guide-19](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-19.png)
 
-### ユーザーデータの管理
+## ユーザーデータの管理
 Secure Key Managerは、ユーザーが作成したデータ(キー、認証情報)の詳細情報を提供します。ユーザーデータリストで**詳細情報アイコン**をクリックすると、次の図のように詳細情報が表示されます。
 
 ![console-guide-20](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-20.png)
 
-#### ユーザーデータの削除
+### ユーザーデータの削除
 
 ユーザーが作成したデータの初期状態は**使用中**です。不要なデータを削除するには次の図のように**詳細情報**ウィンドウで**削除リクエスト**をクリックします。
 
@@ -122,7 +123,7 @@ Secure Key Managerは、ユーザーが作成したデータ(キー、認証情�
 
 ![console-guide-23](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-23.png)
 
-#### 対称鍵/非対称鍵のローテーション
+### 対称鍵/非対称鍵のローテーション
 
 Secure Key Managerでは対称鍵/非対称鍵をローテーションできます。次の図のように対称鍵/非対称鍵詳細情報ウィンドウで自動ローテーション周期を設定できます。ローテーション周期を「0」に設定すると、自動ローテーションを行いません。
 
@@ -144,9 +145,9 @@ Secure Key Managerでは対称鍵/非対称鍵をローテーションできま�
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-28.png)
 
-### キーの追加/削除API資格関連
+## キーの追加/削除API資格関連
 
-#### User Access Key ID, Secret Access Key作成
+### User Access Key ID, Secret Access Key作成
 
 コンソール右上のID領域をクリックすると、次のような**APIセキュリティー設定**メニューを確認できます。
 
