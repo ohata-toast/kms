@@ -5,8 +5,9 @@ Getting Started describes basics for the use of Secure Key Manager:
 - **Create a Key**
 - **Register Authentication Information**
 - **Manage User Data**
+- **Authorization for Add/Delete Keys API**
 
-### Create a Key Store
+## Create a Key Store
 Secure Key Manager manages authentication information and keys in key store unit. If there is no key store, the following screen is displayed:
 
 ![console-guide-01](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-01.png)
@@ -23,7 +24,7 @@ Click a key store from the list, and a menu to manage the key store is displayed
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-04.png)
 
-### Create a Key
+## Create a Key
 In Secure Key Manager, keys are categorized into three types: Confidential Data, Symmetric Key, and Asymmetric Key. For Confidential Data, Secure Key Manager stores string data and provides query feature using APIs. For Symmetric key, data encryption/decryption using APIs is provided. For Asymmetric Key, data signing/verification using APIs is provided. Users can select a key type appropriate for purpose and create keys.
 
 Click **Key Management**, and a page to manage keys shows up like below:
@@ -45,7 +46,7 @@ If you select Confidential Data, you can enter name, description, and data. If y
 
 ![console-guide-09](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-09.png)
 
-#### Import a Key
+### Import a Key
 Secure Key Manager supports a feature to import a symmetric key (AES-256).
 
 ![console-guide-10](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-10.png)
@@ -58,10 +59,10 @@ You can upload a key by entering a key value in the **Key Data** area, and the f
 
 Upload the key by entering 32 hexadecimal strings separated by comma (`,`) or space (` `) used as delimiters, as shown above.
 
-### Register Authentication Information
+## Register Authentication Information
 Keys that are created in Secure Key Manager are available only for successfully authenticated clients. You may register authentication information for client authentication from the menu of **IPv4 Address Management**, **MAC Address Management**, and **Certificate Management**.
 
-#### Register IPv4 Address
+### Register IPv4 Address
 Click **IPv4 Address Management**, and a page to manage IPv4 address for client authentication shows up.
 
 ![console-guide-11](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-11.png)
@@ -78,7 +79,7 @@ Enter client IPv4 address and description, and click **Add**, then the IPv4 addr
 
 ![console-guide-13](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-13.png)
 
-#### Register MAC Address
+### Register MAC Address
 Click **MAC Address Management**, and the MAC address management page for client authentication shows up.
 ![console-guide-14](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-14.png)
 
@@ -90,7 +91,7 @@ Enter Client MAC Address and description, and click **Add**, then the MAC addres
 
 ![console-guide-16](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-16.png)
 
-#### Register Client Certificates
+### Register Client Certificates
 Click **Certificate Management**, and the certificate management page for client authentication shows up.
 
 ![console-guide-17](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-17.png)
@@ -103,12 +104,12 @@ Enter certificate name, password, and description, select usage period, and clic
 
 ![console-guide-19](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-19.png)
 
-### Manage User Data
+## Manage User Data
 Secure Key Manager provides detailed information on user-created data (e.g. key or authentication information). Click **Detail Key Information** on the list of user data, and details are displayed like below:
 
 ![console-guide-20](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-20.png)
 
-#### Delete User Data
+### Delete User Data
 
 The initial status of user-created data is **In Service**. To delete unnecessary data, click **Request for Deletion** in the **Detail Key Information** window.
 
@@ -122,7 +123,7 @@ You may click **Immediately Delete** for data in **Scheduled to be Deleted** sta
 
 ![console-guide-23](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-23.png)
 
-#### Rotate Symmetric/Asymmetric Keys
+### Rotate Symmetric/Asymmetric Keys
 
 In Secure Key Manager, symmetric/asymmetric keys can be rotated. Like shown below, auto rotation cycle can be set from the details page of Symmetric/Asymmetric Key. If you set the rotation cycle to '0', auto rotation is not enabled.
 
@@ -144,9 +145,9 @@ As an exception, keys generated through key import do not provide the key rotati
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-28.png)
 
-### Authorization for Add/Delete Keys API
+## Authorization for Add/Delete Keys API
 
-#### Create User Access Key ID, Secret Access Key
+### Create User Access Key ID, Secret Access Key
 
 Click the ID area in the upper-right corner of the console to see the **API Security Settings** menu as follows.
 

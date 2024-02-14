@@ -2,10 +2,8 @@
 
 국내·외 보안 인증 심사(ISMS-P, ISO 등)에서 요구하는 안전한 암호화 키 관리 요구 사항을 충족하기 위해 사용하는 Secure Key Manager의 승인 기능에 대해 설명합니다.
 
-### Approval Feature Overview
-승인 기능 활성화 -> 승인 권한 부여 -> 신규 추가되는 탭 -> 승인 프로세스 진행
-
-### Enable Approval Feature
+## Enable Approval Feature
+승인 기능을 사용 하기 위해서는 먼저 승인 기능을 활성화 해야합니다.
 Enable Approval Feature of Secure Key Manager in Approval Process Management Setting on Governance Setting under Organization Management.
 
 ![console-guide-29](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-29.png)
@@ -23,6 +21,8 @@ When you obtain the approver or requester role after enabling the approval featu
 When you enable the approval feature, data can no longer be added, modified, or deleted in the key store. When requesting for change, move to the **Key Store Management** tab.
 
 ![console-guide-32](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-32.png)
+
+## Approval Process
 
 ### Make Approval Requests
 On the **Key Store Management** tab, the approver and requester make a request for approval of changes for each key store. Addition, modification, and deletion are performed through a similar operation to the existing keystore. Changes to keys and authentication information are displayed in Status as follows.
