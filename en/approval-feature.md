@@ -2,8 +2,9 @@
 
 국내·외 보안 인증 심사(ISMS-P, ISO 등)에서 요구하는 안전한 암호화 키 관리 요구 사항을 충족하기 위해 사용하는 Secure Key Manager의 승인 기능에 대해 설명합니다.
 
+**승인 기능 활성화** 방법과 승인 기능 활성화 이후 승인 관련 역할 설정과 활성화 전과 후의 차이점 그리고 **승인 과정**에 대해 알아보겠습니다.
+
 ## Enable Approval Feature
-승인 기능을 사용 하기 위해서는 먼저 승인 기능을 활성화 해야합니다.
 Enable Approval Feature of Secure Key Manager in Approval Process Management Setting on Governance Setting under Organization Management.
 
 ![console-guide-29](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-29.png)
