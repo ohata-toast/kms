@@ -4,7 +4,18 @@
 
 **승인 기능 활성화** 방법과 승인 기능 활성화 이후 승인 관련 역할 설정과 활성화 전과 후의 차이점 그리고 **승인 과정**에 대해 알아보겠습니다.
 
+목차는 다음과 같습니다.
+- 승인 기능 활성화
+  - 승인 기능 활성화 방법
+  - 승인 기능 관련 역할 설정
+  - 승인 기능 활성화 후 화면의 차이점
+- 승인 과정
+  - 승인 요청 방법
+  - 승인 요청 승인/거절 방법
+
 ## Enable Approval Feature
+
+### How to Enable Approval Feature
 Enable Approval Feature of Secure Key Manager in Approval Process Management Setting on Governance Setting under Organization Management.
 
 ![console-guide-29](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-29.png)
