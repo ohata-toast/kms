@@ -1,11 +1,21 @@
 ## Security > Secure Key Manager > Console User Guide > Getting Started
 
 Getting Started describes basics for the use of Secure Key Manager:
+
+목차는 다음과 같습니다.
+
 - **Create a Key Store**
 - **Create a Key**
+  - Import a Key
 - **Register Authentication Information**
+  - Register IPv4 Address
+  - Register MAC Address
+  - Register Client Certificates
 - **Manage User Data**
+  - Delete User Data
+  - Rotate Symmetric/Asymmetric Keys
 - **Authorization for Add/Delete Keys API**
+  - Create User Access Key ID, Secret Access Key
 
 ## Create a Key Store
 Secure Key Manager manages authentication information and keys in key store unit. If there is no key store, the following screen is displayed:
