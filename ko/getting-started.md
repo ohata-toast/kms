@@ -9,9 +9,9 @@
 - **키 생성**
     - 키 가져오기
 - **인증 정보 등록**
-    - 인증 정보 등록
     - IPv4 주소 등록
     - MAC 주소 등록
+    - 클라이언트 인증서 등록
 - **사용자 데이터 관리**
     - 사용자 데이터 삭제
     - 대칭키/비대칭키 회전
@@ -37,7 +37,7 @@ Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합�
 
 ### 키 저장소 상세 정보 확인
 
-키 저장소 우측 상단에 표시한 버튼을 클릭하여, 상세 정보 메뉴를 통해 선택한 키 저장소의 상세 정보를 확인할 수 있습니다.
+키 저장소 우측 상단의 더보기 버튼을 클릭하여, 상세 정보 메뉴를 통해 선택한 키 저장소의 상세 정보를 확인할 수 있습니다.
 ![console-guide-43](http://static.toastoven.net/prod_kms/2024-02-27-ko/console-guide-01.png)
 
 ## 키 생성
@@ -73,7 +73,7 @@ Secure Key Manager는 대칭키(AES-256)를 가져오는 기능을 지원합니�
 0xXX, 0xXX, ..., 0xXX
 ```
 
-위와 같은 32개의 Hex String을 쉼표(`,`) 혹은 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
+위와 같은 32개의 Hex String을 쉼표(`,`) 또는 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
 
 ## 인증 정보 등록
 Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만 사용할 수 있습니다. 클라이언트 인증에 사용하는 인증 정보는 **IPv4 주소 관리**, **MAC 주소 관리**, **인증서 관리** 메뉴에서 등록합니다.
@@ -131,7 +131,7 @@ Secure Key Manager는 사용자가 생성한 데이터(키, 인증 정보)의 �
 
 ![console-guide-21](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-21.png)
 
-삭제를 요청하면 다음 그림과 같이 데이터 상태를 **삭제 예정**으로 변경합니다. **삭제 예정**으로 변경한 데이터는 사용할 수 없으며 7일 후 완전히 삭제합니다.
+삭제를 요청하면 다음 그림과 같이 데이터 상태를 **삭제 예정**으로 변경합니다. **삭제 예정**으로 변경한 데이터는 사용할 수 없으며 7일 후 완전히 삭제됩니다.
 
 ![console-guide-22](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-22.png)
 
@@ -145,7 +145,7 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 
 ![console-guide-24](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-24.png)
 
-회전 주기에 30 이상의 값을 설정하면 다음 회전일을 표시하며 회전 주기마다 키를 자동으로 회전합니다.
+회전 주기에 30 이상의 값을 설정하면 다음 회전 일을 표시하며 회전 주기마다 키를 자동으로 회전합니다.
 
 ![console-guide-25](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-25.png)
 
@@ -175,7 +175,7 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 
 ![console-guide-40](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-03.png)
 
-**User Access Key ID**, **Secret Access Key**를 생성하면 아래와 같이 **비밀 키 발급 완료** 화면이 표시됩니다. 비밀 키는 해당 팝업 화면에서 한번만 알려주므로 이 값을 잘 기록하여 사용합니다.
+**User Access Key ID**, **Secret Access Key**를 생성하면 아래와 같이 **비밀 키 발급 완료** 화면이 표시됩니다. 비밀 키는 해당 팝업 화면에서 한 번만 알려주므로 이 값을 잘 기록하여 사용합니다.
 
 ![console-guide-41](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-04.png)
 
