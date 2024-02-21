@@ -8,16 +8,16 @@
 
 - **승인 기능 활성화**
     - 승인 기능 활성화 방법
-    - 승인 기능 관련 역할 설정
-    - 승인 기능 활성화 후 화면의 차이점
+    - 승인 기능 역할 설정
+    - 승인 기능 활성화에 따른 차이점
 - **승인 과정**
-    - 승인 요청 방법
-    - 승인 요청 승인/거절 방법
+    - 승인 요청 작성
+    - 승인 요청 반영
 
 ## 승인 기능 활성화
 
 ### 승인 기능 활성화 방법
-조직 관리 화면의 거버넌스 설정에서 승인 프로세스 관리 설정을 통해 Secure Key Manager의 승인 기능을 활성화합니다.
+**조직 관리** 화면의 **거버넌스 설정**에서 **승인 프로세스 관리 설정**을 통해 Secure Key Manager의 승인 기능을 활성화합니다.
 
 ![console-guide-29](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-29.png)
 
@@ -26,7 +26,7 @@ Secure Key Manager의 멤버 관리를 통해 승인자(APPROVAL ADMIN), 요청�
 
 ![console-guide-30](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-30.png)
 
-### 승인 기능 활성화 여부에 따른 차이점
+### 승인 기능 활성화에 따른 차이점
 승인 기능을 활성화하고 승인자 또는 요청자 역할을 획득하면 Secure Key Manager에 **승인리스트**와 **키 저장소 관리** 탭이 추가됩니다. 두 탭은 승인자, 요청자만 접근할 수 있습니다.
 
 ![console-guide-31](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-31.png)

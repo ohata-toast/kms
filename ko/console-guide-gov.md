@@ -57,7 +57,7 @@ Secure Key Manager는 대칭키(ARIA-256)를 가져오는 기능을 지원합니
 0xXX, 0xXX, ..., 0xXX
 ```
 
-위와 같은 32개의 Hex String을 쉼표(`,`) 혹은 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
+위와 같은 32개의 Hex String을 쉼표(`,`) 또는 공백(` `)을 구분자로 구분하여 입력하여 키를 업로드합니다.
 
 ### 인증 정보 등록
 Secure Key Manager에서 생성한 키는 인증에 성공한 클라이언트만 사용할 수 있습니다. 클라이언트 인증에 사용하는 인증 정보는 **IPv4 주소 관리**, **MAC 주소 관리**, **인증서 관리** 메뉴에서 등록합니다.
@@ -115,7 +115,7 @@ Secure Key Manager는 사용자가 생성한 데이터(키, 인증 정보)의 �
 
 ![console-guide-21](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-21.png)
 
-삭제를 요청하면 다음 그림과 같이 데이터 상태를 **삭제 예정**으로 변경합니다. **삭제 예정**으로 변경한 데이터는 사용할 수 없으며 7일 후 완전히 삭제합니다.
+삭제를 요청하면 다음 그림과 같이 데이터 상태를 **삭제 예정**으로 변경합니다. **삭제 예정**으로 변경한 데이터는 사용할 수 없으며 7일 후 완전히 삭제됩니다.
 
 ![console-guide-22](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-22.png)
 
@@ -129,7 +129,7 @@ Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다
 
 ![console-guide-24](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-24-gov.png)
 
-회전 주기에 30 이상의 값을 설정하면 다음 회전일을 표시하며 회전 주기마다 키를 자동으로 회전합니다.
+회전 주기에 30 이상의 값을 설정하면 다음 회전 일을 표시하며 회전 주기마다 키를 자동으로 회전합니다.
 
 ![console-guide-25](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-25-gov.png)
 
@@ -200,7 +200,7 @@ Secure Key Manager의 멤버 관리를 통해 승인자(APPROVAL ADMIN), 요청�
 
 ![console-guide-40](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-03.png)
 
-**User Access Key ID**, **Secret Access Key**를 생성하면 아래와 같이 **비밀 키 발급 완료** 화면이 표시됩니다. 비밀 키는 해당 팝업 화면에서 한번만 알려주므로 이 값을 잘 기록하여 사용합니다.
+**User Access Key ID**, **Secret Access Key**를 생성하면 아래와 같이 **비밀 키 발급 완료** 화면이 표시됩니다. 비밀 키는 해당 팝업 화면에서 한 번만 알려주므로 이 값을 잘 기록하여 사용합니다.
 
 ![console-guide-41](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2023-11-28-ko/console-guide-04.png)
 
