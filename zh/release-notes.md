@@ -1,5 +1,10 @@
 ## Security > Secure Key Manager > Release Notes
 
+### February 27, 2024
+#### Displayed Key Store ID
+* Displayed the area where you can see the key store ID in keystore details
+* Added the feature to copy the key store ID via the View more button on the right of the key store ID.
+
 ### November 28, 2023
 #### Added Add/Delete Keys API
 * Added the feature to add or delete keys using APIs
