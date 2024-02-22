@@ -43,7 +43,7 @@ X-TC-AUTHENTICATION-ID: {User Access Key ID}
 X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
 ```
 
-詳細は[コンソール使用ガイド](https://docs.nhncloud.com/ja/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照。
+詳細は[コンソール使用ガイド](/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照。
 
 [APIリクエストのパス変数]
 
