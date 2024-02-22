@@ -1,21 +1,8 @@
 ## Security > Secure Key Manager > Console User Guide > Getting Started
 
-Getting Started describes basics for the use of Secure Key Manager:
+Getting Started describes basics for the use of Secure Key Manager.
 
-목차는 다음과 같습니다.
-
-- **Create a Key Store**
-- **Create a Key**
-    - Import a Key
-- **Register Authentication Information**
-    - Register IPv4 Address
-    - Register MAC Address
-    - Register Client Certificates
-- **Manage User Data**
-    - Delete User Data
-    - Rotate Symmetric/Asymmetric Keys
-- **Authorization for Add/Delete Keys API**
-    - Create User Access Key ID, Secret Access Key
+![getting-started](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-en/getting-started.png)
 
 ## Create a Key Store
 Secure Key Manager manages authentication information and keys in key store unit. If there is no key store, the following screen is displayed:
@@ -33,6 +20,12 @@ Enter name and description, select one or more authentication method, and then c
 Click a key store from the list, and a menu to manage the key store is displayed as below:
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-04.png)
+
+### Key Store Details
+
+Click the View more button in the top right on the keystore to view information about the selected keystore through the Details menu.
+
+![console-guide-43](http://static.toastoven.net/prod_kms/2024-02-27-en/console-guide-01.png)
 
 ## Create a Key
 In Secure Key Manager, keys are categorized into three types: Confidential Data, Symmetric Key, and Asymmetric Key. For Confidential Data, Secure Key Manager stores string data and provides query feature using APIs. For Symmetric key, data encryption/decryption using APIs is provided. For Asymmetric Key, data signing/verification using APIs is provided. Users can select a key type appropriate for purpose and create keys.

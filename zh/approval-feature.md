@@ -1,18 +1,10 @@
 ## Security > Secure Key Manager > Console User Guide > Approval Feature
 
-국내·외 보안 인증 심사(ISMS-P, ISO 등)에서 요구하는 안전한 암호화 키 관리 요구 사항을 충족하기 위해 사용하는 Secure Key Manager의 승인 기능에 대해 설명합니다.
+This document describes the approval features of Secure Key Manager that you use to meet the requirements for secure encryption key management as required by national and international security certification audits (ISMS-P, ISO, etc.).
 
-**승인 기능 활성화** 방법과 승인 기능 활성화 이후 승인 관련 역할 설정과 활성화 전과 후의 차이점 그리고 **승인 과정**에 대해 알아보겠습니다.
+The document explores how to **Enable Approval Feature**, setting up approval-related roles, the differences between before and after, and the **Approval Process** after enabling the feature.
 
-목차는 다음과 같습니다.
-
-- **승인 기능 활성화**
-    - 승인 기능 활성화 방법
-    - 승인 기능 관련 역할 설정
-    - 승인 기능 활성화 후 화면의 차이점
-- **승인 과정**
-    - 승인 요청 방법
-    - 승인 요청 승인/거절 방법
+![approval-feature](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-en/approval-feature.png)
 
 ## Enable Approval Feature
 

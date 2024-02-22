@@ -3,7 +3,7 @@
 ### November 28, 2023
 #### Added Add/Delete Keys API
 * Added the feature to add or delete keys using APIs
-* To add or delete keys using APIs, you must need a User Access Key ID and a Secret Access Key. For more information, see [the console user guide](https://docs.nhncloud.com/zh/Security/Secure%20Key%20Manager/zh/console-guide/#authorization-for-adddelete-keys-api)
+* To add or delete keys using APIs, you must need a User Access Key ID and a Secret Access Key. For more information, see [the console user guide](https://docs.nhncloud.com/zh/Security/Secure%20Key%20Manager/zh/getting-started/#authorization-for-adddelete-keys-api)
 
 ### September 26, 2023
 #### Added IPv4 Bandwidth Authentication Feature

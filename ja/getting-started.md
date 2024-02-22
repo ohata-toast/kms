@@ -2,20 +2,7 @@
 
 はじめにではSecure Key Managerを使用するのに必要な基本的な内容を説明します。
 
-목차는 다음과 같습니다.
-
-- **キー保存場所の作成**
-- **キーの作成**
-    - キーのインポート
-- **認証情報の登録**
-    - IPv4アドレスの登録
-    - MACアドレスの登録
-    - クライアント証明書の登録
-- **ユーザーデータの管理**
-    - ユーザーデータの削除
-    - 対称鍵/非対称鍵のローテーション
-- **キーの追加/削除API資格関連**
-    - User Access Key ID, Secret Access Key作成
+![getting-started](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-ja/getting-started.png)
 
 ## キー保存場所の作成
 Secure Key Managerは、キー保存場所の単位として認証情報とキーを管理します。キー保存場所がない場合は次のような画面が表示されます。
@@ -33,6 +20,12 @@ Secure Key Managerは、キー保存場所の単位として認証情報とキ�
 キー保存場所リストでキー保存場所をクリックすると、次の図のようにキー保存場所を管理できるメニューが表示されます。
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-04.png)
+
+### キー保存場所詳細情報
+
+キーストア右上にある「さらに表示」ボタンをクリックして、詳細情報メニューから選択したキーストアの情報を確認できます。
+
+![console-guide-43](http://static.toastoven.net/prod_kms/2024-02-27-en/console-guide-01.png)
 
 ## キーの作成
 Secure Key Managerは、キーを3つのタイプに区分します。機密データは文字列データを保存し、APIを使用した照会機能を提供します。対称鍵はAPIを使用したデータ暗号化/復号機能を提供します。非対称鍵はAPIを使用したデータ署名/検証機能を提供します。ユーザーは使用目的に合ったキータイプを選択してキーを作成できます。
