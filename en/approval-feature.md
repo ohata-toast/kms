@@ -2,17 +2,7 @@
 
 This document describes the approval features of Secure Key Manager that you use to meet the requirements for secure encryption key management as required by national and international security certification audits (ISMS-P, ISO, etc.).
 
-The document explores how to **enable approval feature**, setting up approval-related roles, the differences between before and after, and **the approval process** after enabling the feature.
-
-The following two steps are required.
-
-- **Enable Approval Feature**
-    - How to enable the approval feature
-    - Set up roles for the approval feature
-    - Differences between before and after enabling the approval feature
-- **Approval Process**
-    - Make the approval requests
-    - Reflect the approval requests
+The document explores how to **Enable Approval Feature**, setting up approval-related roles, the differences between before and after, and the **Approval Process** after enabling the feature.
 
 ## Enable Approval Feature
 

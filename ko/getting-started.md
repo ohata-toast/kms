@@ -2,22 +2,6 @@
 
 시작하기에서는 Secure Key Manager를 사용하는 데 필요한 기본적인 내용을 설명합니다.
 
-목차는 다음과 같습니다.
-
-- **키 저장소 생성**
-    - 키 저장소 상세 정보 확인
-- **키 생성**
-    - 키 가져오기
-- **인증 정보 등록**
-    - IPv4 주소 등록
-    - MAC 주소 등록
-    - 클라이언트 인증서 등록
-- **사용자 데이터 관리**
-    - 사용자 데이터 삭제
-    - 대칭키/비대칭키 회전
-- **키 추가/삭제 API 자격 관련**
-    - User Access Key ID, Secret Access Key 생성
-
 ## 키 저장소 생성
 Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합니다. 키 저장소가 없으면 다음과 같은 화면이 나타납니다.
 
@@ -35,7 +19,7 @@ Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합�
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-04.png)
 
-### 키 저장소 상세 정보 확인
+### 키 저장소 상세 정보
 
 키 저장소 우측 상단의 더보기 버튼을 클릭하여, 상세 정보 메뉴를 통해 선택한 키 저장소의 상세 정보를 확인할 수 있습니다.
 ![console-guide-43](http://static.toastoven.net/prod_kms/2024-02-27-ko/console-guide-01.png)
