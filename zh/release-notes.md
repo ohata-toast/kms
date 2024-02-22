@@ -1,7 +1,7 @@
 ## Security > Secure Key Manager > Release Notes
 
-### February 27, 2023
-#### Displayed key store ID
+### February 27, 2024
+#### Displayed Key Store ID
 * Displayed the area where you can see the key store ID in keystore details
 * Added the feature to copy the key store ID via the View more button on the right of the key store ID.
 
