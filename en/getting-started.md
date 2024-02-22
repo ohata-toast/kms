@@ -2,7 +2,7 @@
 
 Getting Started describes basics for the use of Secure Key Manager:
 
-목차는 다음과 같습니다.
+The steps are as follows.
 
 - **Create a Key Store**
 - **Create a Key**
