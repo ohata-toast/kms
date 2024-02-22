@@ -20,6 +20,9 @@ Enter name and description, select one or more authentication method, and then c
 
 ![console-guide-03](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-03.png)
 
+Click the View more button in the top right on the keystore to view information about the selected keystore through the Details menu.
+![console-guide-01](http://static.toastoven.net/prod_kms/2024-02-27/console-guide-01.png)
+
 Click a key store from the list, and a menu to manage the key store is displayed as below:
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-04.png)
