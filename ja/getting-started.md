@@ -2,6 +2,8 @@
 
 はじめにではSecure Key Managerを使用するのに必要な基本的な内容を説明します。
 
+![getting-started](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-ja/getting-started.png)
+
 ## キー保存場所の作成
 Secure Key Managerは、キー保存場所の単位として認証情報とキーを管理します。キー保存場所がない場合は次のような画面が表示されます。
 

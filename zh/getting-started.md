@@ -2,6 +2,8 @@
 
 Getting Started describes basics for the use of Secure Key Manager.
 
+![getting-started](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-en/getting-started.png)
+
 ## Create a Key Store
 Secure Key Manager manages authentication information and keys in key store unit. If there is no key store, the following screen is displayed:
 

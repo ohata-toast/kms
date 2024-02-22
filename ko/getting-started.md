@@ -2,6 +2,8 @@
 
 시작하기에서는 Secure Key Manager를 사용하는 데 필요한 기본적인 내용을 설명합니다.
 
+![getting-started](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-ko/getting-started.png)
+
 ## 키 저장소 생성
 Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합니다. 키 저장소가 없으면 다음과 같은 화면이 나타납니다.
 

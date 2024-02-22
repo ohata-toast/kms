@@ -4,6 +4,8 @@ This document describes the approval features of Secure Key Manager that you use
 
 The document explores how to **Enable Approval Feature**, setting up approval-related roles, the differences between before and after, and the **Approval Process** after enabling the feature.
 
+![approval-feature](https://kr1-api-object-storage.nhncloudservice.com/v1/AUTH_2acdfabf4efe4efc8a04c00b348110c9/cdn_origin/prod_kms/2024-02-27-en/approval-feature.png)
+
 ## Enable Approval Feature
 
 ### How to Enable Approval Feature
@@ -11,7 +13,7 @@ Enable Approval Feature of Secure Key Manager in Approval Process Management Set
 
 ![console-guide-29](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-29.png)
 
-#### Set up Roles for Approval Feature
+### Set up Roles for Approval Feature
 On Member Management in Secure Key Manager, perform the approval process by obtaining the approver role (APPROVAL ADMIN) and the requester role (APPROVAL MEMBER).
 
 ![console-guide-30](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-30.png)
