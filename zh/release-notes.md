@@ -1,5 +1,18 @@
 ## Security > Secure Key Manager > Release Notes
 
+### November 28, 2023
+#### Added Add/Delete Keys API
+* Added the feature to add or delete keys using APIs
+* To add or delete keys using APIs, you must need a User Access Key ID and a Secret Access Key. For more information, see [the console user guide](https://docs.nhncloud.com/zh/Security/Secure%20Key%20Manager/zh/console-guide/#authorization-for-adddelete-keys-api)
+
+### September 26, 2023
+#### Added IPv4 Bandwidth Authentication Feature
+* Added a feature to authenticate bandwith using CIDR notation when authentication with IPv4
+
+### July 25, 2023
+### Fixed Approval Process Certificate Cancel Error
+* Fixed an error in the approval process where a certificate in the **In Use** status is displayed as **Scheduled to Cancel Deletion** instead of the original **In Use** status when requesting deletion and then canceling the request
+
 ### May 30, 2023
 #### Fixed Approval Process Notification (email) Error
 * Fixed an issue where some managers with approval authority cannot receive notifications (email)
