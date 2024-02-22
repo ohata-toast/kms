@@ -8,7 +8,7 @@
 ### 2023. 11. 28.
 #### キー追加/削除API追加
 * API を利用してキーを追加または削除する機能を追加
-* API を利用してキーを追加または削除するには **User Access Key ID** と **Secret Access Key** が必要。 詳細は[コンソール使用ガイド](https://docs.nhncloud.com/ja/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照。
+* API を利用してキーを追加または削除するには **User Access Key ID** と **Secret Access Key** が必要。 詳細は[コンソール使用ガイド](/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照。
 
 ### 2023. 09. 26.
 #### IPv4帯域幅認証機能を追加
