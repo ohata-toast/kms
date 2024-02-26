@@ -1,9 +1,14 @@
 ## Security > Secure Key Manager > リリースノート
 
+### 2024. 02. 27.
+#### キーストアID表示
+* キーストア詳細情報でキーストアIDを確認できる領域を表示
+* キーストアID右側のさらに表示ボタンを通じてキーストアIDをコピーできる機能を追加
+
 ### 2023. 11. 28.
 #### キー追加/削除API追加
 * API を利用してキーを追加または削除する機能を追加
-* API を利用してキーを追加または削除するには **User Access Key ID** と **Secret Access Key** が必要。 詳細は[コンソール使用ガイド](https://docs.nhncloud.com/ja/Security/Secure%20Key%20Manager/ja/console-guide/#api)を参照。
+* API を利用してキーを追加または削除するには **User Access Key ID** と **Secret Access Key** が必要。 詳細は[コンソール使用ガイド](/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照。
 
 ### 2023. 09. 26.
 #### IPv4帯域幅認証機能を追加

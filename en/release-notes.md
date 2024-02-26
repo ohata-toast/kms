@@ -1,9 +1,14 @@
 ## Security > Secure Key Manager > Release Notes
 
+### February 27, 2024
+#### Displayed Key Store ID
+* Displayed the area where you can see the key store ID in keystore details
+* Added the feature to copy the key store ID via the View more button on the right of the key store ID.
+
 ### November 28, 2023
 #### Added Add/Delete Keys API
 * Added the feature to add or delete keys using APIs
-* To add or delete keys using APIs, you must need a User Access Key ID and a Secret Access Key. For more information, see [the console user guide](https://docs.nhncloud.com/en/Security/Secure%20Key%20Manager/en/console-guide/#authorization-for-adddelete-keys-api)
+* To add or delete keys using APIs, you must need a User Access Key ID and a Secret Access Key. For more information, see [the console user guide](/Security/Secure%20Key%20Manager/en/getting-started/#authorization-for-adddelete-keys-api)
 
 ### September 26, 2023
 #### Added IPv4 Bandwidth Authentication Feature
