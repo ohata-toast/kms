@@ -43,7 +43,7 @@ X-TC-AUTHENTICATION-ID: {User Access Key ID}
 X-TC-AUTHENTICATION-SECRET: {Secret Access Key}
 ```
 
-For more information, please see [the console user guide](https://docs.nhncloud.com/en/Security/Secure%20Key%20Manager/en/console-guide/#authorization-for-adddelete-keys-api).
+For more information, please see [the console user guide](/Security/Secure%20Key%20Manager/en/getting-started/#authorization-for-adddelete-keys-api).
 
 [Path Variables of API Request]
 
