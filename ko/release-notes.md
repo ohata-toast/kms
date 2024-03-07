@@ -1,5 +1,10 @@
 ## Security > Secure Key Manager > 릴리스 노트
 
+### 2024. 03. 26.
+#### 인증 정보 등록/삭제 API 추가
+* API를 이용해 키를 사용하기 위한 인증 정보를 등록하거나 삭제할 수 있는 기능 추가
+* API를 이용해 인증 정보를 추가하거나 삭제하려면 **User Access Key ID**와 **Secret Access Key** 필요. 자세한 내용은 [콘솔 사용 가이드](/Security/Secure%20Key%20Manager/ko/getting-started/#api)를 참고.
+
 ### 2024. 02. 27.
 #### 키 저장소 ID 노출
 * 키 저장소 상세 정보에서 키 저장소 ID를 확인할 수 있는 영역 노출

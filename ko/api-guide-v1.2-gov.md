@@ -572,3 +572,353 @@ DELETE https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.2/appkey/{ap
 |---|---|---|
 | keyId | String | 생성된 키 ID |
 | deletionDateTime | String | 키 삭제 시각 |
+
+## 인증 정보 추가/삭제
+
+### 인증 정보 추가
+Secure Key Manager에 인증 정보를 추가할 수 있습니다.
+
+#### IPv4 주소 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1",
+    "description" : "Description #1",
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | IPv 주소를 저장할 키 저장소 이름 |
+| value | String | IPv4 주소 값|
+| description | String | IPv4 주소 설명 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "description": "Description #1"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 생성된 IPv4 주소 값 |
+| description | String | 생성된 IPv4 주소 설명 |
+
+#### MAC 주소 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa",
+    "description" : "Description #1",
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | MAC 주소를 저장할 키 저장소 이름 |
+| value | String | MAC 주소 값|
+| description | String | MAC 주소 설명 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "description": "Description #1"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 생성된 MAC 주소 값|
+| description | String | 생성된 MAC 주소 설명 |
+
+#### 인증서 추가
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1",
+    "password" : "Password",
+    "lifeTime" : 365
+    "description" : "Description #1",
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 인증서를 저장할 키 저장소 이름 |
+| name | String | 인증서 이름|
+| password | String | 인증서 패스워드|
+| lifeTime | int | 인증서 사용 기간 (일)|
+| description | String | 인증서 설명 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "description": "Description #1"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 생성된 인증서 이름|
+| description | String | 생성된 인증서 설명 |
+
+### 인증 정보 삭제
+Secure Key Manager에 저장된 인증 정보의 상태를 **삭제 예정** 상태로 변경하거나, **즉시 삭제**할 수 있습니다.
+
+#### 인증 정보 삭제 요청
+인증 정보를 **삭제 예정** 상태로 변경합니다.
+인증 정보는 7일 후 자동으로 삭제되며, **삭제 예정** 상태의 인증 정보는 사용할 수 없습니다.
+
+#### IPv4 주소 삭제 요청
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | IPv4 주소를 삭제 요청할 키 저장소 이름 |
+| value | String | 삭제 요청할 IPv4 주소 값|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제 요청한 IPv4 주소 값 |
+| deletionDateTime | String | IPv4 주소의 삭제 예정 시간 |
+
+#### MAC 주소 삭제 요청
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | MAC 주소를 삭제 요청 할 키 저장소 이름 |
+| value | String | 삭제 요청할 MAC 주소 값|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제 요청한 MAC 주소 값|
+| deletionDateTime | String | MAC 주소의 삭제 예정 시간 |
+
+#### 인증서 삭제 요청
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 인증서를 삭제 요청할 키 저장소 이름 |
+| name | String | 삭제 요청할 인증서 이름|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제 요청한 인증서 이름|
+| deletionDateTime | String | 인증서의 삭제 예정 시간 |
+
+#### 인증 정보 즉시 삭제
+**즉시 삭제**할 인증 정보의 상태는 **삭제 예정** 상태여야만 **즉시 삭제**가 가능합니다.
+활성화 상태인 인증 정보는 **즉시 삭제**할 수 없습니다.
+
+#### IPv4 주소 즉시 삭제
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | IPv4 주소를 즉시 삭제할 키 저장소 이름 |
+| value | String | 즉시 삭제할 IPv4 주소 값|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제한 IPv4 주소 값 |
+| deletionDateTime | String | IPv4 주소의 삭제 시간 |
+
+#### MAC 주소 즉시 삭제
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | MAC 주소를 즉시 삭제할 키 저장소 이름 |
+| value | String | 즉시 삭제할 MAC 주소 값|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제한 MAC 주소 값|
+| deletionDateTime | String | MAC 주소의 삭제 시간 |
+
+#### 인증서 즉시 삭제
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| keyStoreName | String | 인증서를 즉시 삭제할 키 저장소 이름 |
+| name | String | 즉시 삭제할 인증서 이름|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 이름 | 타입 | 설명 |
+|---|---|---|
+| value | String | 삭제한 인증서 이름|
+| deletionDateTime | String | 인증서의 삭제 시간 |
