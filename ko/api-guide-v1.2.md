@@ -32,6 +32,7 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Secure Key Manager에 인증정보를 추가합니다. |
 | PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증정보의 삭제를 요청합니다. |
 | POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증정보를 즉시 삭제합니다. |
+
 [API 요청의 HTTP 헤더]
 
 Secure Key Manager의 MAC 주소 인증을 사용하려면 HTTP 헤더에 클라이언트 MAC 주소를 설정해서 요청해야 합니다.
@@ -594,7 +595,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyStoreName | String | IPv 주소를 저장할 키 저장소 이름 |
+| keyStoreName | String | IPv4 주소를 저장할 키 저장소 이름 |
 | value | String | IPv4 주소 값|
 | description | String | IPv4 주소 설명 |
 

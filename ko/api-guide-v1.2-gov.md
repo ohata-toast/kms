@@ -594,7 +594,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyStoreName | String | IPv 주소를 저장할 키 저장소 이름 |
+| keyStoreName | String | IPv4 주소를 저장할 키 저장소 이름 |
 | value | String | IPv4 주소 값|
 | description | String | IPv4 주소 설명 |
 
