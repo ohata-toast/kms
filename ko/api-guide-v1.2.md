@@ -29,9 +29,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.2/appkey/{appkey}/keys/{secrets\|symmetric-keys\|asymmetric-keys}/create | Secure Key Manager에 신규 키를 추가합니다. |
 | PUT | /keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete | Secure Key Manager에 저장한 키의 삭제를 요청합니다. |
 | DELETE | /keymanager/v1.2/appkey/{appkey}/keys/{keyid} | Secure Key Manager에 삭제 예정인 키를 즉시 삭제합니다. |
-| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Secure Key Manager에 인증정보를 추가합니다. |
-| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증정보의 삭제를 요청합니다. |
-| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증정보를 즉시 삭제합니다. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Secure Key Manager에 인증 정보를 추가합니다. |
+| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증 정보의 삭제를 요청합니다. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증 정보를 즉시 삭제합니다. |
 
 [API 요청의 HTTP 헤더]
 
@@ -596,7 +596,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | IPv4 주소를 저장할 키 저장소 이름 |
-| value | String | IPv4 주소 값|
+| value | String | IPv4 주솟값|
 | description | String | IPv4 주소 설명 |
 
 [Response Body]
@@ -614,7 +614,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 생성된 IPv4 주소 값 |
+| value | String | 생성된 IPv4 주솟값 |
 | description | String | 생성된 IPv4 주소 설명 |
 
 #### MAC 주소 추가
@@ -634,7 +634,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | MAC 주소를 저장할 키 저장소 이름 |
-| value | String | MAC 주소 값|
+| value | String | MAC 주솟값|
 | description | String | MAC 주소 설명 |
 
 [Response Body]
@@ -652,7 +652,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 생성된 MAC 주소 값|
+| value | String | 생성된 MAC 주솟값|
 | description | String | 생성된 MAC 주소 설명 |
 
 #### 인증서 추가
@@ -675,8 +675,8 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 |---|---|---|
 | keyStoreName | String | 인증서를 저장할 키 저장소 이름 |
 | name | String | 인증서 이름|
-| password | String | 인증서 패스워드|
-| lifeTime | int | 인증서 사용 기간 (일)|
+| password | String | 인증서 비밀번호|
+| lifeTime | int | 인증서 사용 기간(일)|
 | description | String | 인증서 설명 |
 
 [Response Body]
@@ -720,7 +720,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/a
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | IPv4 주소를 삭제 요청할 키 저장소 이름 |
-| value | String | 삭제 요청할 IPv4 주소 값|
+| value | String | 삭제 요청할 IPv4 주솟값|
 
 [Response Body]
 
@@ -737,7 +737,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/a
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 삭제 요청한 IPv4 주소 값 |
+| value | String | 삭제 요청한 IPv4 주솟값 |
 | deletionDateTime | String | IPv4 주소의 삭제 예정 시간 |
 
 #### MAC 주소 삭제 요청
@@ -756,7 +756,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/a
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | MAC 주소를 삭제 요청 할 키 저장소 이름 |
-| value | String | 삭제 요청할 MAC 주소 값|
+| value | String | 삭제 요청할 MAC 주솟값|
 
 [Response Body]
 
@@ -773,7 +773,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/a
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 삭제 요청한 MAC 주소 값|
+| value | String | 삭제 요청한 MAC 주솟값|
 | deletionDateTime | String | MAC 주소의 삭제 예정 시간 |
 
 #### 인증서 삭제 요청
@@ -813,7 +813,7 @@ PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/a
 | deletionDateTime | String | 인증서의 삭제 예정 시간 |
 
 #### 인증 정보 즉시 삭제
-**즉시 삭제**할 인증 정보의 상태는 **삭제 예정** 상태여야만 **즉시 삭제**가 가능합니다.
+**즉시 삭제**할 인증 정보는 **삭제 예정** 상태이어야만 **즉시 삭제**가 가능합니다.
 활성화 상태인 인증 정보는 **즉시 삭제**할 수 없습니다.
 
 #### IPv4 주소 즉시 삭제
@@ -832,7 +832,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | IPv4 주소를 즉시 삭제할 키 저장소 이름 |
-| value | String | 즉시 삭제할 IPv4 주소 값|
+| value | String | 즉시 삭제할 IPv4 주솟값|
 
 [Response Body]
 
@@ -849,7 +849,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 삭제한 IPv4 주소 값 |
+| value | String | 삭제한 IPv4 주솟값 |
 | deletionDateTime | String | IPv4 주소의 삭제 시간 |
 
 #### MAC 주소 즉시 삭제
@@ -868,7 +868,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 | 이름 | 타입 | 설명 |
 |---|---|---|
 | keyStoreName | String | MAC 주소를 즉시 삭제할 키 저장소 이름 |
-| value | String | 즉시 삭제할 MAC 주소 값|
+| value | String | 즉시 삭제할 MAC 주솟값|
 
 [Response Body]
 
@@ -885,7 +885,7 @@ POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| value | String | 삭제한 MAC 주소 값|
+| value | String | 삭제한 MAC 주솟값|
 | deletionDateTime | String | MAC 주소의 삭제 시간 |
 
 #### 인증서 즉시 삭제
