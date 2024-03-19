@@ -29,6 +29,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.0/appkey/{appkey}/keys/{secrets\|symmetric-keys\|asymmetric-keys}/create | Secure Key Managerに新規キーを追加します。 |
 | PUT | /keymanager/v1.0/appkey/{appkey}/keys/{keyid}/delete | Secure Key Managerに保存したキーの削除をリクエストします。 |
 | DELETE | /keymanager/v1.0/appkey/{appkey}/keys/{keyid} | Secure Key Managerに削除予定のキーを即時削除します。 |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Secure Key Managerに認証情報を追加します。 |
+| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Managerに認証情報の削除をリクエストします。 |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Managerに認証情報の削除を行います。 |
 
 [APIリクエストのHTTPヘッダ]
 
@@ -570,3 +573,353 @@ DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey
 |---|---|---|
 | keyId | String | 作成されたキーID |
 | deletionDateTime | String | キーの削除時刻 |
+
+## 認証情報の追加/削除
+
+### 認証情報の追加/削除
+Secure Key Managerに認証情報を追加できます。
+
+#### IPv4アドレスの追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1",
+    "description" : "Description #1",
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | IPv4アドレスを保存するキーストア名 |
+| value | String | IPv4アドレス値|
+| description | String | IPv4アドレスの説明 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "description": "Description #1"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 作成されたIPv4アドレス値 |
+| description | String | 作成されたIPv4アドレスの説明 |
+
+#### MACアドレスの追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa",
+    "description" : "Description #1",
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | MACアドレスを保存するキーストア名 |
+| value | String | MACアドレス値|
+| description | String | MACアドレスの説明
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "description": "Description #1"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 作成されたMACアドレス値|
+| description | String | 作成されたMACアドレスの説明 |
+
+#### 証明書の追加
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1",
+    "password" : "Password",
+    "lifeTime" : 365
+    "description" : "Description #1",
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | 証明書を保存するキーストア名 |
+| name | String | 証明書の名前|
+| password | String | 証明書のパスワード|
+| lifeTime | int | 証明書の使用期間(日)|
+| description | String | 証明書の説明 |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "description": "Description #1"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 作成された証明書の名前|
+| description | String | 作成された証明書の説明 |
+
+### 認証情報の削除
+Secure Key Managerに保存された認証情報の状態を**削除予定**状態に変更したり、**即時削除**できます。
+
+#### 認証情報削除リクエスト
+認証情報を**削除予定**状態に変更します。
+認証情報は7日後に自動的に削除されます。**削除予定**状態の認証情報は使用できません。
+
+#### IPv4アドレスの削除リクエスト
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | IPv4アドレスを削除リクエストするキーストア名 |
+| value | String | 削除リクエストするIPv4アドレス値|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除をリクエストしたIPv4アドレス値 |
+| deletionDateTime | String | IPv4アドレスの削除予定時間 |
+
+#### MACアドレスの削除リクエスト
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | MACアドレスを削除リクエストするキーストアの名前 |
+| value | String | 削除リクエストするMACアドレス値|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除リクエストしたMACアドレス値|
+| deletionDateTime | String | MACアドレスの削除予定時間 |
+
+#### 証明書の削除リクエスト
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | 証明書を削除リクエストするキーストア名 |
+| name | String | 削除リクエストする証明書の名前|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除リクエストした証明書の名前|
+| deletionDateTime | String | 証明書の削除予定時間 |
+
+#### 認証情報の即時削除
+**即時削除**を行う認証情報は、**削除予定*状態の場合のみ**即時削除**が可能です。
+有効状態の認証情報は**即時削除**できません。
+
+#### IPv4アドレスの即時削除
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | IPv4アドレスを即時削除するキーストア名 |
+| value | String | 即時削除するIPv4アドレス値|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除したIPv4アドレス値 |
+| deletionDateTime | String | IPv4アドレスの削除時間 |
+
+#### MACアドレスの即時削除
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | MACアドレスを即時削除するキーストア名 |
+| value | String | 即時削除するMACアドレス値|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除したMACアドレス値|
+| deletionDateTime | String | MACアドレスの削除時間 |
+
+#### 証明書の即時削除
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| keyStoreName | String | 証明書を即時削除するキーストア名 |
+| name | String | 即時削除する証明書の名前|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| 名前 | タイプ | 説明 |
+|---|---|---|
+| value | String | 削除した証明書の名前|
+| deletionDateTime | String | 証明書の削除時間 |
