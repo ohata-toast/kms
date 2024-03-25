@@ -1,5 +1,10 @@
 ## Security > Secure Key Manager > リリースノート
 
+### 2024. 03. 26.
+#### 認証情報登録/削除API追加
+* API を利用してキーを使用するための認証情報を登録または削除する機能を追加しました。
+* API を利用して認証情報を追加または削除するには、**User Access Key ID** と **Secret Access Key** が必要です。 詳細は [コンソール使用ガイド](/Security/Secure%20Key%20Manager/ja/getting-started/#api)を参照してください。
+
 ### 2024. 02. 27.
 #### キーストアID表示
 * キーストア詳細情報でキーストアIDを確認できる領域を表示
