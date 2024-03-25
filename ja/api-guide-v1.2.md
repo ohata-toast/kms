@@ -575,6 +575,7 @@ DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.0/appkey/{appkey
 | deletionDateTime | String | キーの削除時刻 |
 
 ## 認証情報の追加/削除
+Secure Key Managerでユーザーデータを保護するために、クライアントのIPv4アドレスを確認する**IPv4アドレス認証**、クライアントのMACアドレスを確認する**MACアドレス認証**、クライアントが通信に使用する証明書を確認する**クライアント証明書認証**の認証方法を提供しています。
 
 ### 認証情報の追加/削除
 Secure Key Managerに認証情報を追加できます。
