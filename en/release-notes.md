@@ -9,6 +9,8 @@
 #### Displayed Key Store ID
 * Displayed the area where you can see the key store ID in keystore details
 * Added the feature to copy the key store ID via the View more button on the right of the key store ID.
+#### Added notification mail recipient settings
+* Added the feature to set email recipient address in Organization/Project Dashboard > Manage Notifications.
 
 ### November 28, 2023
 #### Added Add/Delete Keys API
