@@ -30,7 +30,7 @@ https://api-keymanager.nhncloudservice.com
 | PUT | /keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete | Secure Key Manager에 저장한 키의 삭제를 요청합니다. |
 | DELETE | /keymanager/v1.2/appkey/{appkey}/keys/{keyid} | Secure Key Manager에 삭제 예정인 키를 즉시 삭제합니다. |
 | POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Secure Key Manager에 인증 정보를 추가합니다. |
-| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증 정보의 삭제를 요청합니다. |
+| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증 정보 삭제를 요청합니다. |
 | POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Secure Key Manager에 인증 정보를 즉시 삭제합니다. |
 
 [API 요청의 HTTP 헤더]
@@ -575,6 +575,7 @@ DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey
 | deletionDateTime | String | 키 삭제 시각 |
 
 ## 인증 정보 추가/삭제
+Secure Key Manager에서 사용자 데이터를 보호하기 위하여 클라이언트의 IPv4 주소를 확인하는 **IPv4 주소 인증**, 클라이언트의 MAC 주소를 확인하는 **MAC 주소 인증**, 클라이언트가 통신에 사용하는 인증서를 확인하는 **클라이언트 인증서 인증**의 인증 방법을 제공하고 있습니다.
 
 ### 인증 정보 추가
 Secure Key Manager에 인증 정보를 추가할 수 있습니다.
