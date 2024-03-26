@@ -29,9 +29,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.2/appkey/{appkey}/keys/{secrets\|symmetric-keys\|asymmetric-keys}/create | Add a new key to Secure Key Manager. |
 | PUT | /keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete | Request deletion of a key stored in Secure Key Manager. |
 | DELETE | /keymanager/v1.2/appkey/{appkey}/keys/{keyid} | Immediately delete the key scheduled for deletion in Secure Key Manager. |
-| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates} | Add credentials to Secure Key Manager. |
-| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates}/delete | Request deletion of credentials in Secure Key Manager. |
-| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates}/delete | Immediately delete credentials in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates} | Add credentials to Secure Key Manager. |
+| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Request deletion of credentials in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s\|macs\|certificates}/delete | Immediately delete credentials in Secure Key Manager. |
 
 [HTTP Header of API Request]
 
