@@ -29,6 +29,9 @@ https://api-keymanager.nhncloudservice.com
 | POST | /keymanager/v1.2/appkey/{appkey}/keys/{secrets\|symmetric-keys\|asymmetric-keys}/create | Add a new key to Secure Key Manager. |
 | PUT | /keymanager/v1.2/appkey/{appkey}/keys/{keyid}/delete | Request deletion of a key stored in Secure Key Manager. |
 | DELETE | /keymanager/v1.2/appkey/{appkey}/keys/{keyid} | Immediately delete the key scheduled for deletion in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates} | Add credentials to Secure Key Manager. |
+| PUT | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates}/delete | Request deletion of credentials in Secure Key Manager. |
+| POST | /keymanager/v1.2/appkey/{appkey}/auths/{ipv4s|macs|certificates}/delete | Immediately delete credentials in Secure Key Manager. |
 
 [HTTP Header of API Request]
 
@@ -562,8 +565,360 @@ DELETE https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey
         "deletionDateTime": "2023-11-14T10:05:24.312"
     }
 }
+
 ```
 | Name | Type | Description |
 |---|---|---|
 | keyId | String | Created key ID |
 | deletionDateTime | String | Time when key is deleted |
+
+## Add and Delete Credentials
+To protect user data, Secure Key Manager provides the following authentication methods: **IPv4 address authentication** to verify the client's IPv4 address, **MAC address authentication** to verify the client's MAC address, and **client certificate authentication** to verify the certificate the client uses to communicate.
+
+### Add credentials
+You can add credentials to Secure Key Manager.
+
+#### Add IPv4 address
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1",
+    "description" : "Description #1",
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Name of the key store to store IPv4 addresses in |
+| value | String | IPv4 address value|
+| description | String | IPv4 address description |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "description": "Description #1"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Created IPv4 address value |
+| description | String | Created IPv4 address description |
+
+#### Add MAC address
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa",
+    "description" : "Description #1",
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to store MAC addresses |
+| value | String | MAC address value|
+| description | String | MAC address description |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "description": "Description #1"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Created MAC address value|
+| description | String | Created MAC address description |
+
+#### Add Certificate
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1",
+    "password" : "Password",
+    "lifeTime" : 365
+    "description" : "Description #1",
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name where the certificate is stored |
+| name | String | Certificate name|
+| password | String | Certificate password|
+| lifeTime | int | Certificate use period (in days)|
+| description | String | Certificate description |
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "description": "Description #1"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Created certificate name|
+| description | String | Created certificate description |
+
+### Delete Credentials
+You can change the status of credentials stored in Secure Key Manager to **To be deleted**, or **delete it immediately**.
+
+#### Request to delete credentials
+Change the credentials status to **To be deleted**.
+The credentials is automatically deleted after 7 days, and you can't use the credentials in the **To be deleted** status.
+
+#### Request to delete an IPv4 address
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to request the deletion of IPv4 address |
+| value | String | IPv4 address value to request deletion|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | IPv4 address value that requested deletion |
+| deletionDateTime | String | Scheduled deletion time for IPv4 address |
+
+#### Request to delete MAC address
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to request the deletion of MAC address |
+| value | String | MAC address value to request deletion|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | MAC address value that requested deletion|
+| deletionDateTime | String | Scheduled deletion time for MAC address |
+
+#### Request to delete certificate
+```text
+PUT https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to request the deletion of certificate |
+| name | String | Certificate name to request deletion|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Certificate name that requested deletion|
+| deletionDateTime | String | Scheduled deletion time for the certificate |
+
+#### Immediately delete credentials
+The key that is to be **deleted immediately** can only be **deleted immediately** in the status of **To be deleted**.
+You cannot **immediately delete** a key that is activated.
+
+#### Immediately delete IPv4
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/ipv4s/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "127.0.0.1"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to immediately delete IPv4 address |
+| value | String | IPv4 address value to immediately delete|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "127.0.0.1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Deleted IPv4 address value |
+| deletionDateTime | String | Deletion time for IPv4 address |
+
+#### Immediately delete MAC address
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/macs/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "value" : "aa:aa:aa:aa:aa:aa"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to immediately delete MAC address |
+| value | String | MAC address value to immediately delete|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "value": "aa:aa:aa:aa:aa:aa",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Deleted MAC address value|
+| deletionDateTime | String | Deletion time for MAC address |
+
+#### Immediately delete certificate
+```text
+POST https://api-keymanager.nhncloudservice.com/keymanager/v1.2/appkey/{appkey}/auths/certificates/delete
+```
+
+[Request Body]
+
+```
+{
+    "keyStoreName" : "Store #1",
+    "name" : "Certificate Name #1"
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| keyStoreName | String | Key store name to immediately delete certificate |
+| name | String | Certificate name to delete immediately|
+
+[Response Body]
+
+```
+{
+    "header": {
+        ...
+    },
+    "body": {
+        "name": "Certificate Name #1",
+        "deletionDateTime": "2024-03-14T11:00:00"
+    }
+}
+```
+| Name | Type | Description |
+|---|---|---|
+| value | String | Deleted certificate name|
+| deletionDateTime | String | Deletion time for the certificate |

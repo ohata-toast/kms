@@ -1,9 +1,16 @@
 ## Security > Secure Key Manager > Release Notes
 
+### March 26, 2024
+#### Added Add/Delete Credentials API
+* Added the feature to add or delete credentials to use a key using APIs.
+* To add or delete credentials using APIs, you must need **User Access Key ID** and **Secret Access Key**. For more information, see the [console user guide](/Security/Secure%20Key%20Manager/ko/getting-started/#api).
+
 ### February 27, 2024
 #### Displayed Key Store ID
 * Displayed the area where you can see the key store ID in keystore details
 * Added the feature to copy the key store ID via the View more button on the right of the key store ID.
+#### Added notification mail recipient settings
+* Added the feature to set email recipient address in Organization/Project Dashboard > Manage Notifications.
 
 ### November 28, 2023
 #### Added Add/Delete Keys API
