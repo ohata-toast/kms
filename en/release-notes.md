@@ -1,5 +1,9 @@
 ## Security > Secure Key Manager > Release Notes
 
+### April 23, 2024
+#### Bug Fixes
+* Fixed an error where, when deleting data (keys, credentials) uisng APIs and retrieving deleted data, even undeleted data cannot be retrieved until refreshing after the error window appeared
+
 ### March 26, 2024
 #### Added Add/Delete Credentials API
 * Added the feature to add or delete credentials to use a key using APIs.
