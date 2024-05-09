@@ -20,6 +20,9 @@ Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합�
 
 ![console-guide-03](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-03.png)
 
+키 저장소 우측 상단의 더보기 버튼을 클릭하여, 상세 정보 메뉴를 통해 선택한 키 저장소의 정보를 확인할 수 있습니다.
+![console-guide-01](http://static.toastoven.net/prod_kms/2024-02-27/console-guide-01.png)
+
 키 저장소 목록에서 키 저장소를 클릭하면 다음 그림과 같이 키 저장소를 관리할 수 있는 메뉴가 나타납니다.
 
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-04.png)
