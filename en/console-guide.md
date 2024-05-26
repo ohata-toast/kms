@@ -51,7 +51,7 @@ If you select Confidential Data, you can enter name, description, and data. If y
 
 > [Note]
 >
-> The symmetric key is stored in the key store enabled when creating encrypted storage in the NAS service. For more information, see [NAS User Guide](https://docs.beta-nhncloud.com/en/Storage/NAS/en/console-guide/#_2).
+> The symmetric key is stored in the key store enabled when creating encrypted storage in the NAS service. For more information, see [NAS User Guide](https://docs.nhncloud.com/en/Storage/NAS/en/console-guide/#_2).
 
 
 ### Import a Key
