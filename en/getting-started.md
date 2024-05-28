@@ -49,6 +49,10 @@ If you select Confidential Data, you can enter name, description, and data. If y
 
 ![console-guide-09](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-09.png)
 
+> [Note]
+>
+> The symmetric key is stored in the key store enabled when creating encrypted storage in the NAS service. For more information, see [NAS User Guide](https://docs.nhncloud.com/en/Storage/NAS/en/console-guide/#_2).
+
 ### Import a Key
 Secure Key Manager supports a feature to import a symmetric key (AES-256).
 
