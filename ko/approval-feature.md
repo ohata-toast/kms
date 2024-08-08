@@ -43,7 +43,7 @@ Secure Key Manager의 멤버 관리를 통해 승인자(APPROVAL ADMIN), 요청�
 ### 승인 요청 반영
 승인자는 **승인리스트**에서 키 저장소의 변경 승인 요청을 확인하고 **승인** 또는 **거절**을 선택해 반영 여부를 결정합니다.
 
-승인자 본인이 요청한 승인 요청인 경우, **승인** 및 **거절**을 할 수 없습니다.
+본인이 요청한 건에 대해서는 승인 권한이 없습니다.
 
 ![console-guide-36](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-36.png)
 
