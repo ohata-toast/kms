@@ -16,12 +16,12 @@ https://api-keymanager.gov-nhncloudservice.com
 |---|---|---|
 | GET | /keymanager/v1.0/appkey/{appkey}/confirm | API를 호출한 클라이언트 정보를 제공합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/secrets/{keyid} | Secure Key Manager에 저장한 기밀 데이터를 조회합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Manager에 저장한 대칭키로 데이터를 암호화합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Manager에 저장한 대칭키로 데이터를 복호화합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | 클라이언트가 로컬 환경에서 데이터 암/복호화에 사용할 수 있는 ARIA-256 대칭키를 생성합니다. |
-| GET | /keymanager/{v1.0\|v1.1}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭키를 조회합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭키로 데이터를 서명합니다. |
-| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭키로 데이터와 서명을 검증합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt | Secure Key Manager에 저장한 대칭 키로 데이터를 암호화합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt | Secure Key Manager에 저장한 대칭 키로 데이터를 복호화합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key | 클라이언트가 로컬 환경에서 데이터 암/복호화에 사용할 수 있는 ARIA-256 대칭 키를 생성합니다. |
+| GET | /keymanager/{v1.0\|v1.1}/appkey/{appkey}/symmetric-keys/{keyid}/symmetric-key | Secure Key Manager에 저장한 대칭 키를 조회합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign | Secure Key Manager에 저장한 비대칭 키로 데이터를 서명합니다. |
+| POST | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify | Secure Key Manager에 저장한 비대칭 키로 데이터와 서명을 검증합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey | Secure Key Manager에 저장한 개인 키를 조회합니다. |
 | GET | /keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/publicKey | Secure Key Manager에 저장한 공개 키를 조회합니다. |
 
@@ -106,10 +106,10 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 |---|---|---|
 | secret | String | 기밀 데이터 조회 결과 |
 
-## 대칭키
+## 대칭 키
 
-### 대칭키 암호화
-Secure Key Manager에 생성한 대칭키로 데이터를 암호화할 때 사용합니다. 사용자는 32KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 대칭키로 암호화할 수 있습니다.
+### 대칭 키 암호화
+Secure Key Manager에 생성한 대칭 키로 데이터를 암호화할 때 사용합니다. 사용자는 32KB 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 대칭 키로 암호화할 수 있습니다.
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/encrypt
 ```
@@ -123,7 +123,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| plaintext | String | 대칭키로 암호화할 데이터 |
+| plaintext | String | 대칭 키로 암호화할 데이터 |
 
 [Response Body]
 ```
@@ -139,11 +139,11 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| ciphertext | String | 대칭키로 데이터를 암호화한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| ciphertext | String | 대칭 키로 데이터를 암호화한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭 키 버전 |
 
-### 대칭키 복호화
-Secure Key Manager에 생성한 대칭키로 데이터를 복호화할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭키로 복호화할 수 있습니다.
+### 대칭 키 복호화
+Secure Key Manager에 생성한 대칭 키로 데이터를 복호화할 때 사용합니다. 사용자는 암호화된 텍스트를 전달해서 Secure Key Manager에 저장한 대칭 키로 복호화할 수 있습니다.
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/decrypt
 ```
@@ -156,7 +156,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| ciphertext | String | 대칭키로 복호화할 데이터 |
+| ciphertext | String | 대칭 키로 복호화할 데이터 |
 
 [Response Body]
 ```
@@ -172,11 +172,11 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| plaintext | String | 대칭키로 데이터를 복호화한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| plaintext | String | 대칭 키로 데이터를 복호화한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭 키 버전 |
 
-### 대칭키로 암호화한 로컬 대칭키 생성
-클라이언트가 로컬 환경에서 사용할 수 있는 ARIA-256 대칭키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭키를 Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭키는 복호화 API를 사용해서 복호화한 후 사용할 수 있습니다.
+### 대칭 키로 암호화한 로컬 대칭 키 생성
+클라이언트가 로컬 환경에서 사용할 수 있는 ARIA-256 대칭 키를 생성할 때 사용합니다. localKeyPlaintext는 생성한 대칭 키를 Base64 인코딩한 형태이며 Base64 디코딩 후 바로 사용할 수 있습니다. localKeyCiphertext는 생성한 대칭 키를 Secure Key Manager에 저장한 대칭 키로 암호화한 후 Base64 인코딩한 형태이며 스토리지에 저장할 때 사용합니다. 스토리지에 저장한 대칭 키는 복호화 API를 사용해서 복호화한 후 사용할 수 있습니다.
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/symmetric-keys/{keyid}/create-local-key
 ```
@@ -196,13 +196,13 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| localKeyPlaintext | String | Base64 인코딩한 ARIA-256 대칭키 |
-| localKeyCiphertext | String | Secure Key Manager에 저장한 대칭키로 암호화한 후 Base64 인코딩한 ARIA-256 대칭키 |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| localKeyPlaintext | String | Base64 인코딩한 ARIA-256 대칭 키 |
+| localKeyCiphertext | String | Secure Key Manager에 저장한 대칭 키로 암호화한 후 Base64 인코딩한 ARIA-256 대칭 키 |
+| keyVersion | Number | API 요청 처리에 사용한 대칭 키 버전 |
 
-### 대칭키 조회
+### 대칭 키 조회
 
-Secure Key Manager에 저장한 대칭키(ARIA-256)를 조회할 수 있습니다.
+Secure Key Manager에 저장한 대칭 키(ARIA-256)를 조회할 수 있습니다.
 
 #### v1.0
 ```text
@@ -222,7 +222,7 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| symmetricKey | String | 대칭키 데이터(16진수 문자열 형태) |
+| symmetricKey | String | 대칭 키 데이터(16진수 문자열 형태) |
 
 #### v1.1
 ```text
@@ -233,7 +233,7 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.1/appkey/{appke
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyVersion | Number | 조회하려는 대칭키 버전 |
+| keyVersion | Number | 조회하려는 대칭 키 버전 |
 
 [Response Body]
 ```
@@ -249,13 +249,13 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.1/appkey/{appke
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| symmetricKey | String | 대칭키 데이터(16진수 문자열 형태) |
-| keyVersion | Number | API 요청 처리에 사용한 대칭키 버전 |
+| symmetricKey | String | 대칭 키 데이터(16진수 문자열 형태) |
+| keyVersion | Number | API 요청 처리에 사용한 대칭 키 버전 |
 
-## 비대칭키
+## 비대칭 키
 
-### 비대칭키로 서명
-Secure Key Manager에 생성한 비대칭키로 데이터를 서명할 때 사용합니다. 사용자는 245 Byte 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭키로 서명할 수 있습니다.
+### 비대칭 키로 서명
+Secure Key Manager에 생성한 비대칭 키로 데이터를 서명할 때 사용합니다. 사용자는 245 Byte 이하의 텍스트 데이터를 전달해서 Secure Key Manager에 저장한 비대칭 키로 서명할 수 있습니다.
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/sign
 ```
@@ -268,7 +268,7 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| plaintext | String | 비대칭키로 서명할 데이터 |
+| plaintext | String | 비대칭 키로 서명할 데이터 |
 
 [Response Body]
 ```
@@ -284,11 +284,11 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| signature | String | 비대칭키로 데이터를 서명한 서명값 |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| signature | String | 비대칭 키로 데이터를 서명한 서명값 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭 키 버전 |
 
-### 비대칭키로 데이터 검증
-Secure Key Manager에 생성한 비대칭키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명값을 전달해서 Secure Key Manager에 저장한 비대칭키로 데이터가 위변조되지 않았음을 검증할 수 있습니다.
+### 비대칭 키로 데이터 검증
+Secure Key Manager에 생성한 비대칭 키로 데이터를 검증할 때 사용합니다. 사용자는 데이터와 서명값을 전달해서 Secure Key Manager에 저장한 비대칭 키로 데이터가 위변조되지 않았음을 검증할 수 있습니다.
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/verify
 ```
@@ -303,8 +303,8 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| plaintext | String | 비대칭키로 검증할 데이터 |
-| signature | String | 비대칭키로 데이터를 서명한 서명값 |
+| plaintext | String | 비대칭 키로 검증할 데이터 |
+| signature | String | 비대칭 키로 데이터를 서명한 서명값 |
 
 [Response Body]
 
@@ -321,12 +321,12 @@ POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appk
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| result | Boolean | 비대칭키로 데이터와 서명값을 검증한 결과 |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| result | Boolean | 비대칭 키로 데이터와 서명값을 검증한 결과 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭 키 버전 |
 
 ### 개인 키 조회
 
-Secure Key Manager에 저장한 비대칭키 중 개인 키를 조회할 수 있습니다.
+Secure Key Manager에 저장한 비대칭 키 중 개인 키를 조회할 수 있습니다.
 
 ```text
 GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/asymmetric-keys/{keyid}/privateKey?keyVersion={keyVersion}
@@ -336,7 +336,7 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyVersion | Number | 조회하려는 비대칭키 버전 |
+| keyVersion | Number | 조회하려는 비대칭 키 버전 |
 
 [Response Body]
 ```
@@ -356,14 +356,14 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyType | String | 비대칭키 형태 |
+| keyType | String | 비대칭 키 형태 |
 | key | String | 개인 키 데이터(16진수 문자열 형태) |
 | encodedKey | String | 개인 키 데이터(Base64 인코딩 형태) |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭 키 버전 |
 
 ### 공개 키 조회
 
-Secure Key Manager에 저장한 비대칭키 중 공개 키를 조회할 수 있습니다.
+Secure Key Manager에 저장한 비대칭 키 중 공개 키를 조회할 수 있습니다.
 인증에 상관없이 조회할 수 있습니다.
 
 ```text
@@ -374,7 +374,7 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyVersion | Number | 조회하려는 비대칭키 버전 |
+| keyVersion | Number | 조회하려는 비대칭 키 버전 |
 
 [Response Body]
 ```
@@ -394,10 +394,10 @@ GET https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appke
 ```
 | 이름 | 타입 | 설명 |
 |---|---|---|
-| keyType | String | 비대칭키 형태 |
+| keyType | String | 비대칭 키 형태 |
 | key | String | 공개 키 데이터(16진수 문자열 형태) |
 | encodedKey | String | 공개 키 데이터(Base64 인코딩 형태) |
-| keyVersion | Number | API 요청 처리에 사용한 비대칭키 버전 |
+| keyVersion | Number | API 요청 처리에 사용한 비대칭 키 버전 |
 
 ## 키 추가/삭제
 
@@ -450,7 +450,7 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 | keyId | String | 생성된 키 ID |
 | keyStatus | String | 키 상태 메시지 |
 
-#### 대칭키 추가
+#### 대칭 키 추가
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/symmetric-key/create
 ```
@@ -496,7 +496,7 @@ X-TC-AUTHENTICATION: {User Access Key ID}:{Secret Access Key}를 Base64 인코�
 | keyId | String | 생성된 키 ID |
 | keyStatus | String | 키 상태 메시지 |
 
-#### 비대칭키 추가
+#### 비대칭 키 추가
 ```text
 POST https://api-keymanager.gov-nhncloudservice.com/keymanager/v1.0/appkey/{appkey}/keys/asymmetric-key/create
 ```
