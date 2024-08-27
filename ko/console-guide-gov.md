@@ -28,7 +28,7 @@ Secure Key Manager는 키 저장소 단위로 인증 정보와 키를 관리합�
 ![console-guide-04](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-04.png)
 
 ### 키 생성
-Secure Key Manager는 키를 3가지 유형으로 구분합니다. 기밀 데이터는 문자열 데이터를 저장하고 API를 사용한 조회 기능을 제공합니다. 대칭 키는 API를 사용한 데이터 암/복호화 기능을 제공합니다. 비대칭 키는 API를 사용한 데이터 서명/검증 기능을 제공합니다. 사용자는 사용 목적에 맞는 키 유형을 선택한 후 키를 생성할 수 있습니다.
+Secure Key Manager는 키를 3가지 유형으로 구분합니다. 기밀 데이터는 문자열 데이터를 저장하고 API를 사용한 조회 기능을 제공합니다. 대칭키는 API를 사용한 데이터 암/복호화 기능을 제공합니다. 비대칭키는 API를 사용한 데이터 서명/검증 기능을 제공합니다. 사용자는 사용 목적에 맞는 키 유형을 선택한 후 키를 생성할 수 있습니다.
 
 **키 관리** 메뉴를 클릭하면 다음 그림과 같이 키를 관리할 수 있는 화면을 표시합니다.
 
@@ -45,12 +45,12 @@ Secure Key Manager는 키를 3가지 유형으로 구분합니다. 기밀 데이
 ![console-guide-08](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-08-gov.png)
 
 
-기밀 데이터를 선택하면 이름, 설명, 데이터를 입력할 수 있고 대칭 키/비대칭 키를 선택하면 이름, 설명, 회전 주기를 입력할 수 있습니다. 필수 데이터를 입력한 후 **추가**를 클릭하면 키를 생성합니다. 생성한 키는 다음 그림과 같이 키 관리 화면에 표시합니다.
+기밀 데이터를 선택하면 이름, 설명, 데이터를 입력할 수 있고 대칭키/비대칭키를 선택하면 이름, 설명, 회전 주기를 입력할 수 있습니다. 필수 데이터를 입력한 후 **추가**를 클릭하면 키를 생성합니다. 생성한 키는 다음 그림과 같이 키 관리 화면에 표시합니다.
 
 ![console-guide-09](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-09.png)
 
 ### 키 가져오기
-Secure Key Manager는 대칭 키(ARIA-256)를 가져오는 기능을 지원합니다.
+Secure Key Manager는 대칭키(ARIA-256)를 가져오는 기능을 지원합니다.
 
 ![console-guide-10](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-10-gov.png)
 
@@ -126,9 +126,9 @@ Secure Key Manager는 사용자가 생성한 데이터(키, 인증 정보)의 �
 
 ![console-guide-23](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-23.png)
 
-#### 대칭 키/비대칭 키 회전
+#### 대칭키/비대칭키 회전
 
-Secure Key Manager에서는 대칭 키/비대칭 키를 회전할 수 있습니다. 다음 그림과 같이 대칭 키/비대칭 키 상세 정보 창에서 자동 회전 주기를 설정할 수 있습니다. 회전 주기를 '0'으로 설정하면 자동 회전을 사용하지 않습니다.
+Secure Key Manager에서는 대칭키/비대칭키를 회전할 수 있습니다. 다음 그림과 같이 대칭키/비대칭키 상세 정보 창에서 자동 회전 주기를 설정할 수 있습니다. 회전 주기를 '0'으로 설정하면 자동 회전을 사용하지 않습니다.
 
 ![console-guide-24](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-24-gov.png)
 
@@ -136,7 +136,7 @@ Secure Key Manager에서는 대칭 키/비대칭 키를 회전할 수 있습니�
 
 ![console-guide-25](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-25-gov.png)
 
-대칭 키/비대칭 키 상세 정보 창에서 **즉시 회전**을 클릭하면 키를 바로 회전할 수 있습니다.
+대칭키/비대칭키 상세 정보 창에서 **즉시 회전**을 클릭하면 키를 바로 회전할 수 있습니다.
 
 ![console-guide-26](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-26-gov.png)
 
@@ -144,7 +144,7 @@ Secure Key Manager에서는 대칭 키/비대칭 키를 회전할 수 있습니�
 
 ![console-guide-27](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-27-gov.png)
 
-예외로 키 가져오기를 통해 생성한 키는 Secure Key Manager를 통해 생성한 대칭 키와는 다르게 회전 기능을 제공하지 않습니다. 조회 시 다음과 같이 키 회전 영역이 존재하지 않습니다.
+예외로 키 가져오기를 통해 생성한 키는 Secure Key Manager를 통해 생성한 대칭키와는 다르게 회전 기능을 제공하지 않습니다. 조회 시 다음과 같이 키 회전 영역이 존재하지 않습니다.
 
 ![console-guide-28](http://static.toastoven.net/prod_kms/2023-03-28-ko/console-guide-28-gov.png)
 
