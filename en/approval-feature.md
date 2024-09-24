@@ -43,6 +43,8 @@ Make a request for approval with the **Request Approval** button in the key stor
 ### Apply Approval Requests
 On the  **Approval List** tab, the approver confirms the requst for approval of changes and determines whether to apply the request by selecting **Approve** or **Deny**.
 
+ For requests made by users themseleves, there are no approval permission.
+ 
 ![console-guide-36](http://static.toastoven.net/prod_kms/2023-03-28-en/console-guide-36.png)
 
 The request is applied immediately upon clicking Approve. The change can be found in the **Key Depository** or the **Key Store Management** tab.
